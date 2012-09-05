@@ -1,6 +1,42 @@
 package Game;
 
-public class Player extends GameObject {
+import com.example.androidproject.Screen;
 
+import android.graphics.Canvas;
+import Shapes.Rectangle;
+
+public class Player extends GameObject {
+	Rectangle rect;
+	public Player()
+	{
+		super();
+		rect = new Rectangle(position.get(),size.get());
+	}
+	
+	public void Draw(Canvas c)
+	{
+		super.Draw(c);
+		rect.Draw(c);
+		rect.position = position.get();
+		Collision();
+	}
+	public void Collision()
+	{
+		//inside screen, then above set height.
+		if(rect.Left() > 0 && rect.Right() < Screen.size.x && rect.Top()  > 0 && rect.Bot()   < Screen.size.y)
+		{
+			System.out.println("on screen.");
+		}
+		//above collidables.
+		if(rect.Bot() >= Screen.size.y - 31)
+		{
+			position.y = (Screen.size.y - 31) - size.y;
+		}
+		else
+		{
+			position.y += 10;
+		}
+		
+	}
 	
 }
