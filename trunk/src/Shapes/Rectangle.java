@@ -1,7 +1,9 @@
 package Shapes;
+import com.example.androidproject.Finger;
 import com.example.androidproject.Vector;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 
 public class Rectangle extends Shape {
 
@@ -21,5 +23,15 @@ public class Rectangle extends Shape {
 	public void Update()
 	{
 		
+	}
+	public boolean Click()
+	{
+    	if(Contains(Finger.position.x, Finger.position.y) && Finger.down)
+    	{
+    		paint.setColor(Color.BLUE);
+    		return true;
+    	}
+		paint.setColor(Color.RED);
+		return false;
 	}
 }

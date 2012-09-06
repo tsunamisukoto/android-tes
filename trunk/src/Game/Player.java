@@ -22,21 +22,24 @@ public class Player extends GameObject {
 	}
 	public void Collision()
 	{
-		//inside screen, then above set height.
-		if(rect.Left() > 0 && rect.Right() < Screen.size.x && rect.Top()  > 0 && rect.Bot()   < Screen.size.y)
+		if(onScreen() ==true)
 		{
-			System.out.println("on screen.");
-		}
-		//above collidables.
-		if(rect.Bot() >= Screen.size.y - 31)
-		{
-			position.y = (Screen.size.y - 31) - size.y;
-		}
-		else
-		{
-			position.y += 10;
+			if(rect.Bot() >= Screen.size.y - 31)
+			{
+				position.y = (Screen.size.y - 31) - size.y;
+			}
+			else
+			{
+				position.y += 10;
+			}
 		}
 		
+	}
+	public boolean onScreen()
+	{
+		if(rect.Left() >= 0 && rect.Right() <= Screen.size.x && rect.Top()  >= 0 && rect.Bot() <= Screen.size.y)
+			return true;
+		return false;
 	}
 	
 }
