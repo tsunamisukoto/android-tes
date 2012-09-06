@@ -5,6 +5,7 @@ import Shapes.Text;
 import World.Level;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -26,13 +27,23 @@ public class Screen extends View implements OnTouchListener  {
         text.text = "Finger";
     }
     
-
+    Rectangle button = new Rectangle(new Vector(0,0),new Vector(150,150));
     @Override
     public void onDraw(Canvas c) {
-    	new Rectangle(new Vector(50,50), new Vector(50,50)).Draw(c);
+    	button.Draw(c);
+    	if(button.Click())
+    	{
+    		player.position.x+=5;
+    	}
+    	
+    	//new Rectangle(new Vector(50,50), new Vector(50,50)).Draw(c);
     	//new Text().DrawAt(canvas, Finger.position.get());
     	//text.position = Finger.position.get();
-    	text.Draw(c, "Finger", Finger.position.get());
+    	for(int x=0;x<Finger.pointers.size();x++)
+    	{
+    		new Text().Draw(c, "Finger["+x+"]", Finger.pointers.get(x));
+    	}
+    	
     	new Level().Draw(c);
     	player.Draw(c);
     	this.invalidate();
