@@ -41,7 +41,7 @@ public class Screen extends View implements OnTouchListener  {
     	
     	level.Draw(c);
     	player.Draw(c);
-    	level.Collision(player.rect);
+    	level.Collision(player);
     	this.invalidate();
     }
 
