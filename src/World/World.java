@@ -5,6 +5,7 @@ import java.util.List;
 
 import Shapes.Rectangle;
 import android.graphics.Canvas;
+import android.graphics.Color;
 
 import com.example.androidproject.Screen;
 import com.example.androidproject.Vector;
@@ -20,13 +21,20 @@ public abstract class World {
 		}
 	}
 	
-	public void Collision(Vector v)//test collision against the map with the Vector
+	public void Collision(Rectangle rect)//test collision against the map with the Vector
 	{
-		//first find closest tile on the X axis.
-		//find closest Y value
 		for(int x=0 ; x < tiles.size(); x++)
 		{
-			//if(v.x>)
+			if(rect.Contains(tiles.get(x).Top(),tiles.get(x).Left()) || 
+					rect.Contains(tiles.get(x).Top(),tiles.get(x).Right()) ||
+					rect.Contains(tiles.get(x).Bot(),tiles.get(x).Left()) ||
+					rect.Contains(tiles.get(x).Top(),tiles.get(x).Right()))
+			{
+				System.out.println("found tile");
+				rect.paint.setColor(Color.GREEN);
+			}
+			else
+				rect.paint.setColor(Color.RED);
 		}
 	}
 	public void Draw(Canvas c)
