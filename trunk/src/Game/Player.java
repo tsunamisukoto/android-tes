@@ -18,7 +18,7 @@ public class Player extends GameObject {
 		super.Draw(c);
 		rect.Draw(c);
 		rect.position = position.get();
-		Collision();
+		//Collision();
 	}
 	public void Collision()
 	{
