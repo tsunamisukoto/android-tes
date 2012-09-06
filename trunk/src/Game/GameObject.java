@@ -14,7 +14,7 @@ public abstract class GameObject {
 	public GameObject()
 	{
 		position = new Vector(0,0);
-		size= new Vector(50,50);
+		size = new Vector(50,50);
 	}
 	public void Draw(Canvas c)
 	{

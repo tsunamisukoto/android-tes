@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 import Shapes.Rectangle;
 
 public class Player extends GameObject {
-	Rectangle rect;
+	public Rectangle rect;
 	public Player()
 	{
 		super();

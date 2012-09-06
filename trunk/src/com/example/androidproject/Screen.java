@@ -26,7 +26,7 @@ public class Screen extends View implements OnTouchListener  {
         setOnTouchListener(this);
         text.text = "Finger";
     }
-    
+    Level level = new Level();
     Rectangle button = new Rectangle(new Vector(0,0),new Vector(150,150));
     @Override
     public void onDraw(Canvas c) {
@@ -39,8 +39,9 @@ public class Screen extends View implements OnTouchListener  {
     		new Text().Draw(c, "Finger["+x+"]", Finger.pointers.get(x));
     	}
     	
-    	new Level().Draw(c);
+    	level.Draw(c);
     	player.Draw(c);
+    	level.Collision(player.rect);
     	this.invalidate();
     }
 
