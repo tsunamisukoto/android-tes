@@ -32,13 +32,8 @@ public class Screen extends View implements OnTouchListener  {
     public void onDraw(Canvas c) {
     	button.Draw(c);
     	if(button.Click())
-    	{
     		player.position.x+=5;
-    	}
     	
-    	//new Rectangle(new Vector(50,50), new Vector(50,50)).Draw(c);
-    	//new Text().DrawAt(canvas, Finger.position.get());
-    	//text.position = Finger.position.get();
     	for(int x=0;x<Finger.pointers.size();x++)
     	{
     		new Text().Draw(c, "Finger["+x+"]", Finger.pointers.get(x));
