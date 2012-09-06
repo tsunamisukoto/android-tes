@@ -3,6 +3,7 @@ package World;
 import java.util.ArrayList;
 import java.util.List;
 
+import Game.Player;
 import Shapes.Rectangle;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -21,21 +22,27 @@ public abstract class World {
 		}
 	}
 	
-	public void Collision(Rectangle rect)//test collision against the map with the Vector
+	public void Collision(Player player)//test collision against the map with the Vector
 	{
+		boolean foundTile = false;
 		for(int x=0 ; x < tiles.size(); x++)
 		{
-			if(rect.Contains(tiles.get(x).Top(),tiles.get(x).Left()) || 
-					rect.Contains(tiles.get(x).Top(),tiles.get(x).Right()) ||
-					rect.Contains(tiles.get(x).Bot(),tiles.get(x).Left()) ||
-					rect.Contains(tiles.get(x).Top(),tiles.get(x).Right()))
+			if(player.rect.Contains(tiles.get(x).Top(),tiles.get(x).Left()) || 
+					player.rect.Contains(tiles.get(x).Top(),tiles.get(x).Right()) ||
+					player.rect.Contains(tiles.get(x).Bot(),tiles.get(x).Left()) ||
+					player.rect.Contains(tiles.get(x).Bot(),tiles.get(x).Right()))
 			{
 				System.out.println("found tile");
-				rect.paint.setColor(Color.GREEN);
+				player.paint.setColor(Color.GREEN);
+				foundTile = true;
 			}
 			else
-				rect.paint.setColor(Color.RED);
+			{
+				player.paint.setColor(Color.RED);
+			}
 		}
+		if(!foundTile)
+			player.position.y += 10;
 	}
 	public void Draw(Canvas c)
 	{
