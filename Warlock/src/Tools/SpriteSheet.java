@@ -11,11 +11,13 @@ import android.graphics.BitmapFactory;
 
 public class SpriteSheet {
 	Bitmap bmp;
+	public int size = 64;
 	public List<Bitmap> tiles = new ArrayList<Bitmap>();
-	public SpriteSheet(Bitmap bmp)
+	public SpriteSheet(Bitmap bmp,int tileSize)
 	{
 		this.bmp = bmp;
-		Load(32);
+		size = tileSize;
+		Load(size);
 	}
 	public void Load(int size)
 	{

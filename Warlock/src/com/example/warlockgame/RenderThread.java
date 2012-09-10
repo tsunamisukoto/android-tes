@@ -35,7 +35,7 @@ public class RenderThread extends SurfaceView implements
 		super(context);
 		getHolder().addCallback(this);
 		// load sprite sheet
-		sprites = new SpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.tiles));
+		sprites = new SpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.tiles),64);
 		// create droid and load bitmap
 		droid = new Droid(sprites.tiles.get(5), 150, 150);
 		// create the game loop thread
@@ -114,7 +114,7 @@ public class RenderThread extends SurfaceView implements
 			int y =0;
 			for(int x=0;x < sprites.tiles.size(); x++)
 			{
-				if(tmpx > 20)
+				if(tmpx > 15)
 				{
 					tmpx=0;
 					y++;
@@ -123,7 +123,7 @@ public class RenderThread extends SurfaceView implements
 				{
 					tmpx++;
 				}
-				canvas.drawBitmap(sprites.tiles.get(x), null, new Rect(tmpx * 32 , y * 32, (tmpx * 32) + 32, (y * 32) + 32), new Paint());
+				canvas.drawBitmap(sprites.tiles.get(x), null, new Rect(tmpx * sprites.size , y * sprites.size, (tmpx * sprites.size) + sprites.size, (y * sprites.size) + sprites.size), new Paint());
 			}
 			//droid.draw(canvas);
 		}
