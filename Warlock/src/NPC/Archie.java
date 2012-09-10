@@ -9,9 +9,10 @@ import android.graphics.RectF;
 
 public class Archie extends GameObject{
 
-
 	Bitmap bitmap1,bitmap2,curr;
 	int timer = 0,timer2 =0 ;
+	boolean shoot = false;
+	Vector ballpos = new Vector(45,45),ballvel = new Vector(0,5);
 	public Archie(Bitmap bmp, Bitmap bmp2)
 	{
 		bitmap1 = bmp;
@@ -24,6 +25,9 @@ public class Archie extends GameObject{
 	public void Draw(Canvas canvas)
 	{
 		canvas.drawBitmap(curr, null, rect, paint);
+		canvas.drawCircle(ballpos.x, ballpos.y, 10, paint);
+		ballpos.x += ballvel.x;
+		ballpos.y += ballvel.y;
 	}
 	public void Update()
 	{
@@ -40,6 +44,7 @@ public class Archie extends GameObject{
 		}
 		else 
 		{
+			shoot =true;
 			timer = 0;
 			timer2 = 0;
 		}

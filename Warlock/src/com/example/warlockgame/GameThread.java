@@ -32,7 +32,7 @@ public class GameThread extends Thread {
 		this.surfaceHolder = surfaceHolder;
 		this.renderThread = gamePanel;
 	}
-
+	
 	@Override
 	public void run() {
 		Canvas canvas;
