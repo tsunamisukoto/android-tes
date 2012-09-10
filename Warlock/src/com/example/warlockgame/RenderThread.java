@@ -4,11 +4,14 @@ package com.example.warlockgame;
  */
 
 import NPC.Droid;
+import Tools.SpriteSheet;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -20,8 +23,9 @@ import android.view.SurfaceView;
  * the image to the screen.
  */
 public class RenderThread extends SurfaceView implements
-		SurfaceHolder.Callback {
-
+		SurfaceHolder.Callback 
+{
+	SpriteSheet sprites;
 	private static final String TAG = RenderThread.class.getSimpleName();
 	
 	private GameThread thread;
@@ -29,10 +33,11 @@ public class RenderThread extends SurfaceView implements
 
 	public RenderThread(Context context) {
 		super(context);
-		// adding the callback (this) to the surface holder to intercept events
 		getHolder().addCallback(this);
+		// load sprite sheet
+		sprites = new SpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.tiles));
 		// create droid and load bitmap
-		droid = new Droid(BitmapFactory.decodeResource(getResources(), R.drawable.droid_1), 50, 50);
+		droid = new Droid(sprites.tiles.get(5), 150, 150);
 		// create the game loop thread
 		thread = new GameThread(getHolder(), this);
 		// make the GamePanel focusable so it can handle events
@@ -105,7 +110,22 @@ public class RenderThread extends SurfaceView implements
 		try
 		{
 			canvas.drawColor(Color.BLACK);
-			droid.draw(canvas);
+			int tmpx=0;
+			int y =0;
+			for(int x=0;x < sprites.tiles.size(); x++)
+			{
+				if(tmpx > 20)
+				{
+					tmpx=0;
+					y++;
+				}
+				else
+				{
+					tmpx++;
+				}
+				canvas.drawBitmap(sprites.tiles.get(x), null, new Rect(tmpx * 32 , y * 32, (tmpx * 32) + 32, (y * 32) + 32), new Paint());
+			}
+			//droid.draw(canvas);
 		}
 		catch(Exception ex)
 		{

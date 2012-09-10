@@ -2,6 +2,7 @@ package NPC;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.view.MotionEvent;
 
 /**
@@ -11,7 +12,7 @@ import android.view.MotionEvent;
 public class Droid {
 
 	private Bitmap bitmap;	// the actual bitmap
-	private int x;			// the X coordinate
+	private int x,h,w;			// the X coordinate
 	private int y;			// the Y coordinate
 	private boolean touched;	// if droid is touched/picked up
 	
@@ -19,6 +20,8 @@ public class Droid {
 		this.bitmap = bitmap;
 		this.x = x;
 		this.y = y;
+		this.w = x;
+		this.h = y;
 	}
 	
 	public Bitmap getBitmap() {
@@ -49,7 +52,8 @@ public class Droid {
 	}
 	
 	public void draw(Canvas canvas) {
-		canvas.drawBitmap(bitmap, x - (bitmap.getWidth() / 2), y - (bitmap.getHeight() / 2), null);
+		canvas.drawBitmap(bitmap, null, new Rect(x,y,x+w,y+h), null);
+		//canvas.drawBitmap(bitmap, x - (bitmap.getWidth() / 2), y - (bitmap.getHeight() / 2), null);
 	}
 
 	/**
