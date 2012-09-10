@@ -19,7 +19,7 @@ public class GameThread extends Thread {
 	private SurfaceHolder surfaceHolder;
 	// The actual view that handles inputs
 	// and draws to the surface
-	private RenderThread gamePanel;
+	private RenderThread renderThread;
 
 	// flag to hold game state 
 	private boolean running;
@@ -30,7 +30,7 @@ public class GameThread extends Thread {
 	public GameThread(SurfaceHolder surfaceHolder, RenderThread gamePanel) {
 		super();
 		this.surfaceHolder = surfaceHolder;
-		this.gamePanel = gamePanel;
+		this.renderThread = gamePanel;
 	}
 
 	@Override
@@ -44,10 +44,24 @@ public class GameThread extends Thread {
 			try {
 				canvas = this.surfaceHolder.lockCanvas();
 				synchronized (surfaceHolder) {
+					this.renderThread.archie.Update();
+					this.renderThread.left.Update();
+					this.renderThread.right.Update();
+					this.renderThread.down.Update();
+					this.renderThread.up.Update();
+					
+					if(this.renderThread.right.down)
+						this.renderThread.archie.position.x += 3;
+					if(this.renderThread.left.down)
+						this.renderThread.archie.position.x -= 3;
+					if(this.renderThread.down.down)
+						this.renderThread.archie.position.x += 3;
+					if(this.renderThread.up.down)
+						this.renderThread.archie.position.x -= 3;
 					// update game state 
 					// render state to the screen
 					// draws the canvas on the panel
-					this.gamePanel.onDraw(canvas);				
+					this.renderThread.onDraw(canvas);				
 				}
 			} finally {
 				// in case of an exception the surface is not left in 

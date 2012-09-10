@@ -3,18 +3,17 @@ package com.example.warlockgame;
  * 
  */
 
+import HUD.Button;
 import Input.Finger;
 import NPC.Archie;
-import NPC.Droid;
 import Tools.SpriteSheet;
 import World.Level;
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
+import android.graphics.RectF;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -28,27 +27,33 @@ import android.view.SurfaceView;
 public class RenderThread extends SurfaceView implements
 		SurfaceHolder.Callback 
 {
+	Button right,left,up,down;
 	Archie archie;
 	Paint paint;
-	private static final String TAG = RenderThread.class.getSimpleName();
 	Level l;
+	
+	private static final String TAG = RenderThread.class.getSimpleName();
+	
 	private GameThread thread;
-SpriteSheet sprites;
+
 	public RenderThread(Context context) {
 		super(context);
-		
-		sprites = new SpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.tiles),64);
 		paint = new Paint();
 		paint.setAntiAlias(false);
 		paint.setColor(Color.RED);
-		l = new Level(sprites);
+		l = new Level(new SpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.tiles), 64));
 		getHolder().addCallback(this);
 		// load sprite sheet
+		left = new Button(new RectF(0,500,100,500+100));
+		right = new Button(new RectF(100,500,200,500+100));
+		down = new Button(new RectF(0,300,100,300+100));
+		up = new Button(new RectF(0,600,100,600+100));
 		archie = new Archie(BitmapFactory.decodeResource(getResources(), R.drawable.characteridle),BitmapFactory.decodeResource(getResources(), R.drawable.characteridle2));
 		// create the game loop thread
 		thread = new GameThread(getHolder(), this);
 		// make the GamePanel focusable so it can handle events
 		setFocusable(true);
+		//getHolder().
 	}
 
 	public void surfaceDestroyed(SurfaceHolder holder) {
@@ -77,6 +82,10 @@ SpriteSheet sprites;
 		{
 			l.Draw(canvas,paint);
 			archie.Draw(canvas);
+			right.Draw(canvas);
+			left.Draw(canvas);
+			up.Draw(canvas);
+			down.Draw(canvas);
 		}
 		catch(Exception ex)
 		{
