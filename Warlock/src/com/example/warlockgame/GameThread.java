@@ -1,5 +1,6 @@
 package com.example.warlockgame;
 
+import Input.Finger;
 import android.graphics.Canvas;
 import android.util.Log;
 import android.view.SurfaceHolder;
@@ -20,7 +21,7 @@ public class GameThread extends Thread {
 	// The actual view that handles inputs
 	// and draws to the surface
 	private RenderThread renderThread;
-
+	
 	// flag to hold game state 
 	private boolean running;
 	public void setRunning(boolean running) {
@@ -49,7 +50,11 @@ public class GameThread extends Thread {
 					this.renderThread.right.Update();
 					this.renderThread.down.Update();
 					this.renderThread.up.Update();
-					
+					if(Finger.down==true)
+					{
+						this.renderThread.archie.velocity.x= (Finger.position.x-this.renderThread.archie.position.x)/20;
+						this.renderThread.archie.velocity.y= (Finger.position.y-this.renderThread.archie.position.y)/20;
+					}
 					if(this.renderThread.right.down)
 						this.renderThread.archie.position.x += 3;
 					if(this.renderThread.left.down)
@@ -64,6 +69,18 @@ public class GameThread extends Thread {
 					this.renderThread.onDraw(canvas);				
 				}
 			} finally {
+				// in case of an exception the surface is not left in 
+				// an inconsistent state
+				if (canvas != null) {
+					surfaceHolder.unlockCanvasAndPost(canvas);
+				}
+			}	// end finally
+		}
+	}
+	
+}
+
+
 				// in case of an exception the surface is not left in 
 				// an inconsistent state
 				if (canvas != null) {

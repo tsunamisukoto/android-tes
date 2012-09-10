@@ -35,14 +35,14 @@ public abstract class GameObject extends Drawable{
 	{
 		//CollideScreen();
 		feet = new RectF(Screen.size.x/2,position.y, Screen.size.x/ 2 + size.x, Screen.size.y/2+1);
-		position = position.add(velocity);
+	
 		Physics();
 		
 		super.Draw(obj,rect);
 	}
 	public void Update()
 	{
-		
+		position = position.add(velocity);
 	}
 
 	public void Physics()
