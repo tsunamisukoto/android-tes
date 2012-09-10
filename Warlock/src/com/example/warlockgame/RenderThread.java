@@ -49,6 +49,11 @@ public class RenderThread extends SurfaceView implements
 		up = new Button(new RectF(0,400,100,400+100));
 		down = new Button(new RectF(0,600,100,600+100));
 		archie = new Archie(BitmapFactory.decodeResource(getResources(), R.drawable.characteridle),BitmapFactory.decodeResource(getResources(), R.drawable.characteridle2));
+		int[] left = new int[]{R.drawable.left_walk1,R.drawable.left_walk2,R.drawable.left_walk3,R.drawable.left_walk4,R.drawable.left_walk5,R.drawable.left_walk5,R.drawable.left_walk6,R.drawable.left_walk7};
+		for(int x:left)
+		{
+			archie.left.add(BitmapFactory.decodeResource(getResources(), x));
+		}
 		// create the game loop thread
 		thread = new GameThread(getHolder(), this);
 		// make the GamePanel focusable so it can handle events
