@@ -13,14 +13,28 @@ import android.util.Log;
 public class Level {
 	int[][] map;
 	SpriteSheet sprites;
-	public Level(SpriteSheet sprites)
+	 public Level(SpriteSheet sprites)
+	 {
+		 this.sprites= sprites;
+		map = new int[][] {
+{3,4,3,4,3,4,65,66,66,66,66,66,66,66,66,66,66,66,66,67},
+{4,3,4,3,4,3,70,71,71,71,71,71,71,71,71,71,71,71,71,72},
+{0,0,0,0,0,0,70,71,71,71,71,71,71,71,71,71,71,71,71,72},
+{0,0,0,0,1,1,70,71,71,71,71,71,71,71,71,71,71,71,71,72},
+{0,0,0,0,1,1,70,71,71,71,71,71,71,71,71,71,71,71,71,72},
+{0,0,0,0,1,1,70,71,71,71,71,71,71,71,71,71,71,71,71,72},
+{0,0,0,0,1,1,70,71,71,71,71,71,71,71,71,71,71,71,71,72},
+{0,0,0,0,1,1,70,71,71,71,71,71,71,71,71,71,71,71,71,72},
+{0,0,0,0,1,1,70,71,71,71,71,71,71,71,71,71,71,71,71,72},
+{4,3,4,3,4,3,70,71,71,71,71,71,71,71,71,71,71,71,71,72},
+{4,4,3,4,3,4,70,71,71,71,71,71,71,71,71,71,71,71,71,72},
+{4,3,4,3,4,3,75,76,76,76,76,76,76,76,76,76,76,76,76,77}
+};
+	 }
+public void Draw(Canvas canvas,Paint paint)
+{
+	try
 	{
-		this.sprites= sprites;
-		map = new int[][] {{1,0,0,1,1,1,2,4,4},{0,1,0,2,3,2,1,2,1},{1,2,1,1,1,1,1,2,1}};
-	}
-	public void Draw(Canvas canvas,Paint paint)
-	{
-	
 		canvas.drawColor(Color.BLACK);
 		canvas.drawRect(new Rect(0,0,100,100), paint);
 		canvas.drawColor(Color.BLACK);
@@ -35,7 +49,7 @@ public class Level {
 			
 			for (int j = 0; j < row.length; j++)
 			{
-	
+
 				startX +=  tileWidth;
 				canvas.drawBitmap(sprites.tiles.get(map[i][j]), null, new Rect(j * sprites.size , i * sprites.size, (j * sprites.size) + sprites.size, (i * sprites.size) + sprites.size), new Paint());
 				//Log.d("IPT"," " + map.length  +"" +  j);
@@ -52,5 +66,12 @@ public class Level {
 		
 			startY +=  tileHeight;
 		}
+	
 	}
+	catch(Exception ex)
+	{
+		//System.out.println("asd");
+	}
+}
+	 
 }
