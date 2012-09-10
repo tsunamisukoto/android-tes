@@ -4,6 +4,7 @@ package com.example.warlockgame;
  */
 
 import Input.Finger;
+import NPC.Archie;
 import NPC.Droid;
 import Tools.SpriteSheet;
 import android.app.Activity;
@@ -31,7 +32,7 @@ public class RenderThread extends SurfaceView implements
 	private static final String TAG = RenderThread.class.getSimpleName();
 	
 	private GameThread thread;
-
+	public Archie archie;
 	public RenderThread(Context context) {
 		super(context);
 		paint = new Paint();
@@ -39,6 +40,7 @@ public class RenderThread extends SurfaceView implements
 		getHolder().addCallback(this);
 		// load sprite sheet
 		sprites = new SpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.tiles),64);
+		archie = new Archie(BitmapFactory.decodeResource(getResources(), R.drawable.character));
 		// create the game loop thread
 		thread = new GameThread(getHolder(), this);
 		// make the GamePanel focusable so it can handle events
@@ -67,16 +69,13 @@ public class RenderThread extends SurfaceView implements
 	}
 
 	protected void onDraw(Canvas canvas) {
-		// fills the canvas with black
 		try
 		{
 			canvas.drawColor(Color.BLACK);
-			canvas.drawRect(new Rect(0,0,100,100), paint);
-
+			archie.Draw(canvas);
 		}
 		catch(Exception ex)
 		{
-			//System.out.println("asd");
 		}
 	}
 	public void surfaceChanged(SurfaceHolder holder, int format, int width,
