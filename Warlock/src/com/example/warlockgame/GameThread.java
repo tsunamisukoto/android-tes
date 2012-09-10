@@ -55,9 +55,9 @@ public class GameThread extends Thread {
 					if(this.renderThread.left.down)
 						this.renderThread.archie.position.x -= 3;
 					if(this.renderThread.down.down)
-						this.renderThread.archie.position.x += 3;
+						this.renderThread.archie.position.y += 3;
 					if(this.renderThread.up.down)
-						this.renderThread.archie.position.x -= 3;
+						this.renderThread.archie.position.y -= 3;
 					// update game state 
 					// render state to the screen
 					// draws the canvas on the panel

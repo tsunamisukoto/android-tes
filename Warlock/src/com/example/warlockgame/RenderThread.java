@@ -46,8 +46,8 @@ public class RenderThread extends SurfaceView implements
 		// load sprite sheet
 		left = new Button(new RectF(0,500,100,500+100));
 		right = new Button(new RectF(100,500,200,500+100));
-		down = new Button(new RectF(0,300,100,300+100));
-		up = new Button(new RectF(0,600,100,600+100));
+		up = new Button(new RectF(0,400,100,400+100));
+		down = new Button(new RectF(0,600,100,600+100));
 		archie = new Archie(BitmapFactory.decodeResource(getResources(), R.drawable.characteridle),BitmapFactory.decodeResource(getResources(), R.drawable.characteridle2));
 		// create the game loop thread
 		thread = new GameThread(getHolder(), this);
