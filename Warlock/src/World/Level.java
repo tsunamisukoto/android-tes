@@ -38,7 +38,7 @@ public class Level {
 	
 				startX +=  tileWidth;
 				canvas.drawBitmap(sprites.tiles.get(map[i][j]), null, new Rect(j * sprites.size , i * sprites.size, (j * sprites.size) + sprites.size, (i * sprites.size) + sprites.size), new Paint());
-				Log.d("IPT"," " + map.length  +"" +  j);
+				//Log.d("IPT"," " + map.length  +"" +  j);
 				
 				/*if (map[i][j] ==25)
 				{

@@ -36,8 +36,10 @@ public class RenderThread extends SurfaceView implements
 SpriteSheet sprites;
 	public RenderThread(Context context) {
 		super(context);
+		
 		sprites = new SpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.tiles),64);
 		paint = new Paint();
+		paint.setAntiAlias(false);
 		paint.setColor(Color.RED);
 		l = new Level(sprites);
 		getHolder().addCallback(this);
