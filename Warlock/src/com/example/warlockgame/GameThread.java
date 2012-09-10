@@ -80,15 +80,3 @@ public class GameThread extends Thread {
 	
 }
 
-
-				// in case of an exception the surface is not left in 
-				// an inconsistent state
-				if (canvas != null) {
-					surfaceHolder.unlockCanvasAndPost(canvas);
-				}
-			}	// end finally
-		}
-	}
-	
-}
-

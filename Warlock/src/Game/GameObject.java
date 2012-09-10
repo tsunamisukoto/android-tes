@@ -35,20 +35,20 @@ public abstract class GameObject extends Drawable{
 	{
 		//CollideScreen();
 		feet = new RectF(Screen.size.x/2,position.y, Screen.size.x/ 2 + size.x, Screen.size.y/2+1);
-	
-		Physics();
+		
 		
 		super.Draw(obj,rect);
 	}
 	public void Update()
 	{
+		Physics();
 		position = position.add(velocity);
 	}
 
 	public void Physics()
 	{
-		if(!grounded)
-			velocity.y += 0.5;
+		//if(!grounded)
+			//velocity.y += 0.5;
 		if(grounded && !AI )//&& !Screen.buttonDown)
 		{
 			velocity.x *= 0.95;

@@ -49,7 +49,6 @@ public void Draw(Canvas canvas,Paint paint)
 			
 			for (int j = 0; j < row.length; j++)
 			{
-
 				startX +=  tileWidth;
 				canvas.drawBitmap(sprites.tiles.get(map[i][j]), null, new Rect(j * sprites.size , i * sprites.size, (j * sprites.size) + sprites.size, (i * sprites.size) + sprites.size), new Paint());
 				//Log.d("IPT"," " + map.length  +"" +  j);
