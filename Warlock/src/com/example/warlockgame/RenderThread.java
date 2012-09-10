@@ -3,6 +3,7 @@ package com.example.warlockgame;
  * 
  */
 
+import Input.Finger;
 import NPC.Droid;
 import Tools.SpriteSheet;
 import android.app.Activity;
@@ -26,39 +27,22 @@ public class RenderThread extends SurfaceView implements
 		SurfaceHolder.Callback 
 {
 	SpriteSheet sprites;
+	Paint paint;
 	private static final String TAG = RenderThread.class.getSimpleName();
 	
 	private GameThread thread;
-	private Droid droid;
 
 	public RenderThread(Context context) {
 		super(context);
+		paint = new Paint();
+		paint.setColor(Color.RED);
 		getHolder().addCallback(this);
 		// load sprite sheet
 		sprites = new SpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.tiles),64);
-		// create droid and load bitmap
-		droid = new Droid(sprites.tiles.get(5), 150, 150);
 		// create the game loop thread
 		thread = new GameThread(getHolder(), this);
 		// make the GamePanel focusable so it can handle events
 		setFocusable(true);
-	}
-
-	public void surfaceChanged(SurfaceHolder holder, int format, int width,
-			int height) {
-		if(!thread.isAlive())
-		{
-			thread.setRunning(true);
-			thread.start();
-		}
-	}
-
-	public void surfaceCreated(SurfaceHolder holder) {
-		if(!thread.isAlive())
-		{
-			thread.setRunning(true);
-			thread.start();
-		}
 	}
 
 	public void surfaceDestroyed(SurfaceHolder holder) {
@@ -78,30 +62,7 @@ public class RenderThread extends SurfaceView implements
 	}
 	
 	public boolean onTouchEvent(MotionEvent event) {
-		if (event.getAction() == MotionEvent.ACTION_DOWN) {
-			// delegating event handling to the droid
-			droid.handleActionDown((int)event.getX(), (int)event.getY());
-			
-			// check if in the lower part of the screen we exit
-			if (event.getY() > getHeight() - 50) {
-				thread.setRunning(false);
-				((Activity)getContext()).finish();
-			} else {
-				Log.d(TAG, "Coords: x=" + event.getX() + ",y=" + event.getY());
-			}
-		} if (event.getAction() == MotionEvent.ACTION_MOVE) {
-			// the gestures
-			if (droid.isTouched()) {
-				// the droid was picked up and is being dragged
-				droid.setX((int)event.getX());
-				droid.setY((int)event.getY());
-			}
-		} if (event.getAction() == MotionEvent.ACTION_UP) {
-			// touch was released
-			if (droid.isTouched()) {
-				droid.setTouched(false);
-			}
-		}
+		Finger.update(event);
 		return true;
 	}
 
@@ -110,26 +71,28 @@ public class RenderThread extends SurfaceView implements
 		try
 		{
 			canvas.drawColor(Color.BLACK);
-			int tmpx=0;
-			int y =0;
-			for(int x=0;x < sprites.tiles.size(); x++)
-			{
-				if(tmpx > 15)
-				{
-					tmpx=0;
-					y++;
-				}
-				else
-				{
-					tmpx++;
-				}
-				canvas.drawBitmap(sprites.tiles.get(x), null, new Rect(tmpx * sprites.size , y * sprites.size, (tmpx * sprites.size) + sprites.size, (y * sprites.size) + sprites.size), new Paint());
-			}
-			//droid.draw(canvas);
+			canvas.drawRect(new Rect(0,0,100,100), paint);
+
 		}
 		catch(Exception ex)
 		{
 			//System.out.println("asd");
+		}
+	}
+	public void surfaceChanged(SurfaceHolder holder, int format, int width,
+			int height) {
+		if(!thread.isAlive())
+		{
+			thread.setRunning(true);
+			thread.start();
+		}
+	}
+
+	public void surfaceCreated(SurfaceHolder holder) {
+		if(!thread.isAlive())
+		{
+			thread.setRunning(true);
+			thread.start();
 		}
 	}
 }
