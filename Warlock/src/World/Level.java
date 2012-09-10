@@ -13,15 +13,14 @@ import android.util.Log;
 public class Level {
 	int[][] map;
 	SpriteSheet sprites;
-	 public Level(SpriteSheet sprites)
-	 {
-		 this.sprites= sprites;
-			map = new int[][] {{1,0,0,1,1,1,2,4,4},{0,1,0,2,3,2,1,2,1},{1,2,1,1,1,1,1,2,1}};
-	 }
-public void Draw(Canvas canvas,Paint paint)
-{
-	try
+	public Level(SpriteSheet sprites)
 	{
+		this.sprites= sprites;
+		map = new int[][] {{1,0,0,1,1,1,2,4,4},{0,1,0,2,3,2,1,2,1},{1,2,1,1,1,1,1,2,1}};
+	}
+	public void Draw(Canvas canvas,Paint paint)
+	{
+	
 		canvas.drawColor(Color.BLACK);
 		canvas.drawRect(new Rect(0,0,100,100), paint);
 		canvas.drawColor(Color.BLACK);
@@ -36,7 +35,7 @@ public void Draw(Canvas canvas,Paint paint)
 			
 			for (int j = 0; j < row.length; j++)
 			{
-
+	
 				startX +=  tileWidth;
 				canvas.drawBitmap(sprites.tiles.get(map[i][j]), null, new Rect(j * sprites.size , i * sprites.size, (j * sprites.size) + sprites.size, (i * sprites.size) + sprites.size), new Paint());
 				Log.d("IPT"," " + map.length  +"" +  j);
@@ -53,12 +52,5 @@ public void Draw(Canvas canvas,Paint paint)
 		
 			startY +=  tileHeight;
 		}
-	
 	}
-	catch(Exception ex)
-	{
-		//System.out.println("asd");
-	}
-}
-	 
 }

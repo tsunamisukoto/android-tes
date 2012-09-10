@@ -4,6 +4,7 @@ package com.example.warlockgame;
  */
 
 import Input.Finger;
+import NPC.Archie;
 import NPC.Droid;
 import Tools.SpriteSheet;
 import World.Level;
@@ -27,7 +28,7 @@ import android.view.SurfaceView;
 public class RenderThread extends SurfaceView implements
 		SurfaceHolder.Callback 
 {
-
+	Archie archie;
 	Paint paint;
 	private static final String TAG = RenderThread.class.getSimpleName();
 	Level l;
@@ -38,10 +39,10 @@ SpriteSheet sprites;
 		sprites = new SpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.tiles),64);
 		paint = new Paint();
 		paint.setColor(Color.RED);
-	l = new Level(sprites);
+		l = new Level(sprites);
 		getHolder().addCallback(this);
 		// load sprite sheet
-		
+		archie = new Archie(BitmapFactory.decodeResource(getResources(), R.drawable.characteridle),BitmapFactory.decodeResource(getResources(), R.drawable.characteridle2));
 		// create the game loop thread
 		thread = new GameThread(getHolder(), this);
 		// make the GamePanel focusable so it can handle events
@@ -70,8 +71,15 @@ SpriteSheet sprites;
 	}
 
 	protected void onDraw(Canvas canvas) {
-		// fills the canvas with black
-		l.Draw(canvas,paint);
+		try
+		{
+			l.Draw(canvas,paint);
+			archie.Draw(canvas);
+		}
+		catch(Exception ex)
+		{
+			//System.out.println("asd");
+		}
 	}
 	public void surfaceChanged(SurfaceHolder holder, int format, int width,
 			int height) {
