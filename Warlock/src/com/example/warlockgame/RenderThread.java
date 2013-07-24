@@ -161,7 +161,7 @@ SoundHandler s = new SoundHandler(c);
 
         float offsetX=(archie.position.x - size.x / 2),offsetY=(archie.position.y - size.y / 2);
 
-        Paint p = new Paint();
+;        Paint p = new Paint();
         p.setColor(Color.WHITE);
         p.setTextSize(40);
 //        canvas.drawRect(5600-(archie.position.x-size.x/2),-(archie.position.y-size.y/2),5600,200,new Paint());
@@ -215,22 +215,4 @@ SoundHandler s = new SoundHandler(c);
 		Log.d(TAG, "Surface is being destroyed");
 		// tell the thread to shut down and wait for it to finish
 		// this is a clean shutdown
-		boolean retry = true;
-		while (retry)
-			try {
-				RenderThread.gameThread.join();
-				retry = false;
-			} catch (InterruptedException e) {
-				// try again shutting down the thread
-				GameThread.setRunning(false);
-			}
-		Log.d(TAG, "Thread was shut down cleanly");
-	}
-
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		Finger.Update(event);
-		return true;
-	}
-
-}
+		boolean retry = tru
