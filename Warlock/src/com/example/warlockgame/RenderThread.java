@@ -12,6 +12,7 @@ import Actors.Player;
 import Game.Block;
 import Game.GameObject;
 import HUD.Button;
+import HUD.PopupText;
 import Input.Finger;
 import Tools.SpriteSheet;
 import Tools.Vector;
@@ -148,7 +149,7 @@ addObject(new Block(2700,750));
             }
 		}
 	}
-
+public static List<PopupText> popupTexts = new ArrayList<PopupText>();
 	@Override
 	protected void onDraw(Canvas canvas) {
 
@@ -168,7 +169,10 @@ SoundHandler s = new SoundHandler(c);
             gameObjects.get(x).DrawHitBox(offsetX, offsetY,canvas);tion.y-size.y/2),5600,200,new Paint());
 		l.Draw(canvas,offsetX, offsetY);
 
-        //canvas.drawText("" +(int) (-(archie.position.x - size.x / 2)) + "," + (int)(-(archie.position.y - size.y / 2)), 100,100,p);
+        //canvfor(int f = 0; f<popupTexts.size();f++)
+        {
+            popupTexts.get(f).Draw(offsetX,offsetY,canvas);
+        }    //canvas.drawText("" +(int) (-(archie.position.x - size.x / 2)) + "," + (int)(-(archie.position.y - size.y / 2)), 100,100,p);
 
         int listsize = gameObjects.size() - 1;
 		for (int x = 0; x <= listsize; x++)
