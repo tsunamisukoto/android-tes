@@ -111,10 +111,10 @@ public class RenderThread extends SurfaceView implements SurfaceHolder.Callback 
                     getResources(), R.drawable.charsheetedit),7,8), new Vector(2800, 750));
 
             addObject(archie);
-           addObject(new EllipseMovingAI(new SpriteSheet(BitmapFactory.decodeResource(
-                    getResources(), R.drawable.charsheet),7,8),new Vector(2800,1050)));
-            addObject(new EllipseMovingAI(new SpriteSheet(BitmapFactory.decodeResource(
-                    getResources(), R.drawable.charsheet),7,8),new Vector(2800,1050)));
+//           addObject(new EllipseMovingAI(new SpriteSheet(BitmapFactory.decodeResource(
+//                    getResources(), R.drawable.charsheet),7,8),new Vector(2800,1050)));
+//            addObject(new EllipseMovingAI(new SpriteSheet(BitmapFactory.decodeResource(
+//                    getResources(), R.drawable.charsheet),7,8),new Vector(2800,1050)));
 
 addObject(new Block(2700,750));
 
@@ -164,7 +164,8 @@ SoundHandler s = new SoundHandler(c);
 ;        Paint p = new Paint();
         p.setColor(Color.WHITE);
         p.setTextSize(40);
-//        canvas.drawRect(5600-(archie.position.x-size.x/2),-(archie.position.y-size.y/2),5600,200,new Paint());
+//        canvas.drawRect(5600-(archie.position.x-size.x/2),-(archie.posi            if(Global.DEBUG_MODE)
+            gameObjects.get(x).DrawHitBox(offsetX, offsetY,canvas);tion.y-size.y/2),5600,200,new Paint());
 		l.Draw(canvas,offsetX, offsetY);
 
         //canvas.drawText("" +(int) (-(archie.position.x - size.x / 2)) + "," + (int)(-(archie.position.y - size.y / 2)), 100,100,p);
