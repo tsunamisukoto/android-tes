@@ -49,7 +49,7 @@ public class RenderThread extends SurfaceView implements SurfaceHolder.Callback 
 	public static boolean loaded = false;
 	public static Context c;
     public static int playerno = 1;
-    public static Finger finger;
+    Finger finger;
 	public RenderThread(Context context, Point _size) {
 		super(context);
 		c = context;
@@ -60,7 +60,7 @@ public class RenderThread extends SurfaceView implements SurfaceHolder.Callback 
 		Global.paint = new Paint();
 		Global.paint.setAntiAlias(true);
 		Global.paint.setColor(Color.RED);
-finger=new Finger();
+
 
 		Load();
 
@@ -256,5 +256,5 @@ SoundHandler s = new SoundHandler(c);
 	public void surfaceDestroyed(SurfaceHolder holder) {
 		Log.d(TAG, "Surface is being destroyed");
 		// tell the thread to shut down and wait for it to finish
-		//fthis is a clean shutdown
+		//Fthis is a clean shutdown
 		boolean retry = tru
