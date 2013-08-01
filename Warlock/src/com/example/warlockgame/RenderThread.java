@@ -71,14 +71,15 @@ public class RenderThread extends SurfaceView implements SurfaceHolder.Callback 
 		this.holder.addCallback(new SurfaceHolder.Callback() {
 
 			public void surfaceDestroyed(SurfaceHolder holder) {
-				boolean retry = true;
-				GameThread.setRunning(false);
-				while (retry)
-					try {
-						RenderThread.gameThread.join();
-						retry = false;
-					} catch (InterruptedException e) {
-					}
+//				boolean retry = true;
+//				GameThread.setRunning(false);
+//				while (retry)
+//					try {
+//						RenderThread.gameThread.join();
+//						retry = false;
+//					} catch (InterruptedException e) {
+//
+//					}
 			}
 
 			public void surfaceCreated(SurfaceHolder holder) {
@@ -144,7 +145,7 @@ addObject(new Block(2700,750));
 
             try {
                 playerno = 0;
-                new ServerThread().start();
+                new ServerThread(ServerThread.ActionType.AcceptInfomation).start();
             } catch (IOException e) {
                 Log.d("INET","BREAK!\n");
                 e.printStackTrace();
@@ -222,18 +223,15 @@ SoundHandler s = new SoundHandler(c);
         //canvas.drawText(""+GameThread.Time,50,50,new Paint());
 	}
 
-	public static void addObject(GameObject obj) {
-		gameObjects.add(obj);
-		gameObjects.get(gameObjects.size() - 1).id = objects++;
-	}
-
-	public static void delObject(int id) {
-		for (int x = 0; x < gameObjects.size(); x++)
+	public static
+		Load();
+< gameObjects.size(); x++)
 			if (gameObjects.get(x).id == id)
 				gameObjects.remove(x);
 	}
 
-	public void surfaceChanged(SurfaceHolder holder, int format, int width,
+	public void surfaceChanged(SurfaceHolder holder, int format, int         if(!gameThread.isAlive())
+        gameThread.start();t width,
 			int height) {
 		if (!RenderThread.gameThread.isAlive()) {
 			GameThread.setRunning(true);
@@ -245,14 +243,8 @@ SoundHandler s = new SoundHandler(c);
 
 	public void surfaceCreated(SurfaceHolder holder) {
 		/*
-		 * if(!gameThread.isAlive()) { gameThread.setRunning(true);
-		 * gameThread.start(); }
-		 */
-		System.out.println("surface Created");
-		// Load();
-	}
-
-	public void surfaceDestroyed(SurfaceHolder holder) {
+	gameThread.interrupt();
+		Log.e
 		Log.d(TAG, "Surface is being destroyed");
 		// tell the thread to shut down and wait for it to finish
 		//Fthis is a clean shutdown
