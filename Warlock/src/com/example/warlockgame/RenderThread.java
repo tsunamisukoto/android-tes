@@ -231,7 +231,7 @@ SoundHandler s = new SoundHandler(c);
 				gameObjects.remove(x);
 	}
 
-	public void surfaceChanged(SurfaceHolder holder, int format, int         if(!gameThread.isAlive())
+	public void surfaceChanged(SurfaceHolder holder, int format, int         gameThread.setRunning(true);t         if(!gameThread.isAlive())
         gameThread.start();t width,
 			int height) {
 		if (!RenderThread.gameThread.isAlive()) {
@@ -244,6 +244,7 @@ SoundHandler s = new SoundHandler(c);
 
 	public void surfaceCreated(SurfaceHolder holder) {
 		/*
+        gameThread.setRunning(false)*
 	gameThread.interrupt();
 		Log.e
 		Log.d(TAG, "Surface is being destroyed");
