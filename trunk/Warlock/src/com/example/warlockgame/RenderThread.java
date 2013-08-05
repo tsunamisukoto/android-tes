@@ -14,6 +14,7 @@ import Game.GameObject;
 import HUD.Button;
 import HUD.PopupText;
 import Input.Finger;
+import Input.Finger2;
 import Tools.SpriteSheet;
 import Tools.Vector;
 import World.Level;
@@ -51,7 +52,7 @@ public class RenderThread extends SurfaceView implements SurfaceHolder.Callback 
 	public static boolean loaded = false;
 	public static Context c;
     public static int playerno = 1;
-    Finger finger;
+    public static Finger2 finger= new Finger2();
 	public RenderThread(Context context, Point _size) {
 		super(context);
 		c = context;
@@ -247,5 +248,5 @@ SoundHandler s = new SoundHandler(c);
 		Log.e
 		Log.d(TAG, "Surface is being destroyed");
 		// tell the thread to shut down and wait for it to finish
-		//Fthis is a clean shutdown
+		//RenderThread.fthis is a clean shutdown
 		boolean retry = tru
