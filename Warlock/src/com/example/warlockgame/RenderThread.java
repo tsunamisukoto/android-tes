@@ -138,23 +138,9 @@ else
 //                    getResources(), R.drawable.charsheet),7,8),new Vector(2800,1050)));
 
 addObject(new Block(2700,750));
-            try {
 
-               // ServerThread.printRemoteAddress("127.0.0.1");
-            }
-            catch (Exception e   )
-            {
 
-            }
 
-            try {
-                //playerno = 0;
-                if(Global.Multiplayer==true)
-                new ServerThread(ServerThread.ActionType.AcceptInfomation).start();
-            } catch (IOException e) {
-                Log.d("INET","BREAK!\n");
-                Log.d("INET",e.toString());
-            }
 
 //            try {
 //
@@ -229,16 +215,24 @@ SoundHandler s = new SoundHandler(c);
 	}
 
 	public static
-		Load();
+		//Load();
 < gameObjects.size(); x++)
 			if (gameObjects.get(x).id == id)
 				gameObjects.remove(x);
 	}
 
-	public void surfaceChanged(SurfaceHolder holder, int format, int         gameThread.setRunning(true);t         if(!gameThread.isAlive())
+	public void surfaceChanged(SurfaceHolder holder, int format, int         GameThread.setRunning(true);
+        try {
+            //playerno = 0;
+            if(Global.Multiplayer==true)
+                new ServerThread(ServerThread.ActionType.AcceptInfomation).start();
+        } catch (IOException e) {
+            Log.d("INET","BREAK!\n");
+            Log.d("INET",e.toString());
+        }t         if(!gameThread.isAlive())
         gameThread.start();t width,
 			int height) {
-		if (!RenderThr        Load(rThread.gameThread.isAlive()) {
+		if (!RenderThr        //Load(rThread.gameThread.isAlive()) {
 			GameThread.setRunning(true);
             RenderThread.gameThread.start();
         }
@@ -248,7 +242,7 @@ SoundHandler s = new SoundHandler(c);
 
 	public void surfaceCreated(SurfaceHolder holder) {
 		/*
-        gameThread.setRunning(false)*
+        GameThread.setRunning(false)*
 	gameThread.interrupt();
 		Log.e
 		Log.d(TAG, "Surface is being destroyed");
