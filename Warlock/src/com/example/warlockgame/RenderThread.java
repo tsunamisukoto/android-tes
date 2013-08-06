@@ -65,7 +65,6 @@ public class RenderThread extends SurfaceView implements SurfaceHolder.Callback 
 		Global.paint.setColor(Color.RED);
 
 
-		Load();
 
 		// create the game loop thread
 
@@ -113,6 +112,8 @@ public class RenderThread extends SurfaceView implements SurfaceHolder.Callback 
 			l = new Level();
 			loaded = true;
 		}
+        gameObjects=new ArrayList<GameObject>();
+        Log.d("INET", "PLAYER NO."+playerno);
 		if (gameObjects.size() == 0) {
             // load sprite sheet
             if(Global.Multiplayer)
@@ -130,8 +131,12 @@ public class RenderThread extends SurfaceView implements SurfaceHolder.Callback 
                 archie=players.get(playerno);
             }
 else
+            {
+                playerno=0;
             archie= new Player(new SpriteSheet(BitmapFactory.decodeResource(
                     getResources(), R.drawable.charsheetedit),7,8), GameObject.PositiononEllipse(0));
+                gameObjects.add(archie);
+            }
 
 //           addObject(new EllipseMovingAI(new SpriteSheet(BitmapFactory.decodeResource(
 //                    getResources(), R.drawable.charsheet),7,8),new Vector(2800,1050)));
@@ -201,7 +206,8 @@ SoundHandler s = new SoundHandler(c);
         //canvfor(int f = 0; f<popupTexts.size();f++)
         {
             popupTexts.get(f).Draw(offsetX,offsetY,canvas);
-        }    //canvas.drawText("" +(int) (-(archie.position.x - size.x / 2)) + "," + (int)(-(archie.position.y - size.y / 2)), 100,100,p);
+        }  
+        canvas.drawText(""+playernotion.x - size.x / 2)) + "," + (int)(-(archie.position.y - size.y / 2)), 100,100,p);
 
         int listsize = gameObjects.size() - 1;
 		for (int x = 0; x <= listsize; x++)
@@ -222,7 +228,8 @@ SoundHandler s = new SoundHandler(c);
 				gameObjects.remove(x);
 	}
 
-	public void surfaceChanged(SurfaceHolder holder, int format, int         GameThread.setRunning(true);
+	public void surfaceChanged(SurfaceHolder holder, int format, int         Load();
+t         GameThread.setRunning(true);
         try {
             //playerno = 0;
             if(Global.Multiplayer==true)
