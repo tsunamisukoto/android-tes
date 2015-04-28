@@ -23,20 +23,49 @@ import developmental.warlocks.Global;
 public class GameObject extends Collideable {
 
 
-    glHealthBar healthbar;
-
     public Spell[] Spells;
     public boolean dead = false;
-    private boolean rooted = false;
     public LoadOutInfo[] Equipment;
+    public boolean casting = false, frozen = false, stunned = false;
+    protected int displayhealth = 0;
+    glHealthBar healthbar;
+    private boolean rooted = false;
+
     public GameObject(int resourceId, Vector _pos, Vector _feet, Vector _size, LoadOutInfo[] spellList) {
         this(resourceId, _pos, _size);
         this.Spells = new Spell[6];
         shadowed = true;
         healthbar = new glHealthBar(R.drawable.hud_healthbar_small, new Vector(100, 20), new Vector(0, -120), this, glHealthBar.type.Health);
         Equipment = new LoadOutInfo[3];
-
+        archetypeManager = new ArchetypeManager(this);
         this.Spells = Spell.GenerateSpellList((Player) this, spellList);
+        CanTakeDamage = true;
+        CanHealOffOfThis = true;
+        KillsOnImpact = true;
+    }
+
+    public GameObject(int resourceId, Vector _pos, Vector _size) {
+        super(resourceId, _pos, _size, 500, 0);
+
+        this.objectObjectType = ObjectType.GameObject;
+
+
+        this.velocity = new Vector(0, 0);
+        //this.Spells = new Spell[10];
+
+        this.shadowed = true;
+        this.shadowGrid = Grid.shadowGridGenerateObject(_size);
+
+    }
+
+    public static Vector PositiononEllipse(float _angle) {
+        float _x = (SimpleGLRenderer.l.platform.size.x / 2 - (SimpleGLRenderer.l.platform.size.x / 10))
+                * (float) Math.cos(Math.toRadians(_angle))
+                + SimpleGLRenderer.l.platform.center.x;
+        float _y = (SimpleGLRenderer.l.platform.size.y / 2 - (SimpleGLRenderer.l.platform.size.y / 10))
+                * (float) Math.sin(Math.toRadians(_angle))
+                + SimpleGLRenderer.l.platform.center.y;
+        return new Vector(_x, _y);
     }
 
     @Override
@@ -94,35 +123,6 @@ public class GameObject extends Collideable {
 
     }
 
-    public GameObject(int resourceId, Vector _pos, Vector _size) {
-        super(resourceId, _pos, _size, 500, 0);
-
-        this.objectObjectType = ObjectType.GameObject;
-
-
-        this.velocity = new Vector(0, 0);
-        //this.Spells = new Spell[10];
-
-        this.shadowed = true;
-        this.shadowGrid = Grid.shadowGridGenerateObject(_size);
-
-    }
-
-
-    @Override
-    protected void Heal(float HealAmount) {
-        if (HealAmount + health > this.maxhealth) {
-
-            HealAmount = maxhealth - health;
-            this.health = maxhealth;
-        } else {
-            this.health += HealAmount;
-        }
-        if (HealAmount > 0)
-            SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Poison, HealAmount + "", this.bounds.Center.get(), 12));
-
-    }
-
     @Override
     public void Damage(float dmgDealt, DamageType d) {
         if(d==DamageType.Spell)
@@ -170,19 +170,18 @@ public class GameObject extends Collideable {
             }
     }
 
-    protected int displayhealth = 0;
-
-
-    public ArchetypeManager archetypeManager = new ArchetypeManager(this);
-
-    public boolean casting = false, frozen = false, stunned = false;
-
     @Override
-    protected void Movement() {
-        if (!this.rooted)
-            super.Movement();
-        else
-            velocity = new Vector(0, 0);
+    public void Heal(float HealAmount) {
+        if (HealAmount + health > this.maxhealth) {
+
+            HealAmount = maxhealth - health;
+            this.health = maxhealth;
+        } else {
+            this.health += HealAmount;
+        }
+        if (HealAmount > 0)
+            SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Poison, HealAmount + "", this.bounds.Center.get(), 12));
+
     }
 
     @Override
@@ -294,6 +293,13 @@ public class GameObject extends Collideable {
 
     }
 
+    @Override
+    protected void Movement() {
+        if (!this.rooted)
+            super.Movement();
+        else
+            velocity = new Vector(0, 0);
+    }
 
     public void FingerUpdate(iVector[] f, int SelectedSpell) {
 
@@ -315,7 +321,6 @@ public class GameObject extends Collideable {
         }
     }
 
-
     public void StartTo(Vector Dest) {
         this.destination = new Vector(Dest.x, Dest.y);
         this.Marker = new Destination(destination);
@@ -330,17 +335,6 @@ public class GameObject extends Collideable {
             this.velocity.y = -Math.abs(this.velocity.y);
         if (this.bounds.Center.y - bounds.Radius < 0)
             this.velocity.y = Math.abs(this.velocity.y);
-    }
-
-
-    public static Vector PositiononEllipse(float _angle) {
-        float _x = (SimpleGLRenderer.l.platform.size.x / 2 - (SimpleGLRenderer.l.platform.size.x / 10))
-                * (float) Math.cos(Math.toRadians(_angle))
-                + SimpleGLRenderer.l.platform.center.x;
-        float _y = (SimpleGLRenderer.l.platform.size.y / 2 - (SimpleGLRenderer.l.platform.size.y / 10))
-                * (float) Math.sin(Math.toRadians(_angle))
-                + SimpleGLRenderer.l.platform.center.y;
-        return new Vector(_x, _y);
     }
 
 }

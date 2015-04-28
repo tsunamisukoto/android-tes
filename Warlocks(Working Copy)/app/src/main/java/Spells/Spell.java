@@ -48,9 +48,97 @@ import developmental.warlocks.Global;
 
 
 public class Spell {
-    public enum Archetype {Burn, Poison, Illusion, Confuse, Frost, Vitro, Lifesteal}
-
     public Archetype archetype = Archetype.Burn;
+    public int Cooldown = 50;
+    public int Current = 0;
+    public int Rank;
+    public int texture;
+    protected int CastTime = 5;
+    protected Player parent;
+    protected iVector targetLocation;
+    protected int range;
+    CastType castType;
+    Paint p;
+    Bitmap curr;
+    int castphase;
+    boolean fired = false;
+    int sz = 40;
+    SpellType spellType;
+    float damage = 5;
+    int radius = 15;
+    LoadOutInfo s;
+    public Spell(Player _parent, LoadOutInfo s) {
+        this.parent = _parent;
+        this.s = s;
+        castphase = CastTime;
+        Rank = s.Rank;
+        spellType = s.spellType;
+
+        switch (spellType) {
+            case Fireball:
+            case Lightning:
+            case Illusion:
+            case Homing:
+            case Boomerang:
+            case Link:
+            case Ice:
+            case Gravity:
+            case Meteor:
+            case Grenade:
+            case Drain:
+            case IllusionBall:
+            case Absorb:
+            case Splitter:
+            case Bounce:
+            case Teleport:
+            case Swap:
+            case Thrust:
+            case SonicWave:
+            case Piercing:
+            case Powerball:
+
+            case TrapMines:
+                this.castType = CastType.Projectile;
+                break;
+            case FireSpray:
+            case IceSpray:
+                this.castType = CastType.Spray;
+                break;
+
+            case Reflect:
+
+            case Root:
+            case JuggerNaught:
+            case WindWalk:
+            case Phase:
+
+            case Orbitals:
+                this.castType = CastType.ActivateBuff;
+                break;
+            case BurnAura:
+            case HealAura:
+            case Bezerk:
+            case Fervour:
+            case Boots:
+            case HealthStone:
+            case Shield:
+            case FreezeAura:
+                this.castType = CastType.Passive;
+                break;
+            case FireExplode:
+            case IceExplode:
+            case BurnExplode:
+            case MagnetExplode:
+            case DrainExplode:
+            case MiddleOfAction:
+                this.castType = CastType.Explosion;
+                break;
+
+        }
+        setAttributes(spellType, s.Rank);
+
+        // owner = parent.id;
+    }
 
     public static Spell[] GenerateSpellList(Player parent, LoadOutInfo[] spellList) {
         Spell[] s = new Spell[6];
@@ -204,26 +292,6 @@ public class Spell {
         return s;
     }
 
-    public enum CastType {Projectile, Explosion, Passive, Spray, ActivateBuff}
-
-    CastType castType;
-    public int Cooldown = 50;
-    protected int CastTime = 5;
-    public int Current = 0;
-    protected Player parent;
-    Paint p;
-    Bitmap curr;
-    int castphase;
-    boolean fired = false;
-    int sz = 40;
-    protected iVector targetLocation;
-    SpellType spellType;
-    public int Rank;
-    float damage = 5;
-    int radius = 15;
-    protected int range;
-    public int texture;
-
     void setValues(int casttime, int cooldown, float damage, int radius, int rng) {
         this.CastTime = casttime;
         this.Cooldown = cooldown;
@@ -235,81 +303,6 @@ public class Spell {
     public void loadResouce() {
         this.texture = Global.resources.get(LoadOutInfo.setResource(s.spellType));
 
-    }
-
-    LoadOutInfo s;
-
-    public Spell(Player _parent, LoadOutInfo s) {
-        this.parent = _parent;
-        this.s = s;
-        castphase = CastTime;
-        Rank = s.Rank;
-        spellType = s.spellType;
-
-        switch (spellType) {
-            case Fireball:
-            case Lightning:
-            case Illusion:
-            case Homing:
-            case Boomerang:
-            case Link:
-            case Ice:
-            case Gravity:
-            case Meteor:
-            case Grenade:
-            case Drain:
-            case IllusionBall:
-            case Absorb:
-            case Splitter:
-            case Bounce:
-            case Teleport:
-            case Swap:
-            case Thrust:
-            case SonicWave:
-            case Piercing:
-            case Powerball:
-
-            case TrapMines:
-                this.castType = CastType.Projectile;
-                break;
-            case FireSpray:
-            case IceSpray:
-                this.castType = CastType.Spray;
-                break;
-
-            case Reflect:
-
-            case Root:
-            case JuggerNaught:
-            case WindWalk:
-            case Phase:
-
-            case Orbitals:
-                this.castType = CastType.ActivateBuff;
-                break;
-            case BurnAura:
-            case HealAura:
-            case Bezerk:
-            case Fervour:
-            case Boots:
-            case HealthStone:
-            case Shield:
-            case FreezeAura:
-                this.castType = CastType.Passive;
-                break;
-            case FireExplode:
-            case IceExplode:
-            case BurnExplode:
-            case MagnetExplode:
-            case DrainExplode:
-            case MiddleOfAction:
-                this.castType = CastType.Explosion;
-                break;
-
-        }
-        setAttributes(spellType, s.Rank);
-
-        // owner = parent.id;
     }
 
     private void setAttributes(SpellType s, int rank) {
@@ -1193,7 +1186,6 @@ public class Spell {
         }
     }
 
-
     public void glDraw() {
 
     }
@@ -1273,15 +1265,16 @@ public class Spell {
             }
     }
 
-
     public void Update() {
         if (fired) {
             castphase += 1;
             if (castType == CastType.Spray) {
 
                 if (castphase % 3 == 2) {
-                    if (parent.shadowClone != null)
+                    if (parent.shadowClone != null){
                         Shoot((parent.position.subtract(this.targetLocation)), parent.shadowClone.bounds.Center);
+
+                    }
 
                     Shoot((parent.position.subtract(this.targetLocation)), parent.bounds.Center);
                 }
@@ -1307,5 +1300,10 @@ public class Spell {
 
 
     }
+
+
+    public enum Archetype {Burn, Poison, Illusion, Confuse, Frost, Vitro, Lifesteal}
+
+    public enum CastType {Projectile, Explosion, Passive, Spray, ActivateBuff}
 
 }

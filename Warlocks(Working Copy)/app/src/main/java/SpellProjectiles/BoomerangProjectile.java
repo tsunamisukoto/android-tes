@@ -16,8 +16,8 @@ public class BoomerangProjectile extends Projectile {
         super(R.drawable.spell_boomerang,_from, _to, shooter,Rank);
 
         this.objectObjectType= ObjectType.Boomerang;
-
-
+        this.DiesOnImpact = false;
+        this.IsBoomerang = true;
     }
 
     @Override
@@ -28,8 +28,8 @@ public class BoomerangProjectile extends Projectile {
 @Override
 protected void Stats(int rank)
 {
-    this.maxVelocity = 15;
-    this.acceleration = 0.5f;
+    this.maxVelocity = 6f;
+    this.acceleration = 0.3f;
     switch (rank)
     {
         case 1:
@@ -96,8 +96,10 @@ protected void Stats(int rank)
             this.destination = owner.feet;
         }
         if (lifePhase > 50)
-            if (this.bounds.CollidesWith(owner.bounds))
+            if (this.bounds.CollidesWith(owner.bounds)) {
                 SimpleGLRenderer.delObject(this.id);
+                this.health = 0;
+            }
 
     }
 

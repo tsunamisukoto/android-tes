@@ -21,13 +21,12 @@ public class SplitterProjectile extends Projectile {
         this.Rank = Rank;
         this.health = 200;
         i = (int) (Math.random() * 360f);
-        this.maxVelocity = 4;
         SetVelocity(maxVelocity);
     }
 
     @Override
     protected void Stats(int rank) {
-        this.maxVelocity = 15;
+        this.maxVelocity = 6f;
 
         switch (rank) {
             case 1:

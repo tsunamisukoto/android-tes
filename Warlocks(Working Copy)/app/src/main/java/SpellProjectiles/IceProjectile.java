@@ -18,12 +18,13 @@ public class IceProjectile extends Projectile {
         super(R.drawable.spell_iceball, _from, _to, shooter, Rank);
         archetypePower = new ArchetypePower(0, 0, 0, 0, 100, 0, 0);
         this.objectObjectType = ObjectType.Projectile;
+        this.AppliesVelocity = false;
     }
 
 
     @Override
     protected void Stats(int rank) {
-        this.maxVelocity = 15;
+        this.maxVelocity = 5;
 
         switch (rank) {
             case 1:

@@ -236,13 +236,13 @@ public class Grid {
     }
 
     public static Grid LinkLineGrid(float Range, float offset, float radius) {
-
+        float size = Range / 512f;
         Grid backgroundGrid = new Grid(2, 2, false);
 
-        backgroundGrid.set(0, 0, 0, -radius / 2, 0.0f, 0.0f + (offset % 100) * 0.01f, 1.0f, null);
-        backgroundGrid.set(1, 0, Range, -radius / 2, 0.0f, 0.5f + (offset % 100) * 0.01f, 1.0f, null);
-        backgroundGrid.set(0, 1, 0, radius / 2, 0.0f, 0.0f + (offset % 100) * 0.01f, 0.0f, null);
-        backgroundGrid.set(1, 1, Range, radius / 2, 0.0f, 0.5f + (offset % 100) * 0.01f, 0.0f, null);
+        backgroundGrid.set(0, 0, 0, -radius / 2, 0.0f, 0.0f + (offset % 25) * 0.04f, 1.0f, null);
+        backgroundGrid.set(1, 0, Range, -radius / 2, 0.0f, size + (offset % 25) * 0.04f, 1.0f, null);
+        backgroundGrid.set(0, 1, 0, radius / 2, 0.0f, 0.0f + (offset % 25) * 0.04f, 0.f, null);
+        backgroundGrid.set(1, 1, Range, radius / 2, 0.0f, size + (offset % 25) * 0.04f, 0.0f, null);
 
         return backgroundGrid;
     }

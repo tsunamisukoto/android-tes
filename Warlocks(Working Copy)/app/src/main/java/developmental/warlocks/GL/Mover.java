@@ -12,14 +12,13 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import HUD.glButton;
 import Input.NetworkFinger;
 import SpellProjectiles.LightningProjectile;
 import Tools.Vector;
 import World.Level;
 import developmental.warlocks.GL.NewHeirarchy.Collideable;
-import developmental.warlocks.GL.NewHeirarchy.GameObject;
 import developmental.warlocks.GL.NewHeirarchy.Renderable;
-import HUD.glButton;
 import developmental.warlocks.Global;
 
 /**
@@ -28,23 +27,23 @@ import developmental.warlocks.Global;
  * sprites are jumbled with random velocities every once and a while.
  */
 public class Mover implements Runnable {
+    public static NetworkFinger k;
+    public static int Gamestep = 0;
+    public static ArrayList<NetworkFinger> fingers = new ArrayList<NetworkFinger>();
+    public static Level.status gamestatus;
+    OpenGLTestActivity openGLTestActivity;
+    boolean statuslockedin = false;
     private Renderable[] mRenderables;
     private long mLastTime;
     private long mLastJumbleTime;
     private int mViewWidth;
     private int mViewHeight;
-
-    public static NetworkFinger k;
-    public static int Gamestep = 0;
-
-    public static ArrayList<NetworkFinger> fingers = new ArrayList<NetworkFinger>();
-
-    OpenGLTestActivity openGLTestActivity;
     public Mover(OpenGLTestActivity openGLTestActivity) {
        this.openGLTestActivity = openGLTestActivity;
         SimpleGLRenderer.Countdown = -1;
         this.statuslockedin=false;
     }
+
     public void run() {
 
         // Perform a single simulation step.
@@ -59,6 +58,7 @@ public class Mover implements Runnable {
 Update();
     }
     }
+
     void Update()
     {
 
@@ -178,10 +178,6 @@ Update();
         statuslockedin= true;
     }
 
-
-    boolean statuslockedin = false;
-    public static Level.status gamestatus;
-
 void Collision()
 {
     for (int d = 0; d < SimpleGLRenderer.gameObjects.size(); d++)
@@ -226,7 +222,7 @@ void Collision()
                                     g.add(y);
                                 else
                                 {
-                                    SimpleGLRenderer.gameObjects.get(y).Collision2(
+                                    SimpleGLRenderer.gameObjects.get(y).CollisionNew(
                                             SimpleGLRenderer.gameObjects.get(x));
                                 }
                                 continue;
@@ -242,7 +238,7 @@ void Collision()
                                     g.add(y);
                                 else
                                 {
-                                    SimpleGLRenderer.gameObjects.get(y).Collision2(
+                                    SimpleGLRenderer.gameObjects.get(y).CollisionNew(
                                             SimpleGLRenderer.gameObjects.get(x));
                                 }
                                 continue;
@@ -269,7 +265,7 @@ void Collision()
                 }
             }
             if (a != null) {
-                a.Collision2(SimpleGLRenderer.gameObjects.get(e));
+                a.CollisionNew(SimpleGLRenderer.gameObjects.get(e));
             }
             lightinings.get(e).collisions.clear();
         }

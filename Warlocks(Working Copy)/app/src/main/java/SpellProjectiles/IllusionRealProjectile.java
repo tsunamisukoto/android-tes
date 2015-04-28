@@ -14,12 +14,12 @@ public class IllusionRealProjectile extends Projectile {
     public IllusionRealProjectile(Vector _from, Vector _to, GameObject shooter,int Rank) {
         super(R.drawable.spell_illusion,_from, _to, shooter,Rank);
 
-
+        this.archetypePower = new ArchetypePower(0, 20, 0, 0, 0, 0, 0);
     }
     @Override
     protected void Stats(int rank)
     {
-        this.maxVelocity = 15;
+        this.maxVelocity = 9f;
 
         switch (rank)
         {

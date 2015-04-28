@@ -1,13 +1,13 @@
 package developmental.warlocks.Shop;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -34,11 +34,68 @@ import developmental.warlocks.Global;
  * Created by Scott on 18/08/13.
  */
 public class ShopActivity extends Activity {
+    public static LoadOutInfo[] e;
+    public static int SelectedIndex = 0;
+    int storedposition = -1;
+
     public ShopActivity() {
         super();
 
     }
 
+    public static void loadState() {
+        LoadOutInfo[] s = null;
+        FileInputStream inStream = null;
+        try {
+            File f = new File(Environment.getExternalStorageDirectory(), "/data.dat");
+            inStream = new FileInputStream(f);
+            ObjectInputStream objectInStream = new ObjectInputStream(inStream);
+
+            s = ((LoadOutInfo[]) objectInStream.readObject());
+            objectInStream.close();
+        } catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        } catch (ClassNotFoundException e1) {
+            e1.printStackTrace();
+        } catch (OptionalDataException e1) {
+            e1.printStackTrace();
+        } catch (StreamCorruptedException e1) {
+            e1.printStackTrace();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        Log.e("LOADING LOADOUT", s.length + "");
+        if (s != null)
+            for (int i = 0; i < s.length && i < 9; i++) {
+                Global.spellList[i] = s[i];
+                Log.e("LOADING LOADOUT", i + " " + s[i].spellType + "");
+
+            }
+        else {
+            Log.e("FAILED TO LOAD", "YOU SUCK!!!!");
+        }
+        for (LoadOutInfo l : Global.spellList) {
+            Log.e("LOADING LOADOUT", l.spellType + "");
+        }
+    }
+
+    public static byte[] SerializetoBytes(LoadOutInfo[] gameObjects) {
+
+        try {
+
+            ByteArrayOutputStream fileOut =
+                    new ByteArrayOutputStream();
+            ObjectOutputStream out =
+                    new ObjectOutputStream(fileOut);
+
+            out.writeObject(gameObjects);
+            return fileOut.toByteArray();
+
+        } catch (IOException i) {
+            i.printStackTrace();
+        }
+        return null;
+    }
 
     void Spells() {
 
@@ -141,21 +198,20 @@ public class ShopActivity extends Activity {
         ShopActivity.SelectedIndex = 6;
         return s;
     }
+
     LoadOutInfo[] Slot8(){
         LoadOutInfo[] ss = Slot7();
         ShopActivity.SelectedIndex=7;
         return ss;
     }
+
     LoadOutInfo[] Slot9(){
         LoadOutInfo[] ss = Slot7();
         ShopActivity.SelectedIndex=8;
         return ss;
     }
 
-    public static LoadOutInfo[] e;
-    public static int SelectedIndex = 0;
-
-    void setstuff(LoadOutInfo[] se) {
+    void setstuff(LoadOutInfo[] se, int index) {
         ArrayList<LoadOutInfo> v = new ArrayList<LoadOutInfo>();
         SpellsAdapter a = new SpellsAdapter(this, v);
         ShopActivity.e = se;
@@ -165,9 +221,28 @@ public class ShopActivity extends Activity {
 
         q.setAdapter(a);
         this.storedposition = -1;
+        int p = 0;
+        for (LoadOutInfo l : se) {
+
+            if (l.spellType == Global.spellList[index - 1].spellType) {
+                storedposition = p;
+                setfsadgasdg(p);
+                q.setSelection(p);
+                Log.e("HEHEH!!!!", p + "");
+            }
+            p += 1;
+        }
+
     }
 
-    int storedposition = -1;
+    void setfsadgasdg(int position) {
+        TextView t = ((TextView) findViewById(R.id.spellContent));
+        int i = LoadOutInfo.setDescription(ShopActivity.e[position].spellType);
+        findViewById(R.id.spellIcon).setBackgroundResource(LoadOutInfo.setResource(ShopActivity.e[position].spellType));
+        t.setText(i);
+        TextView t2 = ((TextView) findViewById(R.id.Title));
+        t2.setText(ShopActivity.e[position].spellType.toString());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,7 +253,7 @@ public class ShopActivity extends Activity {
         ArrayList<LoadOutInfo> v = new ArrayList<LoadOutInfo>();
 
         SpellsAdapter a = new SpellsAdapter(this, v);
-        setstuff(Slot1());
+        setstuff(Slot1(), 1);
         for (LoadOutInfo g : e)
             v.add(g);
         final ListView q = ((ListView) findViewById(R.id.listView3));
@@ -187,12 +262,8 @@ public class ShopActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 storedposition = position;
-                TextView t = ((TextView) findViewById(R.id.spellContent));
-                int i = LoadOutInfo.setDescription(ShopActivity.e[position].spellType);
+                setfsadgasdg(position);
 
-                t.setText(i);
-                TextView t2 = ((TextView) findViewById(R.id.Title));
-                t2.setText(ShopActivity.e[position].spellType.toString());
             }
         });
         for (int i = 0; i < 9; i++) {
@@ -203,51 +274,50 @@ public class ShopActivity extends Activity {
         View.OnClickListener j = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((android.widget.ImageButton) findViewById(R.id.spellslot1)).setBackgroundResource(R.drawable.shop_button);
-                ((android.widget.ImageButton) findViewById(R.id.spellslot2)).setBackgroundResource(R.drawable.shop_button);
-                ((android.widget.ImageButton) findViewById(R.id.spellslot3)).setBackgroundResource(R.drawable.shop_button);
-                ((android.widget.ImageButton) findViewById(R.id.spellslot4)).setBackgroundResource(R.drawable.shop_button);
-                ((android.widget.ImageButton) findViewById(R.id.spellslot5)).setBackgroundResource(R.drawable.shop_button);
-                ((android.widget.ImageButton) findViewById(R.id.spellslot6)).setBackgroundResource(R.drawable.shop_button);
-                ((android.widget.ImageButton) findViewById(R.id.spellslot7)).setBackgroundResource(R.drawable.shop_button);
-                ((android.widget.ImageButton) findViewById(R.id.spellslot8)).setBackgroundResource(R.drawable.shop_button);
-                ((android.widget.ImageButton) findViewById(R.id.spellslot9)).setBackgroundResource(R.drawable.shop_button);
+                findViewById(R.id.spellslot1).setBackgroundResource(R.drawable.shop_button);
+                findViewById(R.id.spellslot2).setBackgroundResource(R.drawable.shop_button);
+                findViewById(R.id.spellslot3).setBackgroundResource(R.drawable.shop_button);
+                findViewById(R.id.spellslot4).setBackgroundResource(R.drawable.shop_button);
+                findViewById(R.id.spellslot5).setBackgroundResource(R.drawable.shop_button);
+                findViewById(R.id.spellslot6).setBackgroundResource(R.drawable.shop_button);
+                findViewById(R.id.spellslot7).setBackgroundResource(R.drawable.shop_button);
+                findViewById(R.id.spellslot8).setBackgroundResource(R.drawable.shop_button);
+                findViewById(R.id.spellslot9).setBackgroundResource(R.drawable.shop_button);
                 v.setBackgroundResource(R.drawable.shop_button_selected);
                 switch (v.getId()) {
                     case R.id.spellslot1:
-                        setstuff(Slot1());
+                        setstuff(Slot1(), 1);
                         break;
                     case R.id.spellslot2:
 
-                        setstuff(Slot2());
+                        setstuff(Slot2(), 2);
                         break;
                     case R.id.spellslot3:
-                        setstuff(Slot3());
+                        setstuff(Slot3(), 3);
                         break;
                     case R.id.spellslot4:
-                        setstuff(Slot4());
+                        setstuff(Slot4(), 4);
                         break;
                     case R.id.spellslot5:
-                        setstuff(Slot5());
-                        ;
+                        setstuff(Slot5(), 5);
                         break;
                     case R.id.spellslot6:
-                        setstuff(Slot6());
+                        setstuff(Slot6(), 6);
                         break;
                     case R.id.spellslot7:
-                        setstuff(Slot7());
+                        setstuff(Slot7(), 7);
                         break;
                     case R.id.spellslot8:
-                        setstuff(Slot8());
+                        setstuff(Slot8(), 8);
                         break;
                     case R.id.spellslot9:
-                        setstuff(Slot9());
+                        setstuff(Slot9(), 9);
                         break;
                 }
             }
         };
-        ((ImageButton) findViewById(R.id.spellslot1)).setOnClickListener(j);
-        ((android.widget.ImageButton) findViewById(R.id.spellslot2)).setOnClickListener(j);
+        findViewById(R.id.spellslot1).setOnClickListener(j);
+        findViewById(R.id.spellslot2).setOnClickListener(j);
         findViewById(R.id.spellslot3).setOnClickListener(j);
         findViewById(R.id.spellslot4).setOnClickListener(j);
         findViewById(R.id.spellslot5).setOnClickListener(j);
@@ -255,21 +325,45 @@ public class ShopActivity extends Activity {
         findViewById(R.id.spellslot7).setOnClickListener(j);
         findViewById(R.id.spellslot8).setOnClickListener(j);
         findViewById(R.id.spellslot9).setOnClickListener(j);
-        ((Button) findViewById(R.id.button)).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (storedposition != -1)
-                    Global.spellList[SelectedIndex].SetOrIncrement(ShopActivity.e[storedposition].spellType);
-                changeIcon(SelectedIndex);
+                if (storedposition != -1) {
+                    boolean change = (Global.spellList[SelectedIndex].spellType == ShopActivity.e[storedposition].spellType);
+                    Log.e("SHOP", Global.spellList[SelectedIndex].spellType + " " + ShopActivity.e[storedposition].spellType);
+                    if (!change) {
+                        final boolean[] s = new boolean[1];
+                        s[0] = false;
+
+                        new AlertDialog.Builder(ShopActivity.this)
+                                .setTitle("Changing Spell")
+                                .setMessage("Do you really want to change This spell??")
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        Global.spellList[SelectedIndex].SetOrIncrement(ShopActivity.e[storedposition].spellType);
+
+                                        changeIcon(SelectedIndex);
+                                        Log.e("SHOP", "SAHGFHGDSH");
+                                    }
+                                })
+                                .setNegativeButton(android.R.string.no, null).show();
+
+                    } else
+                        Global.spellList[SelectedIndex].SetOrIncrement(ShopActivity.e[storedposition].spellType);
+
+                    changeIcon(SelectedIndex);
+                }
             }
         });
-        ((Button) findViewById(R.id.button8)).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.button8).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        ((Button) findViewById(R.id.confirmbutton)).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.confirmbutton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SaveLoadout();
@@ -297,67 +391,12 @@ public class ShopActivity extends Activity {
 
     }
 
-    public static void loadState() {
-        LoadOutInfo[] s = null;
-        FileInputStream inStream = null;
-        try {
-            File f = new File(Environment.getExternalStorageDirectory(), "/data.dat");
-            inStream = new FileInputStream(f);
-            ObjectInputStream objectInStream = new ObjectInputStream(inStream);
-
-            s = ((LoadOutInfo[]) objectInStream.readObject());
-            objectInStream.close();
-        } catch (FileNotFoundException e1) {
-            e1.printStackTrace();
-        } catch (ClassNotFoundException e1) {
-            e1.printStackTrace();
-        } catch (OptionalDataException e1) {
-            e1.printStackTrace();
-        } catch (StreamCorruptedException e1) {
-            e1.printStackTrace();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
-        Log.e("LOADING LOADOUT",s.length+"");
-        if (s != null)
-            for (int i = 0; i < s.length && i < 9; i++) {
-                Global.spellList[i] = s[i];
-                Log.e("LOADING LOADOUT",i+" " + s[i].spellType+"");
-
-            }
-        else {
-            Log.e("FAILED TO LOAD", "YOU SUCK!!!!");
-        }
-        for(LoadOutInfo l:Global.spellList)
-        {
-            Log.e("LOADING LOADOUT",l.spellType+"");
-        }
-    }
-
     private void SaveLoadout() {
         for(LoadOutInfo l:Global.spellList)
         {
             Log.e(" SAVING LOADOUT",l.spellType+"");
         }
         saveState();
-    }
-
-    public static byte[] SerializetoBytes(LoadOutInfo[] gameObjects) {
-
-        try {
-
-            ByteArrayOutputStream fileOut =
-                    new ByteArrayOutputStream();
-            ObjectOutputStream out =
-                    new ObjectOutputStream(fileOut);
-
-            out.writeObject(gameObjects);
-            return fileOut.toByteArray();
-
-        } catch (IOException i) {
-            i.printStackTrace();
-        }
-        return null;
     }
 
     void changeIcon(int i) {
@@ -405,7 +444,7 @@ public class ShopActivity extends Activity {
 
 
         b.setBackgroundResource(LoadOutInfo.setResource(Global.spellList[SelectedIndex].spellType));
-        t.setText("Rank:" + Global.spellList[SelectedIndex].Rank);
+        t.setText("" + Global.spellList[SelectedIndex].Rank);
 
     }
 

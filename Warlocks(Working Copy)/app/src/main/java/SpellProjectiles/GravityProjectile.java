@@ -3,11 +3,8 @@ package SpellProjectiles;
 
 import com.developmental.warlocks.R;
 
-import java.util.ArrayList;
-
 import Tools.Vector;
 import developmental.warlocks.GL.NewHeirarchy.GameObject;
-import developmental.warlocks.Global;
 
 public class GravityProjectile extends Projectile {
 
@@ -19,10 +16,10 @@ public class GravityProjectile extends Projectile {
 
         this.velocity = GetVel(_from.get(), _to.get());
         SetVelocity(this.maxVelocity);
-
-        this.pull = 1;
-
+        this.DiesOnImpact = false;
+        this.AppliesImpulse = true;
 //        this.damagevalue=1;
+        this.AppliesVelocity = false;
     }
     @Override
     protected void Stats(int rank)
@@ -79,9 +76,8 @@ public class GravityProjectile extends Projectile {
 
     }
 
-    @Override
-    protected void setFrames() {
-      FramesNoTail();
+    public void Animate() {
+        super.Animate();
     }
 
     @Override
@@ -93,10 +89,9 @@ public class GravityProjectile extends Projectile {
 
     }
 
-
-
-    public void Animate() {
-     super.Animate();
+    @Override
+    protected void setFrames() {
+        FramesNoTail();
     }
 
 

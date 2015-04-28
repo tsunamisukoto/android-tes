@@ -1,17 +1,13 @@
 package SpellProjectiles;
 
-import android.graphics.Color;
-import android.graphics.Paint;
-
 import com.developmental.warlocks.R;
 
 import javax.microedition.khronos.opengles.GL10;
 
 import HUD.PopupText;
-import Tools.Vector;
 import Particles.FireParticle;
+import Tools.Vector;
 import developmental.warlocks.GL.NewHeirarchy.Collideable;
-import developmental.warlocks.GL.NewHeirarchy.GameObject;
 import developmental.warlocks.GL.SimpleGLRenderer;
 import developmental.warlocks.Global;
 
@@ -25,11 +21,11 @@ public class ExplosionProjectile extends Projectile {
         super(resourceID,_to, _to, shooter,Rank);
         this.damagevalue= _dmg;
         this.size= _s;
-
+        this.health = 1;
         this.objectObjectType = ObjectType.Explosion;
         this.position.x-=bounds.Radius;
         this.position.y-=bounds.Radius;
-        this.knockback= 30;
+        this.knockback = -30;
         this.bounds.Center = position;
         this.velocity= new Vector(0,0);
         for(int i = 0; i<8; i++)
@@ -41,7 +37,11 @@ public class ExplosionProjectile extends Projectile {
         {
 //            SimpleGLRenderer.addParticle(new Particle(_to,new Vector(0,0), 20, this.paint));
             SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Poison, "Explosion Created at " + bounds.Center.x + " , " + bounds.Center.y, SimpleGLRenderer.archie.position, 100));
+            SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Poison, "Explosion Created at " + bounds.Center.x + " , " + bounds.Center.y, bounds.Center, 100));
         }
+        this.AppliesImpulse = true;
+        this.AppliesVelocity = false;
+        this.DiesOnImpact = false;
      }
 
     @Override

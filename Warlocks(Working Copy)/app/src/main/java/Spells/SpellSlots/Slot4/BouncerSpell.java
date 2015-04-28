@@ -1,7 +1,7 @@
 package Spells.SpellSlots.Slot4;
 
 import Actors.Player;
-import SpellProjectiles.BoomerangProjectile;
+import SpellProjectiles.BounceProjectile;
 import Spells.LoadOutInfo;
 import Spells.Spell;
 import Tools.Vector;
@@ -19,6 +19,6 @@ public class BouncerSpell extends Spell {
 
     @Override
     protected void Shoot(iVector Dest, Vector Origin) {
-        SimpleGLRenderer.addObject(new BoomerangProjectile(Origin, new Vector(Dest.x, Dest.y), this.parent, this.Rank));
+        SimpleGLRenderer.addObject(new BounceProjectile(Origin, new Vector(Dest.x, Dest.y), this.parent, this.Rank));
     }
 }

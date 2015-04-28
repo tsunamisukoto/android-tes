@@ -23,7 +23,7 @@ public class IceSprayProjectile extends Projectile {
     @Override
     protected void Stats(int rank)
     {
-        this.maxVelocity = 15;
+        this.maxVelocity = 9f;
 
         switch (rank)
         {

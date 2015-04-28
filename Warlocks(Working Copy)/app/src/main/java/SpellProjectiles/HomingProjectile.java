@@ -1,34 +1,29 @@
 package SpellProjectiles;
 
-import android.util.Log;
-
 import com.developmental.warlocks.R;
 
-import Particles.FireParticle;
 import Tools.Vector;
 import developmental.warlocks.GL.NewHeirarchy.GameObject;
-import developmental.warlocks.GL.SimpleGLRenderer;
 
 /**
  * Created by Scott on 27/07/13.
  */
 public class HomingProjectile extends Projectile {
     GameObject target;
-
-
+    int i = 0;
     public HomingProjectile(Vector _from, Vector _to, GameObject shooter,int Rank) {
         super(R.drawable.spell_homing,_from, _to, shooter,Rank);
 
-        this.acceleration = 0.2f;
+        this.acceleration = 0.1f;
 
 
         this.damagevalue = 7;
     }
-    int i = 0;
+
     @Override
     protected void Stats(int rank)
     {
-        this.maxVelocity = 15;
+        this.maxVelocity = 5.5f;
 
         switch (rank)
         {

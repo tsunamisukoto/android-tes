@@ -17,5 +17,13 @@
         <dex
             dex="F:\WarlocksAndroidUpToDate\app\build\intermediates\pre-dexed\debug\classes-644a10b4d1a2eb781a6d7aff84093effd92707e2.jar"/>
     </item>
+    <item
+        jar="F:\WarlocksGit\android-tes\Warlocks(Working Copy)\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\3.1.36\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="7421dcb3ed9db47a59ec618e2398f0df65c2d480">
+        <dex
+            dex="F:\WarlocksGit\android-tes\Warlocks(Working Copy)\app\build\intermediates\pre-dexed\debug\classes-772da62ef49c294f1af047f92163bbbcabd4d9cf.jar"/>
+    </item>
 
 </items>

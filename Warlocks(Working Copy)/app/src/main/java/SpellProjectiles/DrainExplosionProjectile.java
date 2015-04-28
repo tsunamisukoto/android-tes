@@ -1,8 +1,5 @@
 package SpellProjectiles;
 
-import android.graphics.Color;
-import android.graphics.Paint;
-
 import com.developmental.warlocks.R;
 
 import Tools.Vector;
@@ -20,7 +17,11 @@ public class DrainExplosionProjectile extends ExplosionProjectile {
 
 
             this.objectObjectType = ObjectType.DrainExplosion;
+            this.DealsDamage = false;
 
+            this.healvalue = 5;
+            this.AppliesVelocity = false;
+            this.AppliesImpulse = false;
         }
 
 

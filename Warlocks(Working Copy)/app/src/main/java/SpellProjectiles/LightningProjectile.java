@@ -5,9 +5,6 @@ import com.developmental.warlocks.R;
 
 import java.util.ArrayList;
 
-import javax.microedition.khronos.opengles.GL10;
-import javax.microedition.khronos.opengles.GL11Ext;
-
 import Tools.Vector;
 import developmental.warlocks.GL.Grid;
 import developmental.warlocks.GL.NewHeirarchy.GameObject;
@@ -39,14 +36,20 @@ mGrid= Grid.LightningLineGrid(Range);
         // this.damagevalue=15;
 
         this.knockback =30;
+        this.DiesOnImpact = false;
+        this.AppliesImpulse = true;
+        this.CanBeExploded = false;
+        this.CanBeLinked = false;
+        this.CanBeSwapped = false;
 
+        this.CanExplodeOtherThings = true;
+        this.KillsOnImpact = true;
        // SimpleGLRenderer.addParticle(new glParticle(Start, Dest, this.velocity, 7,  R.drawable.fireball));
         //this.paint.setAlpha(125);
     }
 @Override
     protected void Stats(int rank)
     {
-        this.maxVelocity = 15;
         this.health=1;
         switch (rank)
         {

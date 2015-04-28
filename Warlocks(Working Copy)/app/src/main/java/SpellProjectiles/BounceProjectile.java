@@ -1,6 +1,5 @@
 package SpellProjectiles;
 
-import android.graphics.Canvas;
 import android.util.Log;
 
 import com.developmental.warlocks.R;
@@ -14,18 +13,50 @@ import developmental.warlocks.GL.SimpleGLRenderer;
  * Created by Scott on 28/08/13.
  */
 public class BounceProjectile extends Projectile {
+    public Collideable lastTarget = null;
     public BounceProjectile(Vector _from, Vector _to, GameObject shooter,int Rank) {
         super(R.drawable.spell_boomerang,_from, _to, shooter, Rank);
 
         SetVelocity(maxVelocity);
         lastTarget = owner;
         objectObjectType = ObjectType.Bounce;
-
+        BouncesOnImpact = true;
+        DiesOnImpact = false;
+        AppliesImpulse = false;
+        AppliesVelocity = false;
+        stacks = 25;
     }
+
+    public static void findNewTarget(Collideable me) {
+        Collideable CurrentTarget = null;
+        float minD = 10000;
+
+        for (GameObject p : SimpleGLRenderer.players) {
+            if (p.id != me.owner.id) {
+                if ((me.lastTarget == null) || (me.lastTarget.id != p.id)) {
+                    float totalDist = Vector.DistanceBetween(me.bounds.Center, p.bounds.Center);
+                    if (totalDist < minD) {
+                        minD = totalDist;
+                        CurrentTarget = p;
+                        Log.d("INET", "TARGET SET TO" + CurrentTarget.id);
+                    }
+                }
+            }
+        }
+
+
+        if (CurrentTarget != null) {
+
+            me.velocity = me.GetVel(me.position, CurrentTarget.position);
+            me.SetVelocity(me.maxVelocity);
+            Log.d("INET", "TARGET SET TO" + CurrentTarget.feet.x + "," + CurrentTarget.feet.y);
+        }
+    }
+
     @Override
     protected void Stats(int rank)
     {
-        this.maxVelocity = 40;
+        this.maxVelocity = 9f;
 
         switch (rank)
         {
@@ -74,35 +105,6 @@ public class BounceProjectile extends Projectile {
                 break;
         }
 
-
-    }
-
-   public int bounces = 3;
-    public Collideable lastTarget = null;
-
-    GameObject CurrentTarget = null;
-
-    public void findNewTarget() {
-        CurrentTarget = null;
-        float minD = 10000;
-
-        for (GameObject p : SimpleGLRenderer.players) {
-            if (p.id != owner.id) {
-                if ((lastTarget == null) || (lastTarget.id != p.id)) {
-                    float totalDist = Vector.DistanceBetween(this.bounds.Center,p.bounds.Center);
-                    if (totalDist < minD) {
-                        minD = totalDist;
-                        CurrentTarget = p;
-                        Log.d("INET", "TARGET SET TO" + CurrentTarget.id);
-                    }
-                }
-            }
-        }
-
-
-        this.velocity = this.GetVel(this.position, CurrentTarget.position);
-        SetVelocity(maxVelocity);
-        Log.d("INET", "TARGET SET TO" + CurrentTarget.feet.x + "," + CurrentTarget.feet.y);
 
     }
 

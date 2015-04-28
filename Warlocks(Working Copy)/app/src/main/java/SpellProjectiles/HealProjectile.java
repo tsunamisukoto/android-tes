@@ -1,22 +1,16 @@
 package SpellProjectiles;
+
+import android.util.Log;
+
 import com.developmental.warlocks.R;
 
 import Tools.Vector;
 import developmental.warlocks.GL.NewHeirarchy.Collideable;
-import developmental.warlocks.GL.NewHeirarchy.GameObject;
 
 /**
  * Created by Scott on 1/01/14.
  */
 public class HealProjectile extends Projectile {
-    @Override
-    public void Update() {
-        super.Update();
-        this.destination = owner.bounds.Center.get();
-        if (this.destination != null)
-            MoveTowards(this.destination, maxVelocity , acceleration );
-    }
-
     public HealProjectile(Vector _from, Vector _to, Collideable _shooter,int Rank) {
 
         super(R.drawable.spell_heal,_from,_to,_shooter, Rank);
@@ -24,6 +18,31 @@ public class HealProjectile extends Projectile {
         this.objectObjectType = ObjectType.HealHoming;
         this.maxVelocity=50;
         this.acceleration =4;
+        knockback = 0;
+        AppliesImpulse = false;
+        AppliesVelocity = false;
+        DealsDamage = false;
+        HealsTarget = true;
+        DiesOnImpactWithParent = true;
+        this.DiesOnImpact = false;
+        Log.e("DEBUG!", "CREATED HealPrjectile");
 
+    }
+
+    @Override
+    protected void Stats(int rank) {
+        this.size = new Vector(30, 30);
+        this.maxVelocity = 50;
+        this.acceleration = 4;
+
+        this.damagevalue = 5;
+    }
+
+    @Override
+    public void Update() {
+        super.Update();
+        this.destination = owner.bounds.Center.get();
+        if (this.destination != null)
+            MoveTowards(this.destination, maxVelocity, acceleration);
     }
 }

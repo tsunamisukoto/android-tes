@@ -1,16 +1,14 @@
 package SpellProjectiles;
 
 import android.graphics.Paint;
-import android.util.Log;
 
 import com.developmental.warlocks.R;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import Tools.Vector;
-import Particles.FireParticle;
-import developmental.warlocks.GL.NewHeirarchy.GameObject;
 import Particles.MeteorParticle;
+import Tools.Vector;
+import developmental.warlocks.GL.NewHeirarchy.GameObject;
 import developmental.warlocks.GL.SimpleGLRenderer;
 import developmental.warlocks.Global;
 
@@ -29,12 +27,22 @@ public class MeteorProjectile extends Projectile {
         this.velocity = GetVel(_from, _to);
         this.pull = 10;
         this.knockback= 40;
-
+        this.DiesOnImpact = false;
+        this.DealsDamage = false;
+        this.AppliesVelocity = false;
+        this.AppliesImpulse = false;
+        this.CanBeAbsorbed = false;
     }
+
+    @Override
+    public void draw(GL10 gl, float offsetX, float offsetY, boolean dontDrawInRelationToWorld) {
+        super.draw(gl, offsetX, offsetY, dontDrawInRelationToWorld);
+    }
+
     @Override
     protected void Stats(int rank)
     {
-        this.maxVelocity = 15;
+        this.maxVelocity = 5;
 
         switch (rank)
         {
@@ -85,9 +93,25 @@ public class MeteorProjectile extends Projectile {
 
 
     }
+
     @Override
-    public void draw(GL10 gl, float offsetX, float offsetY, boolean dontDrawInRelationToWorld) {
-        super.draw(gl, offsetX, offsetY, dontDrawInRelationToWorld);
+    public void Update() {
+        if (this.health <= 0) {
+
+            SimpleGLRenderer.addObject(new ExplosionProjectile(0, this.bounds.Center.get(), this.owner, new Vector(200, 200), 5, 3));
+
+        }
+        super.Update();
+        if (this.height > 0) {
+            this.height -= 4;
+            if (this.lifePhase % 3 == 1)
+                SimpleGLRenderer.addParticle(new MeteorParticle(new Vector(this.getCenter().x, this.getCenter().y - height), Vector.multiply(this.velocity, -Global.GetRandomNumer.nextFloat()), 40, R.drawable.particles_meteor2));
+
+            if (this.lifePhase % 3 == 1)
+                SimpleGLRenderer.addParticle(new MeteorParticle(new Vector(this.getCenter().x, this.getCenter().y - height), Vector.multiply(this.velocity, -Global.GetRandomNumer.nextFloat()), 40, R.drawable.spell_grenade));
+        }
+
+
     }
 
     @Override
@@ -103,25 +127,9 @@ public class MeteorProjectile extends Projectile {
 
     }
 
-
     @Override
     protected void setFrames() {
         FramesNoTail();
-    }
-    @Override
-    public void Update() {
-        if (this.health <=0) {
-
-            SimpleGLRenderer.addObject(new ExplosionProjectile(0,this.bounds.Center.get(), this, new Vector(200, 200),5,3));
-
-        }
-        super.Update();
-        if (this.height > 0) {
-            this.height -= 4;
-            SimpleGLRenderer.addParticle(new MeteorParticle(new Vector(this.getCenter().x, this.getCenter().y -height), Vector.multiply(this.velocity, -Global.GetRandomNumer.nextFloat()), 40, R.drawable.particles_meteor));
-        }
-
-
     }
 
 

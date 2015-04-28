@@ -19,8 +19,10 @@ public class Player extends GameObject {
     public void draw(GL10 gl, float offsetX, float offsetY, boolean dontDrawInRelationToWorld) {
         if (!invisible)
             super.draw(gl, offsetX, offsetY, dontDrawInRelationToWorld);
+
         if (shadowClone != null) {
             shadowClone.draw(gl, offsetX, offsetY, dontDrawInRelationToWorld);
+
         }
 
     }

@@ -13,22 +13,22 @@ import developmental.warlocks.GL.SimpleGLRenderer;
 public class PowerBallProjectile extends Projectile{
     public int stacks;
 
+    public PowerBallProjectile(Vector _from, Vector _to, Collideable shooter,int Rank) {
+        super(R.drawable.spell_grenade, _from, _to, shooter,Rank);
+        this.objectObjectType = ObjectType.PowerBall;
+        stacks = 3;
+        SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Burn, stacks + "", this.position.get(), 15));
+    }
+
     @Override
     protected void setFrames() {
         FramesNoTail();
     }
 
-    public PowerBallProjectile(Vector _from, Vector _to, Collideable shooter,int Rank) {
-        super(R.drawable.spell_grenade, _from, _to, shooter,Rank);
-        this.objectObjectType = ObjectType.PowerBall;
-        stacks = 3;
-        SimpleGLRenderer.popupTexts.add(new PopupText( PopupText.TextType.Burn,stacks+"",this.position.get(),15));
-    }
-
     @Override
     protected void Stats(int rank)
     {
-        this.maxVelocity = 15;
+        this.maxVelocity = 3;
 
         switch (rank)
         {

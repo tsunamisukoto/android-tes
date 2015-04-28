@@ -1,8 +1,6 @@
 package Particles;
 
 
-
-import Particles.glParticle;
 import Tools.Vector;
 import developmental.warlocks.Global;
 
@@ -15,7 +13,7 @@ public class MeteorParticle extends glParticle {
     }
     @Override
     protected void Rotate() {
-        if(this.velocity!=null)
-            rotation = 270;
+//        if(this.velocity!=null)
+//            rotation = 270;
     }
 }

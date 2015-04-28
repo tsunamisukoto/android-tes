@@ -17,9 +17,9 @@ public class Moveable extends Renderable {
     //The rate the object is moving in 'x' and 'y' direction.
     public Vector velocity;
     //The Maximum Speed it can get by applying force to itself in the given direction
-    public float maxVelocity = 15f;
+    public float maxVelocity = 8.5f;
     //The amount of force it can apply to change its velocity each frame
-    public float acceleration = 0.75f;
+    public float acceleration = 0.35f;
 
 
 
@@ -40,9 +40,7 @@ public class Moveable extends Renderable {
         //Change the position by the velocity vector
         Movement();
     }
-protected void Movement(){
-    this.position = this.position.add(this.velocity);
-}
+
     /**
      *  The default behaviour of a moveable object is for it to rotate in the direction it is moving.
      */
@@ -51,5 +49,9 @@ protected void Movement(){
     {
         if(this.velocity!=null)
             rotation = (float) Math.toDegrees(Math.atan2(-this.velocity.y, this.velocity.x));
+    }
+
+    protected void Movement() {
+        this.position = this.position.add(this.velocity);
     }
 }

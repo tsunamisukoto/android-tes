@@ -1,8 +1,6 @@
 package Particles;
 
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
 import Tools.Vector;
@@ -28,6 +26,15 @@ public abstract class glParticle extends Moveable {
         this.mGrid= _g;
     }
 
+    @Override
+    public void Animate() {
+        super.Animate();
+        if (lifePhase % this.frameRate == 1)
+            frame++;
+        if (frame >= mGrid.size()) {
+            frame = 0;
+        }
+    }
 
     public void Update() {
         //tick down, and at the end of its lifespan, kill this particle

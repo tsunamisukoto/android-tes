@@ -4,7 +4,6 @@ import com.developmental.warlocks.R;
 
 import Tools.Vector;
 import developmental.warlocks.GL.NewHeirarchy.Collideable;
-import developmental.warlocks.GL.NewHeirarchy.GameObject;
 
 /**
  * Created by Scott on 28/08/13.
@@ -12,12 +11,14 @@ import developmental.warlocks.GL.NewHeirarchy.GameObject;
 public class SplitterChildrenProjectile extends Projectile {
     public SplitterChildrenProjectile(Vector _from, Vector _to, Collideable shooter,int Rank) {
         super(R.drawable.spell_fireball,_from,_to,shooter,Rank);
+        this.CanBeExploded = false;
+        this.CanBeLinked = false;
 
     }
     @Override
     protected void Stats(int rank)
     {
-        this.maxVelocity = 15;
+        this.maxVelocity = 9f;
 
         switch (rank)
         {

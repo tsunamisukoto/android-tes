@@ -3,9 +3,7 @@ package SpellProjectiles;
 import com.developmental.warlocks.R;
 
 import Tools.Vector;
-import developmental.warlocks.GL.NewHeirarchy.Collideable;
 import developmental.warlocks.GL.NewHeirarchy.GameObject;
-import developmental.warlocks.GL.SimpleGLRenderer;
 
 
 /**
@@ -15,19 +13,16 @@ public class SwapProjectile extends Projectile {
     public SwapProjectile(Vector _from, Vector _to, GameObject shooter,int Rank) {
         super(R.drawable.spell_boundsircle,_from, _to, shooter, Rank);
         this.objectObjectType = ObjectType.SwapProjectile;
+        this.CanBeAbsorbed = false;
+        this.CanSwapThings = true;
+        this.CanBeSwapped = false;
     }
 
-    public void Swap(Collideable obj) {
-        Vector l;
-        l = obj.position;
-        obj.position = this.owner.position;
-        this.owner.position = l;
-        SimpleGLRenderer.delObject(this.id);
-    }
+
     @Override
     protected void Stats(int rank)
     {
-        this.maxVelocity = 15;
+        this.maxVelocity = 12f;
 
         switch (rank)
         {

@@ -2,8 +2,6 @@ package SpellProjectiles;
 
 import com.developmental.warlocks.R;
 
-import java.util.ArrayList;
-
 import javax.microedition.khronos.opengles.GL10;
 
 import Game.DamageType;
@@ -16,21 +14,35 @@ import developmental.warlocks.Global;
 public abstract class Projectile extends Collideable {
 
    protected float height = 0;
-    public void SetVelocity(float vel) {
 
-        float totalVel = Math.abs(this.velocity.x) + Math.abs(this.velocity.y);
-        this.velocity = new Vector(vel * this.velocity.x / totalVel, vel
-                * this.velocity.y / totalVel);
-    }
 
-    public Vector GetVel(Vector from, Vector to) {
-        this.position = from;
-        float distanceX = to.x - from.x;
-        float distanceY = to.y - from.y;
-        float totalDist = Vector.DistanceBetween(to, from);
+    public Projectile(int resource, Vector _from, Vector _to, Collideable shooter, int rank) {
+        super(resource, _from, new Vector(100, 100), 50, 0);
+        this.owner = shooter;
+        Vector from = _from.get();
+        Vector to = new Vector(_to.x - size.x / 2, _to.y - size.y / 2);
 
-        return new Vector(this.maxVelocity * (distanceX / totalDist),
-                this.maxVelocity * distanceY / totalDist);
+        this.bounds.Center = position;
+
+        this.maxVelocity = this.maxVelocity;
+        Stats(rank);
+        this.bounds.Radius = this.size.x / 2;
+        this.shadowed = true;
+        this.shadowGrid = Grid.shadowGridGenerateProjectile(size);
+        setFrames();
+        this.objectObjectType = ObjectType.Projectile;
+
+        this.velocity = GetVel(from, to);
+
+        SetVelocity(this.maxVelocity);
+        DiesOnImpact = true;
+        this.KillsOnImpact = false;
+        this.AppliesVelocity = true;
+        this.CanBeSwapped = true;
+        this.CanBeExploded = true;
+        this.CanBeAbsorbed = true;
+        height = 40;
+        //   this.bounds.Radius=size.x;
     }
 
     @Override
@@ -66,35 +78,20 @@ public abstract class Projectile extends Collideable {
             //
 
     }
-protected int framecount = 4;
-    public Projectile(int resource,Vector _from, Vector _to, Collideable shooter,int rank){
-        super(resource,_from, new Vector(100,100),50,0);
-        this.owner = shooter;
-        Vector from = _from.get();
-        Vector to = new Vector(_to.x-size.x/2,_to.y-size.y/2);
 
-        this.bounds.Center = position;
-
-
-        Stats(rank);
-        this.bounds.Radius = this.size.x / 2;
-        this.shadowed=true;
-        this.shadowGrid=Grid.shadowGridGenerateProjectile(size);
-        setFrames();
-        this.objectObjectType = ObjectType.Projectile;
-
-        this.velocity =GetVel(from,to);
-
-        SetVelocity(this.maxVelocity);
-
-
-
-
-        //   this.bounds.Radius=size.x;
+    @Override
+    public void Animate() {
+        super.Animate();
+        if (lifePhase % this.frameRate == 1)
+            frame++;
+        if (frame >= mGrid.size()) {
+            frame = 0;
+        }
     }
+
     protected void Stats(int rank)
     {
-        this.maxVelocity = 15;
+        this.maxVelocity = 4;
 
         switch (rank)
         {
@@ -146,37 +143,6 @@ protected int framecount = 4;
 
     }
 
-    protected void setFrames()
-    {
-    FramesTail();
-
-    }
-    protected void FramesTail()
-    {
-        this.mGrid= new ArrayList<Grid>();
-        for(int i = 0; i< framecount; i++) {
-            Grid backgroundGrid = new Grid(2, 2, false);
-            backgroundGrid.set(0, 0, -1.5f * size.x , -size.y / 2, 0.0f,  0.25f * i, 1.0f, null);
-            backgroundGrid.set(1, 0, size.x / 2, -size.y / 2, 0.0f, 0.25f * (i+1), 1.0f, null);
-            backgroundGrid.set(0, 1, -1.5f * size.x , size.y / 2, 0.0f,  0.25f * i, 0.0f, null);
-            backgroundGrid.set(1, 1, size.x / 2, size.y / 2, 0.0f,  0.25f * (i+1), 0.0f, null);
-            mGrid.add(backgroundGrid);
-        }
-    }
-    protected void FramesNoTail()
-    {
-        this.mGrid= new ArrayList<Grid>();
-        for(int i = 0; i< framecount; i++) {
-            Grid backgroundGrid = new Grid(2, 2, false);
-            backgroundGrid.set(0, 0, -size.x / 2, -size.y / 2, 0.0f,  0.25f * i, 1.0f, null);
-            backgroundGrid.set(1, 0, size.x / 2, -size.y / 2, 0.0f, 0.25f * (i+1), 1.0f, null);
-            backgroundGrid.set(0, 1,- size.x / 2, size.y / 2, 0.0f,  0.25f * i, 0.0f, null);
-            backgroundGrid.set(1, 1, size.x / 2, size.y / 2, 0.0f,  0.25f * (i+1), 0.0f, null);
-            mGrid.add(backgroundGrid);
-        }
-    }
-
-
     public void DealDamageTo(Collideable g) {
         g.Damage(this.damagevalue, DamageType.Spell);
         owner.damageDealtThisRound += damagevalue;
@@ -197,11 +163,9 @@ protected int framecount = 4;
 
     }
 
-
-
-
     @Override
     public void Update() {
+
         if (this.health > 0) {
             super.Update();
             this.health--;

@@ -17,8 +17,9 @@ public class SonicWaveProjectile extends Projectile {
         this.velocity = GetVel(_from.get(), _to.get());
         SetVelocity(this.maxVelocity);
 
-        this.pull = -1;
-
+        this.AppliesImpulse = true;
+        this.DiesOnImpact = false;
+        this.AppliesVelocity = false;
 //        this.damagevalue=1;
     }
 
@@ -27,19 +28,14 @@ public class SonicWaveProjectile extends Projectile {
       FramesNoTail();
     }
 
-    @Override
-    public void Update() {
-        super.Update();
-
-        //Animate();
-        this.bounds.Center = position;
-
+    public void Animate() {
+        super.Animate();
     }
 
     @Override
     protected void Stats(int rank)
     {
-        this.maxVelocity = 15;
+        this.maxVelocity = 5;
 
         switch (rank)
         {
@@ -91,9 +87,13 @@ public class SonicWaveProjectile extends Projectile {
 
     }
 
+    @Override
+    public void Update() {
+        super.Update();
 
-    public void Animate() {
-     super.Animate();
+        //Animate();
+        this.bounds.Center = position;
+
     }
 
 

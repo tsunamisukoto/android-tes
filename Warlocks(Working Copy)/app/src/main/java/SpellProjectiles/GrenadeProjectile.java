@@ -1,15 +1,12 @@
 package SpellProjectiles;
 
-import android.graphics.Paint;
-
 import com.developmental.warlocks.R;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import Tools.Vector;
-import Particles.FireParticle;
-import developmental.warlocks.GL.NewHeirarchy.GameObject;
 import Particles.MeteorParticle;
+import Tools.Vector;
+import developmental.warlocks.GL.NewHeirarchy.GameObject;
 import developmental.warlocks.GL.SimpleGLRenderer;
 import developmental.warlocks.Global;
 
@@ -25,11 +22,28 @@ this.objectObjectType = ObjectType.Meteor;
 this.height= 0;
         this.pull = 10;
         this.knockback= 40;
+        this.DiesOnImpact = false;
+        this.DealsDamage = false;
+        this.AppliesVelocity = false;
+        this.AppliesImpulse = false;
     }
+
+    private Vector CalculateVelocity(Vector from, Vector to) {
+        Vector v = new Vector();
+        v.x = (to.x - from.x) / 100;
+        v.y = (to.y - from.y) / 100;
+        return v;
+    }
+
+    @Override
+    public void draw(GL10 gl, float offsetX, float offsetY, boolean dontDrawInRelationToWorld) {
+        super.draw(gl, offsetX, offsetY, dontDrawInRelationToWorld);
+    }
+
     @Override
     protected void Stats(int rank)
     {
-        this.maxVelocity = 15;
+        this.maxVelocity = 7;
 
         switch (rank)
         {
@@ -81,23 +95,6 @@ this.height= 0;
 
     }
 
-    private Vector CalculateVelocity(Vector from, Vector to) {
-        Vector v = new Vector();
-        v.x = (to.x-from.x)/100;
-        v.y =(to.y-from.y)/100;
-        return v;
-    }
-
-    @Override
-    public void draw(GL10 gl, float offsetX, float offsetY, boolean dontDrawInRelationToWorld) {
-        super.draw(gl, offsetX, offsetY, dontDrawInRelationToWorld);
-    }
-
-
-    @Override
-    protected void setFrames() {
-        FramesNoTail();
-    }
     @Override
     public void Update() {
         if(this.health%10==1)
@@ -108,11 +105,16 @@ this.height= 0;
         this.height+=heightvel;
 
 
-        SimpleGLRenderer.addParticle(new MeteorParticle(new Vector(this.getCenter().x, this.getCenter().y -height), Vector.multiply(this.velocity, -Global.GetRandomNumer.nextFloat()), 40, R.drawable.particles_meteor));
+        SimpleGLRenderer.addParticle(new MeteorParticle(new Vector(this.getCenter().x, this.getCenter().y - height), Vector.multiply(this.velocity, -Global.GetRandomNumer.nextFloat()), 40, R.drawable.particles_meteor));
 
 
 
         }
+
+    @Override
+    protected void setFrames() {
+        FramesNoTail();
+    }
 
 
 

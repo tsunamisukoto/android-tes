@@ -3,9 +3,7 @@ package SpellProjectiles;
 import com.developmental.warlocks.R;
 
 import Tools.Vector;
-import developmental.warlocks.GL.NewHeirarchy.Collideable;
 import developmental.warlocks.GL.NewHeirarchy.GameObject;
-import developmental.warlocks.GL.SimpleGLRenderer;
 
 /**
  * Created by Scott on 2/01/14.
@@ -13,21 +11,27 @@ import developmental.warlocks.GL.SimpleGLRenderer;
 public class PiercingProjectile extends Projectile {
     private int projectiles = 0;
 
+    public PiercingProjectile(Vector _from, Vector _to, GameObject _shooter,int Rank) {
+        super(R.drawable.spell_piercing,_from, _to, _shooter,Rank);
+
+        this.objectObjectType= ObjectType.Piercing ;
+        this.DiesOnImpact = false;
+        this.CanBeExploded = false;
+        this.CanBeLinked = false;
+        this.CanBeSwapped = false;
+        AppliesImpulse = false;
+        AppliesVelocity = false;
+    }
+
     @Override
     protected void setFrames() {
         FramesTail();
     }
 
-    public PiercingProjectile(Vector _from, Vector _to, GameObject _shooter,int Rank) {
-        super(R.drawable.spell_piercing,_from, _to, _shooter,Rank);
-
-        this.objectObjectType= ObjectType.Piercing ;
-    }
-
     @Override
     protected void Stats(int rank)
     {
-        this.maxVelocity = 15;
+        this.maxVelocity = 5f;
 
         switch (rank)
         {

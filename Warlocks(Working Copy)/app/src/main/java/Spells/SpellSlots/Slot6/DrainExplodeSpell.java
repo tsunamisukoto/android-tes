@@ -18,6 +18,6 @@ public class DrainExplodeSpell extends Spell {
 
     @Override
     protected void Shoot(iVector Dest, Vector Origin) {
-        SimpleGLRenderer.addObject(new DrainExplosionProjectile(Origin, new Vector(500, 500), parent,this.Rank));
+        SimpleGLRenderer.addObject(new DrainExplosionProjectile(Origin, new Vector(1000, 1000), parent,this.Rank));
     }
 }

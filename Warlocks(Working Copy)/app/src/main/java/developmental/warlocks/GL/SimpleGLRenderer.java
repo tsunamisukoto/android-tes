@@ -63,15 +63,13 @@ import developmental.warlocks.Global;
  * allocation of vertex buffer objects.
  */
 public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
+    // A reference to the application context.
+    public Context mContext;
     private static final String TAG = SimpleGLRenderer.class.getSimpleName();
     public static ArrayList<glButton> Equips;
     public static List<Collideable> gameObjects = new ArrayList<Collideable>();
     public static NavMesh navMesh;
     public static int Countdown = -1;
-
-
-    public enum Screen {Shop, Game}
-
     public static Screen screen = Screen.Game;
     public static List<glParticle> Particles = new ArrayList<glParticle>();
     public static Player archie;
@@ -82,6 +80,65 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
     public static Point size, trueSize;
     public static Finger finger = new Finger();
     public static List<PopupText> popupTexts = new ArrayList<PopupText>();
+    public static Level.LevelShape lShape;
+    public static glHealthBar archieManaBar;
+    public static SimpleGLRenderer simpleGLRenderer;
+    public static ArrayList<glButton> buttons = new ArrayList<glButton>();
+    public static glHealthBar archieHealthBar;
+    public static SoundPool sp;
+    public static int explosion = 0;
+    public static Renderable bounds;
+    // Specifies the format our textures should be converted to upon load.
+    private static BitmapFactory.Options sBitmapOptions
+            = new BitmapFactory.Options();
+    final String vertexShader =
+            "uniform mat4 u_MVPMatrix;      \n"     // A constant representing the combined model/view/projection matrix.
+
+                    + "attribute vec4 a_Position;     \n"     // Per-vertex position information we will pass in.
+                    + "attribute vec4 a_Color;        \n"     // Per-vertex color information we will pass in.
+
+                    + "varying vec4 v_Color;          \n"     // This will be passed into the fragment shader.
+
+                    + "void main()                    \n"     // The entry point for our vertex shader.
+                    + "{                              \n"
+                    + "   v_Color = a_Color;          \n"     // Pass the color through to the fragment shader.
+                    // It will be interpolated across the triangle.
+                    + "   gl_Position = u_MVPMatrix   \n"     // gl_Position is a special variable used to store the final position.
+                    + "               * a_Position;   \n"     // Multiply the vertex by the matrix to get the final point in
+                    + "}                              \n";    // normalized screen coordinates.
+    final String fragmentShader =
+            "precision mediump float;       \n"     // Set the default precision to medium. We don't need as high of a
+                    // precision in the fragment shader.
+                    + "varying vec4 v_Color;          \n"     // This is the color from the vertex shader interpolated across the
+                    // triangle per fragment.
+                    + "void main()                    \n"     // The entry point for our fragment shader.
+                    + "{                              \n"
+                    + "   gl_FragColor = vec4(0.5,0.2,0.5,0.0);    \n"     // Pass the color directly through the pipeline.
+                    + "}                              \n";
+    private glText textRenderer;
+    // An array of things to draw every frame.
+    private Renderable[] mSprites;
+    // Pre-allocated arrays to use at runtime so that allocation during the
+    // test can be avoided.
+    private int[] mTextureNameWorkspace;
+    private int[] mCropWorkspace;
+    // Determines the use of vertex arrays.
+    private boolean mUseVerts;
+    // Determines the use of vertex buffer objects.
+    private boolean mUseHardwareBuffers;
+
+    public SimpleGLRenderer(Context context, Point size) {
+        Load();
+        // Pre-allocate and store these objects so we can use them at runtime
+        // without allocating memory mid-frame.
+        mTextureNameWorkspace = new int[1];
+        mCropWorkspace = new int[4];
+        SimpleGLRenderer.size = size;
+        // Set our bitmaps to 16-bit, 565 format.
+        sBitmapOptions.inPreferredConfig = Bitmap.Config.RGB_565;
+
+        mContext = context;
+    }
 
     public static void addObject(Collideable obj) {
         gameObjects.add(obj);
@@ -117,7 +174,6 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
 
     }
 
-
     //
 //    public SimpleGLRenderer(Context context, Point _size) {
 //        super(context);
@@ -128,18 +184,6 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
     public static void SetLevelShape(Level.LevelShape _l) {
         lShape = _l;
         l = new Level(lShape, null);
-    }
-
-    public static Level.LevelShape lShape;
-
-    public void Load() {
-
-
-        l = new Level(Level.LevelShape.Ellipse, null);
-        l.iceplatform = new EllipticalPlatform(GameObject.PositiononEllipse(30).add(new Vector(Global.WORLD_BOUND_SIZE.x / 2, Global.WORLD_BOUND_SIZE.y / 2)),
-                new Vector(900, 450), R.drawable.level_platform_ice);
-        gameObjects = new ArrayList<Collideable>();
-
     }
 
     public static void MakePlayers() {
@@ -188,74 +232,6 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
 
         }
 
-    }
-
-    private glText textRenderer;
-    // Specifies the format our textures should be converted to upon load.
-    private static BitmapFactory.Options sBitmapOptions
-            = new BitmapFactory.Options();
-    public static glHealthBar archieManaBar;
-    // An array of things to draw every frame.
-    private Renderable[] mSprites;
-    // Pre-allocated arrays to use at runtime so that allocation during the
-    // test can be avoided.
-    private int[] mTextureNameWorkspace;
-    private int[] mCropWorkspace;
-    // A reference to the application context.
-    public Context mContext;
-    // Determines the use of vertex arrays.
-    private boolean mUseVerts;
-    // Determines the use of vertex buffer objects.
-    private boolean mUseHardwareBuffers;
-    final String vertexShader =
-            "uniform mat4 u_MVPMatrix;      \n"     // A constant representing the combined model/view/projection matrix.
-
-                    + "attribute vec4 a_Position;     \n"     // Per-vertex position information we will pass in.
-                    + "attribute vec4 a_Color;        \n"     // Per-vertex color information we will pass in.
-
-                    + "varying vec4 v_Color;          \n"     // This will be passed into the fragment shader.
-
-                    + "void main()                    \n"     // The entry point for our vertex shader.
-                    + "{                              \n"
-                    + "   v_Color = a_Color;          \n"     // Pass the color through to the fragment shader.
-                    // It will be interpolated across the triangle.
-                    + "   gl_Position = u_MVPMatrix   \n"     // gl_Position is a special variable used to store the final position.
-                    + "               * a_Position;   \n"     // Multiply the vertex by the matrix to get the final point in
-                    + "}                              \n";    // normalized screen coordinates.
-    final String fragmentShader =
-            "precision mediump float;       \n"     // Set the default precision to medium. We don't need as high of a
-                    // precision in the fragment shader.
-                    + "varying vec4 v_Color;          \n"     // This is the color from the vertex shader interpolated across the
-                    // triangle per fragment.
-                    + "void main()                    \n"     // The entry point for our fragment shader.
-                    + "{                              \n"
-                    + "   gl_FragColor = vec4(0.5,0.2,0.5,0.0);    \n"     // Pass the color directly through the pipeline.
-                    + "}                              \n";
-
-    public int createProgram(String vertexSource, String fragmentSource) {
-        int vertexShader = loadShader(GLES20.GL_VERTEX_SHADER, vertexSource);
-        int pixelShader = loadShader(GLES20.GL_FRAGMENT_SHADER, fragmentSource);
-
-        int program = GLES20.glCreateProgram();
-        if (program != 0) {
-            GLES20.glAttachShader(program, vertexShader);
-
-            GLES20.glAttachShader(program, pixelShader);
-
-            GLES20.glLinkProgram(program);
-            int[] linkStatus = new int[1];
-            GLES20.glGetProgramiv(program, GLES20.GL_LINK_STATUS, linkStatus, 0);
-            if (linkStatus[0] != GLES20.GL_TRUE) {
-                Log.e("SHADERS", "Could not link program: ");
-                Log.e("SHADERS", GLES20.glGetProgramInfoLog(program));
-                GLES20.glDeleteProgram(program);
-                program = 0;
-            } else {
-                Log.e("SHADERS", "LINK SUCCESSFUL!");
-
-            }
-        }
-        return program;
     }
 
     //strSource, shader source
@@ -309,6 +285,46 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
         return iProgId;
     }
 
+    public static void playSound(int sound) {
+        sp.play(sound, 1, 1, 1, 0, 1);
+    }
+
+    public void Load() {
+
+
+        l = new Level(Level.LevelShape.Ellipse, null);
+        l.iceplatform = new EllipticalPlatform(GameObject.PositiononEllipse(30).add(new Vector(Global.WORLD_BOUND_SIZE.x / 2, Global.WORLD_BOUND_SIZE.y / 2)),
+                new Vector(900, 450), R.drawable.level_platform_ice);
+        gameObjects = new ArrayList<Collideable>();
+
+    }
+
+    public int createProgram(String vertexSource, String fragmentSource) {
+        int vertexShader = loadShader(GLES20.GL_VERTEX_SHADER, vertexSource);
+        int pixelShader = loadShader(GLES20.GL_FRAGMENT_SHADER, fragmentSource);
+
+        int program = GLES20.glCreateProgram();
+        if (program != 0) {
+            GLES20.glAttachShader(program, vertexShader);
+
+            GLES20.glAttachShader(program, pixelShader);
+
+            GLES20.glLinkProgram(program);
+            int[] linkStatus = new int[1];
+            GLES20.glGetProgramiv(program, GLES20.GL_LINK_STATUS, linkStatus, 0);
+            if (linkStatus[0] != GLES20.GL_TRUE) {
+                Log.e("SHADERS", "Could not link program: ");
+                Log.e("SHADERS", GLES20.glGetProgramInfoLog(program));
+                GLES20.glDeleteProgram(program);
+                program = 0;
+            } else {
+                Log.e("SHADERS", "LINK SUCCESSFUL!");
+
+            }
+        }
+        return program;
+    }
+
     private int loadShader(int shaderType, String source) {
         int shader = GLES20.glCreateShader(shaderType);
         if (shader != 0) {
@@ -326,21 +342,6 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
         return shader;
     }
 
-    public static SimpleGLRenderer simpleGLRenderer;
-
-    public SimpleGLRenderer(Context context, Point size) {
-        Load();
-        // Pre-allocate and store these objects so we can use them at runtime
-        // without allocating memory mid-frame.
-        mTextureNameWorkspace = new int[1];
-        mCropWorkspace = new int[4];
-        this.size = size;
-        // Set our bitmaps to 16-bit, 565 format.
-        sBitmapOptions.inPreferredConfig = Bitmap.Config.RGB_565;
-
-        mContext = context;
-    }
-
     public int[] getConfigSpec() {
         // We don't need a depth buffer, and don't care about our
         // color depth.
@@ -348,23 +349,197 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
         return configSpec;
     }
 
-    public void setSprites(Renderable[] sprites) {
-        mSprites = sprites;
+    /**
+     * Called whenever the surface is created.  This happens at startup, and
+     * may be called again at runtime if the device context is lost (the screen
+     * goes to sleep, etc).  This function must fill the contents of vram with
+     * texture data and (when using VBOs) hardware vertex arrays.
+     */
+    public void surfaceCreated(GL10 gl) {
+         /*
+         * Some one-time OpenGL initialization can be made here probably based
+         * on features of this particular context
+         */
+        gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);
+
+        gl.glClearColor(0.5f, 0.5f, 0.5f, 1);
+        gl.glShadeModel(GL10.GL_FLAT);
+        gl.glDisable(GL10.GL_DEPTH_TEST);
+        gl.glEnable(GL10.GL_TEXTURE_2D);
+        /*
+         * By default, OpenGL enables features that improve quality but reduce
+         * performance. One might want to tweak that especially on software
+         * renderer.
+         */
+        gl.glDisable(GL10.GL_DITHER);
+        gl.glDisable(GL10.GL_LIGHTING);
+
+        gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
+
+        if (mSprites != null) {
+
+            // If we are using hardware buffers and the screen lost context
+            // then the buffer indexes that we recorded previously are now
+            // invalid.  Forget them here and recreate them below.
+            if (mUseHardwareBuffers) {
+                for (int x = 0; x < mSprites.length; x++) {
+                    // Ditch old buffer indexes.
+                    for (Grid g : mSprites[x].getGrid())
+                        g.invalidateHardwareBuffers();
+                }
+            }
+            Global.resources.put(R.drawable.charsheet, loadBitmap(mContext, gl, R.drawable.charsheet));
+            Global.resources.put(R.drawable.charsheetedit, loadBitmap(mContext, gl, R.drawable.charsheetedit));
+            Global.resources.put(R.drawable.charsheet_shadow, loadBitmap(mContext, gl, R.drawable.charsheet_shadow));
+            Global.resources.put(R.drawable.charsheetedit2, loadBitmap(mContext, gl, R.drawable.charsheetedit2));
+            Global.resources.put(R.drawable.charsheetedit4, loadBitmap(mContext, gl, R.drawable.charsheetedit4));
+            Global.resources.put(R.drawable.button_meteor, loadBitmap(mContext, gl, R.drawable.button_meteor));
+            Global.resources.put(R.drawable.button_teleport, loadBitmap(mContext, gl, R.drawable.button_teleport));
+            Global.resources.put(R.drawable.spell_fireball, loadBitmap(mContext, gl, R.drawable.spell_fireball));
+            Global.resources.put(R.drawable.button_fireball, loadBitmap(mContext, gl, R.drawable.button_fireball));
+            Global.resources.put(R.drawable.effect_ice, loadBitmap(mContext, gl, R.drawable.effect_ice));
+            Global.resources.put(R.drawable.button_ice, loadBitmap(mContext, gl, R.drawable.button_ice));
+            Global.resources.put(R.drawable.level_lava, loadBitmap(mContext, gl, R.drawable.level_lava));
+            Global.resources.put(R.drawable.level_platform_round, loadBitmap(mContext, gl, R.drawable.level_platform_round));
+            Global.resources.put(R.drawable.spell_boundsircle, loadBitmap(mContext, gl, R.drawable.spell_boundsircle));
+            Global.resources.put(R.drawable.spell_lightning, loadBitmap(mContext, gl, R.drawable.spell_lightning));
+            Global.resources.put(R.drawable.spell_gravity, loadBitmap(mContext, gl, R.drawable.spell_gravity));
+            Global.resources.put(R.drawable.spell_gravity2, loadBitmap(mContext, gl, R.drawable.spell_gravity2));
+            Global.resources.put(R.drawable.button_gravity, loadBitmap(mContext, gl, R.drawable.button_gravity));
+            Global.resources.put(R.drawable.button_lightning, loadBitmap(mContext, gl, R.drawable.button_lightning));
+            Global.resources.put(R.drawable.button_firespray, loadBitmap(mContext, gl, R.drawable.button_firespray));
+            Global.resources.put(R.drawable.spell_boomerang, loadBitmap(mContext, gl, R.drawable.spell_boomerang));
+            Global.resources.put(R.drawable.button_boots, loadBitmap(mContext, gl, R.drawable.button_boots));
+
+            Global.resources.put(R.drawable.button_shield, loadBitmap(mContext, gl, R.drawable.button_shield));
+
+            Global.resources.put(R.drawable.button_healthstone, loadBitmap(mContext, gl, R.drawable.button_healthstone));
+            Global.resources.put(R.drawable.spell_drain, loadBitmap(mContext, gl, R.drawable.spell_drain));
+            Global.resources.put(R.drawable.spell_iceball, loadBitmap(mContext, gl, R.drawable.spell_iceball));
+            Global.resources.put(R.drawable.spell_meteor, loadBitmap(mContext, gl, R.drawable.spell_meteor));
+            Global.resources.put(R.drawable.hud_healthbar_large, loadBitmap(mContext, gl, R.drawable.hud_healthbar_large));
+            Global.resources.put(R.drawable.font_white, loadBitmap(mContext, gl, R.drawable.font_white));
+            Global.resources.put(R.drawable.font_yellow, loadBitmap(mContext, gl, R.drawable.font_yellow));
+            Global.resources.put(R.drawable.font_red, loadBitmap(mContext, gl, R.drawable.font_red));
+            Global.resources.put(R.drawable.font_green, loadBitmap(mContext, gl, R.drawable.font_green));
+            Global.resources.put(R.drawable.font_purple, loadBitmap(mContext, gl, R.drawable.font_purple));
+            Global.resources.put(R.drawable.font_blue, loadBitmap(mContext, gl, R.drawable.font_blue));
+            Global.resources.put(R.drawable.button_boomerang, loadBitmap(mContext, gl, R.drawable.button_boomerang));
+            Global.resources.put(R.drawable.effect_shield, loadBitmap(mContext, gl, R.drawable.effect_shield));
+            Global.resources.put(R.drawable.button_shield, loadBitmap(mContext, gl, R.drawable.button_shield));
+            Global.resources.put(R.drawable.button_explosion, loadBitmap(mContext, gl, R.drawable.button_explosion));
+            Global.resources.put(R.drawable.button_orbital, loadBitmap(mContext, gl, R.drawable.button_orbital));
+            Global.resources.put(R.drawable.effect_explode, loadBitmap(mContext, gl, R.drawable.effect_explode));
+            Global.resources.put(R.drawable.effect_burn, loadBitmap(mContext, gl, R.drawable.effect_burn));
+            Global.resources.put(R.drawable.button_eyeball, loadBitmap(mContext, gl, R.drawable.button_eyeball));
+            Global.resources.put(R.drawable.spell_illusion, loadBitmap(mContext, gl, R.drawable.spell_illusion));
+            Global.resources.put(R.drawable.button_icesplosion, loadBitmap(mContext, gl, R.drawable.button_icesplosion));
+            Global.resources.put(R.drawable.button_juggernaught, loadBitmap(mContext, gl, R.drawable.button_juggernaught));
+            Global.resources.put(R.drawable.spell_firespray, loadBitmap(mContext, gl, R.drawable.spell_firespray));
+            Global.resources.put(R.drawable.button_illusion, loadBitmap(mContext, gl, R.drawable.button_illusion));
+            Global.resources.put(R.drawable.button_link, loadBitmap(mContext, gl, R.drawable.button_link));
+            Global.resources.put(R.drawable.button_homing, loadBitmap(mContext, gl, R.drawable.button_homing));
+            Global.resources.put(R.drawable.particles_meteor, loadBitmap(mContext, gl, R.drawable.particles_meteor));
+            Global.resources.put(R.drawable.particles_meteor2, loadBitmap(mContext, gl, R.drawable.particles_meteor2));
+            Global.resources.put(R.drawable.shadow, loadBitmap(mContext, gl, R.drawable.shadow));
+            Global.resources.put(R.drawable.button_windwalk, loadBitmap(mContext, gl, R.drawable.button_windwalk));
+            Global.resources.put(R.drawable.spell_homing, loadBitmap(mContext, gl, R.drawable.spell_homing));
+            Global.resources.put(R.drawable.effect_particle, loadBitmap(mContext, gl, R.drawable.effect_particle));
+            Global.resources.put(R.drawable.hud_healthbar_small, loadBitmap(mContext, gl, R.drawable.hud_healthbar_small));
+            Global.resources.put(R.drawable.button_grenade, loadBitmap(mContext, gl, R.drawable.button_grenade));
+            Global.resources.put(R.drawable.spell_grenade, loadBitmap(mContext, gl, R.drawable.spell_grenade));
+            Global.resources.put(R.drawable.spell_orbital, loadBitmap(mContext, gl, R.drawable.spell_orbital));
+            Global.resources.put(R.drawable.spell_heal, loadBitmap(mContext, gl, R.drawable.spell_heal));
+            Global.resources.put(R.drawable.effect_teleport, loadBitmap(mContext, gl, R.drawable.effect_teleport));
+            Global.resources.put(R.drawable.spell_piercing, loadBitmap(mContext, gl, R.drawable.spell_piercing));
+            Global.resources.put(R.drawable.spell_link, loadBitmap(mContext, gl, R.drawable.spell_link));
+            Global.resources.put(R.drawable.spell_link2, loadBitmap(mContext, gl, R.drawable.spell_link2));
+            Global.resources.put(R.drawable.spell_link2_shadow, loadBitmap(mContext, gl, R.drawable.spell_link2_shadow));
+            Global.resources.put(R.drawable.spell_link_head, loadBitmap(mContext, gl, R.drawable.spell_link_head));
+            Global.resources.put(R.drawable.spell_link_head2, loadBitmap(mContext, gl, R.drawable.spell_link_head2));
+            //     Global.resources.put(R.drawable.hud_backbar,loadBitmap(mContext, gl, R.drawable.hud_backbar));
+
+
+            navMesh = new NavMesh(new iVector(20, 20));
+            // Load our texture and set its texture name on all sprites.
+
+            // To keep this sample simple we will assume that sprites that share
+            // the same texture are grouped together in our sprite list. A real
+            // app would probably have another level of texture management,
+            // like a texture hash.
+
+            int lastLoadedResource = -1;
+            int lastTextureId = -1;
+
+            for (int x = 0; x < mSprites.length; x++) {
+                int resource = mSprites[x].getResourceId();
+                if (resource != lastLoadedResource) {
+                    lastTextureId = loadBitmap(mContext, gl, resource);
+                    lastLoadedResource = resource;
+                }
+                mSprites[x].setTextureName(lastTextureId);
+                if (mUseHardwareBuffers) {
+                    for (Grid currentGrid : mSprites[x].getGrid())
+                        if (!currentGrid.usingHardwareBuffers()) {
+                            currentGrid.generateHardwareBuffers(gl);
+                        }
+
+                }
+                this.textRenderer = new glText();
+                sp = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
+                explosion = sp.load(mContext, R.raw.boom, 1);
+
+//                GLES20.glUseProgram(this.createProgram(this.vertexShader, this.fragmentShader));
+            }
+        }
     }
 
-    public static ArrayList<glButton> buttons = new ArrayList<glButton>();
-
     /**
-     * Changes the vertex mode used for drawing.
+     * Called when the rendering thread shuts down.  This is a good place to
+     * release OpenGL ES resources.
      *
-     * @param useVerts           Specifies whether to use a vertex array.  If false, the
-     *                           DrawTexture extension is used.
-     * @param useHardwareBuffers Specifies whether to store vertex arrays in
-     *                           main memory or on the graphics card.  Ignored if useVerts is false.
+     * @param gl
      */
-    public void setVertMode(boolean useVerts, boolean useHardwareBuffers) {
-        mUseVerts = useVerts;
-        mUseHardwareBuffers = useVerts ? useHardwareBuffers : false;
+    public void shutdown(GL10 gl) {
+        if (mSprites != null) {
+
+            int lastFreedResource = -1;
+            int[] textureToDelete = new int[1];
+
+            for (int x = 0; x < mSprites.length; x++) {
+                int resource = mSprites[x].getResourceId();
+                if (resource != lastFreedResource) {
+                    textureToDelete[0] = mSprites[x].getTextureName();
+                    gl.glDeleteTextures(1, textureToDelete, 0);
+                    mSprites[x].setTextureName(0);
+                }
+                if (mUseHardwareBuffers) {
+                    for (Grid g : mSprites[x].getGrid())
+                        g.releaseHardwareBuffers(gl);
+                }
+            }
+        }
+
+    }
+
+    /* Called when the size of the window changes. */
+    public void sizeChanged(GL10 gl, int width, int height) {
+        gl.glViewport(0, 0, width, height);
+
+        /*
+         * Set our projection matrix. This doesn't have to be done each time we
+         * draw, but usually a new projection needs to be set when the viewport
+         * is resized.
+         */
+        gl.glMatrixMode(GL10.GL_PROJECTION);
+        gl.glLoadIdentity();
+        gl.glOrthof(0.0f, width, 0.0f, height, 0.0f, 1.0f);
+
+        gl.glShadeModel(GL10.GL_FLAT);
+        gl.glEnable(GL10.GL_BLEND);
+        gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
+        gl.glColor4x(0x10000, 0x10000, 0x10000, 0x10000);
+        gl.glEnable(GL10.GL_TEXTURE_2D);
     }
 
     /**
@@ -434,7 +609,7 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
             for (int i = 0; i < Equips.size(); i++) {
                 glButton s = Equips.get(i);
                 s.spellResource = Global.resources.get(archie.Equipment[i].Resource);
-                Log.e("EQUIPS", s.position.x + "  " + s.position.y);
+                //Log.e("EQUIPS", s.position.x + "  " + s.position.y);
                 s.draw(gl, 0, 0, true);
             }
 
@@ -451,201 +626,21 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
         }
     }
 
-    public static glHealthBar archieHealthBar;
-
-    /* Called when the size of the window changes. */
-    public void sizeChanged(GL10 gl, int width, int height) {
-        gl.glViewport(0, 0, width, height);
-
-        /*
-         * Set our projection matrix. This doesn't have to be done each time we
-         * draw, but usually a new projection needs to be set when the viewport
-         * is resized.
-         */
-        gl.glMatrixMode(GL10.GL_PROJECTION);
-        gl.glLoadIdentity();
-        gl.glOrthof(0.0f, width, 0.0f, height, 0.0f, 1.0f);
-
-        gl.glShadeModel(GL10.GL_FLAT);
-        gl.glEnable(GL10.GL_BLEND);
-        gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
-        gl.glColor4x(0x10000, 0x10000, 0x10000, 0x10000);
-        gl.glEnable(GL10.GL_TEXTURE_2D);
+    public void setSprites(Renderable[] sprites) {
+        mSprites = sprites;
     }
 
     /**
-     * Called whenever the surface is created.  This happens at startup, and
-     * may be called again at runtime if the device context is lost (the screen
-     * goes to sleep, etc).  This function must fill the contents of vram with
-     * texture data and (when using VBOs) hardware vertex arrays.
-     */
-    public void surfaceCreated(GL10 gl) {
-         /*
-         * Some one-time OpenGL initialization can be made here probably based
-         * on features of this particular context
-         */
-        gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);
-
-        gl.glClearColor(0.5f, 0.5f, 0.5f, 1);
-        gl.glShadeModel(GL10.GL_FLAT);
-        gl.glDisable(GL10.GL_DEPTH_TEST);
-        gl.glEnable(GL10.GL_TEXTURE_2D);
-        /*
-         * By default, OpenGL enables features that improve quality but reduce
-         * performance. One might want to tweak that especially on software
-         * renderer.
-         */
-        gl.glDisable(GL10.GL_DITHER);
-        gl.glDisable(GL10.GL_LIGHTING);
-
-        gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
-
-        if (mSprites != null) {
-
-            // If we are using hardware buffers and the screen lost context
-            // then the buffer indexes that we recorded previously are now
-            // invalid.  Forget them here and recreate them below.
-            if (mUseHardwareBuffers) {
-                for (int x = 0; x < mSprites.length; x++) {
-                    // Ditch old buffer indexes.
-                    for (Grid g : mSprites[x].getGrid())
-                        g.invalidateHardwareBuffers();
-                }
-            }
-            Global.resources.put(R.drawable.charsheet, loadBitmap(mContext, gl, R.drawable.charsheet));
-            Global.resources.put(R.drawable.charsheetedit, loadBitmap(mContext, gl, R.drawable.charsheetedit));
-            Global.resources.put(R.drawable.charsheet_shadow, loadBitmap(mContext, gl, R.drawable.charsheet_shadow));
-            Global.resources.put(R.drawable.charsheetedit2, loadBitmap(mContext, gl, R.drawable.charsheetedit2));
-            Global.resources.put(R.drawable.charsheetedit4, loadBitmap(mContext, gl, R.drawable.charsheetedit4));
-            Global.resources.put(R.drawable.button_meteor, loadBitmap(mContext, gl, R.drawable.button_meteor));
-            Global.resources.put(R.drawable.button_teleport, loadBitmap(mContext, gl, R.drawable.button_teleport));
-            Global.resources.put(R.drawable.spell_fireball, loadBitmap(mContext, gl, R.drawable.spell_fireball));
-            Global.resources.put(R.drawable.button_fireball, loadBitmap(mContext, gl, R.drawable.button_fireball));
-            Global.resources.put(R.drawable.effect_ice, loadBitmap(mContext, gl, R.drawable.effect_ice));
-            Global.resources.put(R.drawable.button_ice, loadBitmap(mContext, gl, R.drawable.button_ice));
-            Global.resources.put(R.drawable.level_lava, loadBitmap(mContext, gl, R.drawable.level_lava));
-            Global.resources.put(R.drawable.level_platform_round, loadBitmap(mContext, gl, R.drawable.level_platform_round));
-            Global.resources.put(R.drawable.spell_boundsircle, loadBitmap(mContext, gl, R.drawable.spell_boundsircle));
-            Global.resources.put(R.drawable.spell_lightning, loadBitmap(mContext, gl, R.drawable.spell_lightning));
-            Global.resources.put(R.drawable.spell_gravity, loadBitmap(mContext, gl, R.drawable.spell_gravity));
-            Global.resources.put(R.drawable.spell_gravity2, loadBitmap(mContext, gl, R.drawable.spell_gravity2));
-            Global.resources.put(R.drawable.button_gravity, loadBitmap(mContext, gl, R.drawable.button_gravity));
-            Global.resources.put(R.drawable.button_lightning, loadBitmap(mContext, gl, R.drawable.button_lightning));
-            Global.resources.put(R.drawable.button_firespray, loadBitmap(mContext, gl, R.drawable.button_firespray));
-            Global.resources.put(R.drawable.spell_boomerang, loadBitmap(mContext, gl, R.drawable.spell_boomerang));
-            Global.resources.put(R.drawable.button_boots, loadBitmap(mContext, gl, R.drawable.button_boots));
-            Global.resources.put(R.drawable.button_shield, loadBitmap(mContext, gl, R.drawable.button_shield));
-            Global.resources.put(R.drawable.button_healthstone, loadBitmap(mContext, gl, R.drawable.button_healthstone));
-            Global.resources.put(R.drawable.spell_drain, loadBitmap(mContext, gl, R.drawable.spell_drain));
-            Global.resources.put(R.drawable.spell_iceball, loadBitmap(mContext, gl, R.drawable.spell_iceball));
-            Global.resources.put(R.drawable.spell_meteor, loadBitmap(mContext, gl, R.drawable.spell_meteor));
-            Global.resources.put(R.drawable.hud_healthbar_large, loadBitmap(mContext, gl, R.drawable.hud_healthbar_large));
-            Global.resources.put(R.drawable.font_white, loadBitmap(mContext, gl, R.drawable.font_white));
-            Global.resources.put(R.drawable.font_yellow, loadBitmap(mContext, gl, R.drawable.font_yellow));
-            Global.resources.put(R.drawable.font_red, loadBitmap(mContext, gl, R.drawable.font_red));
-            Global.resources.put(R.drawable.font_green, loadBitmap(mContext, gl, R.drawable.font_green));
-            Global.resources.put(R.drawable.font_purple, loadBitmap(mContext, gl, R.drawable.font_purple));
-            Global.resources.put(R.drawable.font_blue, loadBitmap(mContext, gl, R.drawable.font_blue));
-            Global.resources.put(R.drawable.button_boomerang, loadBitmap(mContext, gl, R.drawable.button_boomerang));
-            Global.resources.put(R.drawable.effect_shield, loadBitmap(mContext, gl, R.drawable.effect_shield));
-            Global.resources.put(R.drawable.button_shield, loadBitmap(mContext, gl, R.drawable.button_shield));
-            Global.resources.put(R.drawable.button_explosion, loadBitmap(mContext, gl, R.drawable.button_explosion));
-            Global.resources.put(R.drawable.button_orbital, loadBitmap(mContext, gl, R.drawable.button_orbital));
-            Global.resources.put(R.drawable.effect_explode, loadBitmap(mContext, gl, R.drawable.effect_explode));
-            Global.resources.put(R.drawable.effect_burn, loadBitmap(mContext, gl, R.drawable.effect_burn));
-            Global.resources.put(R.drawable.button_eyeball, loadBitmap(mContext, gl, R.drawable.button_eyeball));
-            Global.resources.put(R.drawable.spell_illusion, loadBitmap(mContext, gl, R.drawable.spell_illusion));
-            Global.resources.put(R.drawable.button_icesplosion, loadBitmap(mContext, gl, R.drawable.button_icesplosion));
-            Global.resources.put(R.drawable.button_juggernaught, loadBitmap(mContext, gl, R.drawable.button_juggernaught));
-            Global.resources.put(R.drawable.spell_firespray, loadBitmap(mContext, gl, R.drawable.spell_firespray));
-            Global.resources.put(R.drawable.button_illusion, loadBitmap(mContext, gl, R.drawable.button_illusion));
-            Global.resources.put(R.drawable.button_link, loadBitmap(mContext, gl, R.drawable.button_link));
-            Global.resources.put(R.drawable.button_homing, loadBitmap(mContext, gl, R.drawable.button_homing));
-            Global.resources.put(R.drawable.particles_meteor, loadBitmap(mContext, gl, R.drawable.particles_meteor));
-            Global.resources.put(R.drawable.particles_meteor2, loadBitmap(mContext, gl, R.drawable.particles_meteor2));
-            Global.resources.put(R.drawable.shadow, loadBitmap(mContext, gl, R.drawable.shadow));
-            Global.resources.put(R.drawable.button_windwalk, loadBitmap(mContext, gl, R.drawable.button_windwalk));
-            Global.resources.put(R.drawable.spell_homing, loadBitmap(mContext, gl, R.drawable.spell_homing));
-            Global.resources.put(R.drawable.effect_particle, loadBitmap(mContext, gl, R.drawable.effect_particle));
-            Global.resources.put(R.drawable.hud_healthbar_small, loadBitmap(mContext, gl, R.drawable.hud_healthbar_small));
-            Global.resources.put(R.drawable.button_grenade, loadBitmap(mContext, gl, R.drawable.button_grenade));
-            Global.resources.put(R.drawable.spell_grenade, loadBitmap(mContext, gl, R.drawable.spell_grenade));
-            Global.resources.put(R.drawable.spell_orbital, loadBitmap(mContext, gl, R.drawable.spell_orbital));
-            Global.resources.put(R.drawable.spell_heal, loadBitmap(mContext, gl, R.drawable.spell_heal));
-            Global.resources.put(R.drawable.effect_teleport, loadBitmap(mContext, gl, R.drawable.effect_teleport));
-            Global.resources.put(R.drawable.spell_piercing, loadBitmap(mContext, gl, R.drawable.spell_piercing));
-            Global.resources.put(R.drawable.spell_link, loadBitmap(mContext, gl, R.drawable.spell_link));
-            Global.resources.put(R.drawable.spell_link_head, loadBitmap(mContext, gl, R.drawable.spell_link_head));
-            //     Global.resources.put(R.drawable.hud_backbar,loadBitmap(mContext, gl, R.drawable.hud_backbar));
-
-
-            this.navMesh = new NavMesh(new iVector(20, 20));
-            // Load our texture and set its texture name on all sprites.
-
-            // To keep this sample simple we will assume that sprites that share
-            // the same texture are grouped together in our sprite list. A real
-            // app would probably have another level of texture management,
-            // like a texture hash.
-
-            int lastLoadedResource = -1;
-            int lastTextureId = -1;
-
-            for (int x = 0; x < mSprites.length; x++) {
-                int resource = mSprites[x].getResourceId();
-                if (resource != lastLoadedResource) {
-                    lastTextureId = loadBitmap(mContext, gl, resource);
-                    lastLoadedResource = resource;
-                }
-                mSprites[x].setTextureName(lastTextureId);
-                if (mUseHardwareBuffers) {
-                    for (Grid currentGrid : mSprites[x].getGrid())
-                        if (!currentGrid.usingHardwareBuffers()) {
-                            currentGrid.generateHardwareBuffers(gl);
-                        }
-
-                }
-                this.textRenderer = new glText();
-                sp = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
-                explosion = sp.load(mContext, R.raw.boom, 1);
-
-//                GLES20.glUseProgram(this.createProgram(this.vertexShader, this.fragmentShader));
-            }
-        }
-    }
-
-    public static void playSound(int sound) {
-        sp.play(sound, 1, 1, 1, 0, 1);
-    }
-
-    public static SoundPool sp;
-    public static int explosion = 0;
-
-    /**
-     * Called when the rendering thread shuts down.  This is a good place to
-     * release OpenGL ES resources.
+     * Changes the vertex mode used for drawing.
      *
-     * @param gl
+     * @param useVerts           Specifies whether to use a vertex array.  If false, the
+     *                           DrawTexture extension is used.
+     * @param useHardwareBuffers Specifies whether to store vertex arrays in
+     *                           main memory or on the graphics card.  Ignored if useVerts is false.
      */
-    public void shutdown(GL10 gl) {
-        if (mSprites != null) {
-
-            int lastFreedResource = -1;
-            int[] textureToDelete = new int[1];
-
-            for (int x = 0; x < mSprites.length; x++) {
-                int resource = mSprites[x].getResourceId();
-                if (resource != lastFreedResource) {
-                    textureToDelete[0] = mSprites[x].getTextureName();
-                    gl.glDeleteTextures(1, textureToDelete, 0);
-                    mSprites[x].setTextureName(0);
-                }
-                if (mUseHardwareBuffers) {
-                    for (Grid g : mSprites[x].getGrid())
-                        g.releaseHardwareBuffers(gl);
-                }
-            }
-        }
-
+    public void setVertMode(boolean useVerts, boolean useHardwareBuffers) {
+        mUseVerts = useVerts;
+        mUseHardwareBuffers = useVerts ? useHardwareBuffers : false;
     }
 
     /**
@@ -703,5 +698,5 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
         return textureName;
     }
 
-    public static Renderable bounds;
+    public enum Screen {Shop, Game}
 }

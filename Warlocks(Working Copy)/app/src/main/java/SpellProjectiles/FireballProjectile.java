@@ -2,11 +2,9 @@ package SpellProjectiles;
 
 import com.developmental.warlocks.R;
 
-import Particles.FireParticle;
 import Spells.Archetype.ArchetypePower;
 import Tools.Vector;
 import developmental.warlocks.GL.NewHeirarchy.GameObject;
-import developmental.warlocks.GL.SimpleGLRenderer;
 
 public class FireballProjectile extends Projectile {
 
@@ -17,7 +15,7 @@ public class FireballProjectile extends Projectile {
 
     @Override
     protected void Stats(int rank) {
-        this.maxVelocity = 15;
+        this.maxVelocity = 9.5f;
 
         switch (rank) {
             case 1:
@@ -71,8 +69,8 @@ public class FireballProjectile extends Projectile {
     public void Update() {
 
         super.Update();
-        SimpleGLRenderer.addParticle(new FireParticle(this.bounds.Center, Vector.multiply(this.velocity, 0.5f), 10, R.drawable.spell_fireball));
-        SimpleGLRenderer.addParticle(new FireParticle(this.bounds.Center, Vector.multiply(this.velocity, 0.5f), 10, R.drawable.spell_fireball));
+//        SimpleGLRenderer.addParticle(new FireParticle(this.bounds.Center, Vector.multiply(this.velocity, 0.5f), 10, R.drawable.spell_fireball));
+//        SimpleGLRenderer.addParticle(new FireParticle(this.bounds.Center, Vector.multiply(this.velocity, 0.5f), 10, R.drawable.spell_fireball));
 
         // SimpleGLRenderer.addParticle(new Particle(this.getCenter(), this.velocity.multiply(this.velocity, -Global.GetRandomNumer.nextFloat()),10));
 
