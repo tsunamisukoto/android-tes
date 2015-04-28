@@ -270,21 +270,24 @@ containing a value of this type.
         public static final int spell_illusion=0x7f02006c;
         public static final int spell_lightning=0x7f02006d;
         public static final int spell_link=0x7f02006e;
-        public static final int spell_link_head=0x7f02006f;
-        public static final int spell_meteor=0x7f020070;
-        public static final int spell_orbital=0x7f020071;
-        public static final int spell_piercing=0x7f020072;
+        public static final int spell_link2=0x7f02006f;
+        public static final int spell_link2_shadow=0x7f020070;
+        public static final int spell_link_head=0x7f020071;
+        public static final int spell_link_head2=0x7f020072;
+        public static final int spell_meteor=0x7f020073;
+        public static final int spell_orbital=0x7f020074;
+        public static final int spell_piercing=0x7f020075;
     }
     public static final class id {
-        public static final int SpellID=0x7f07004c;
-        public static final int SpellRank=0x7f07004b;
+        public static final int SpellID=0x7f07004d;
+        public static final int SpellRank=0x7f07004c;
         public static final int Title=0x7f070020;
-        public static final int action_settings=0x7f07004d;
-        public static final int button=0x7f070048;
+        public static final int action_settings=0x7f07004e;
+        public static final int button=0x7f070049;
         public static final int button1=0x7f070006;
-        public static final int button8=0x7f070047;
+        public static final int button8=0x7f070048;
         public static final int changetomenu=0x7f070010;
-        public static final int confirmbutton=0x7f070049;
+        public static final int confirmbutton=0x7f07004a;
         public static final int container=0x7f070005;
         public static final int createroom=0x7f070018;
         public static final int debug=0x7f07001b;
@@ -324,9 +327,10 @@ containing a value of this type.
         public static final int relativeLayout3=0x7f070040;
         public static final int runTest=0x7f070016;
         public static final int satellite=0x7f070002;
-        public static final int scrollView=0x7f070046;
-        public static final int singleplayerbeginbutton=0x7f07004a;
+        public static final int scrollView=0x7f070047;
+        public static final int singleplayerbeginbutton=0x7f07004b;
         public static final int spellContent=0x7f070019;
+        public static final int spellIcon=0x7f070046;
         public static final int spellslot1=0x7f07000c;
         public static final int spellslot2=0x7f070007;
         public static final int spellslot3=0x7f07000a;

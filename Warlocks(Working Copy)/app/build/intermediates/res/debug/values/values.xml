@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
-
-    <!-- From: file:/C:/Users/Scott/Desktop/Warlocks/app/src/main/res/values/strings.xml -->
-    <eat-comment />
-
+    <!-- From: file:/F:/WarlocksGit/android-tes/Warlocks(Working%20Copy)/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
     <string-array name="baseoptions">
+
         <item>Slot One</item>
+
         <item>Slot Two</item>
+
         <item>Slot Three</item>
+
         <item>Slot Four</item>
+
         <item>Slot Five</item>
+
         <item>Slot Six</item>
+
         <item>Slot Seven</item>
+
         <item>Slot Eight</item>
+
         <item>Slot Nine</item>
+
         <item>Slot Ten</item>
+
     </string-array>
-    <!-- From: file:/C:/Users/Scott/Desktop/Warlocks/app/src/main/res/values/colors.xml -->
-    <eat-comment />
-
+    <!-- From: file:/F:/WarlocksGit/android-tes/Warlocks(Working%20Copy)/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
     <color name="black_overlay">#66000000</color>
-    <!-- From: file:/C:/Users/Scott/Desktop/Warlocks/build/intermediates/exploded-aar/com.google.android.gms/play-services/3.1.36/res/values/colors.xml -->
-    <eat-comment />
-
+    <!-- From: file:/F:/WarlocksGit/android-tes/Warlocks(Working%20Copy)/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/3.1.36/res/values/colors.xml -->
+    <eat-comment/>
     <color name="common_action_bar_splitter">#d2d2d2</color>
     <color name="common_signin_btn_dark_text_default">@android:color/white</color>
     <color name="common_signin_btn_dark_text_disabled">#FFAAAAAA</color>
@@ -33,46 +40,14 @@
     <color name="common_signin_btn_light_text_disabled">#FFAAAAAA</color>
     <color name="common_signin_btn_light_text_focused">#FF737373</color>
     <color name="common_signin_btn_light_text_pressed">@android:color/white</color>
-    <!-- From: file:/C:/Users/Scott/Desktop/Warlocks/app/src/main/res/values/attrs.xml -->
-    <eat-comment />
-
-    <declare-styleable name="ButtonBarContainerTheme">
-        <attr name="buttonBarStyle" format="reference" />
-        <attr name="buttonBarButtonStyle" format="reference" />
-    </declare-styleable>
-    <!-- From: file:/C:/Users/Scott/Desktop/Warlocks/build/intermediates/exploded-aar/com.google.android.gms/play-services/3.1.36/res/values/maps_attrs.xml -->
-    <eat-comment />
-
-    <declare-styleable name="MapAttrs">
-        <attr name="mapType" format="enum">
-            <enum name="none" value="0" />
-            <enum name="normal" value="1" />
-            <enum name="satellite" value="2" />
-            <enum name="terrain" value="3" />
-            <enum name="hybrid" value="4" />
-        </attr>
-        <attr name="cameraBearing" format="float" />
-        <attr name="cameraTargetLat" format="float" />
-        <attr name="cameraTargetLng" format="float" />
-        <attr name="cameraTilt" format="float" />
-        <attr name="cameraZoom" format="float" />
-        <attr name="uiCompass" format="boolean" />
-        <attr name="uiRotateGestures" format="boolean" />
-        <attr name="uiScrollGestures" format="boolean" />
-        <attr name="uiTiltGestures" format="boolean" />
-        <attr name="uiZoomControls" format="boolean" />
-        <attr name="uiZoomGestures" format="boolean" />
-        <attr name="useViewLifecycle" format="boolean" />
-        <attr name="zOrderOnTop" format="boolean" />
-    </declare-styleable>
-    <!-- From: file:/C:/Users/Scott/Desktop/Warlocks/app/src/main/res/values/dimens.xml -->
-    <eat-comment />
-
+    <declare-styleable name="ButtonBarContainerTheme"><attr format="reference" name="buttonBarStyle"/><attr format="reference" name="buttonBarButtonStyle"/></declare-styleable>
+    <declare-styleable name="MapAttrs"><attr format="enum" name="mapType"><enum name="none" value="0"/><enum name="normal" value="1"/><enum name="satellite" value="2"/><enum name="terrain" value="3"/><enum name="hybrid" value="4"/></attr><attr format="float" name="cameraBearing"/><attr format="float" name="cameraTargetLat"/><attr format="float" name="cameraTargetLng"/><attr format="float" name="cameraTilt"/><attr format="float" name="cameraZoom"/><attr format="boolean" name="uiCompass"/><attr format="boolean" name="uiRotateGestures"/><attr format="boolean" name="uiScrollGestures"/><attr format="boolean" name="uiTiltGestures"/><attr format="boolean" name="uiZoomControls"/><attr format="boolean" name="uiZoomGestures"/><attr format="boolean" name="useViewLifecycle"/><attr format="boolean" name="zOrderOnTop"/></declare-styleable>
+    <!-- From: file:/F:/WarlocksGit/android-tes/Warlocks(Working%20Copy)/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/C:/Users/Scott/Desktop/Warlocks/app/src/main/res/values/strings.xml -->
-    <eat-comment />
-
+    <!-- From: file:/F:/WarlocksGit/android-tes/Warlocks(Working%20Copy)/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
     <string name="AnimateTitle">Animate</string>
     <string name="CanvasTitle">Canvas</string>
     <string name="DonutButton">Donut</string>
@@ -86,58 +61,92 @@
     <string name="ResumeButton">Resume</string>
     <string name="RunTestTitle">Run Test</string>
     <string name="SinglePlayerButton">Single Player</string>
-    <string name="SpriteTitle">Sprites:</string>
+    <string name="SpriteTitle">Enemies:</string>
     <string name="UseDrawTextureTitle">Use Draw Texture Extension</string>
     <string name="UseVBOTitle">Use VBO Extension</string>
     <string name="UseVertsTitle">Use Basic Vert Quads</string>
     <string name="action_settings">Settings</string>
     <string name="app_id">357193755336</string>
     <string name="app_name">WarlockGame</string>
-    <!-- From: file:/C:/Users/Scott/Desktop/Warlocks/build/intermediates/exploded-aar/com.google.android.gms/play-services/3.1.36/res/values/strings.xml -->
-    <eat-comment />
-
+    <!-- From: file:/F:/WarlocksGit/android-tes/Warlocks(Working%20Copy)/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/3.1.36/res/values/strings.xml -->
+    <eat-comment/>
     <string name="auth_client_availability_notification_title">Install/Update/Enable Google Play services</string>
     <string name="auth_client_play_services_err_notification_msg">Google Play services error</string>
     <string name="auth_client_requested_by_msg">Requested by <ns1:g id="app_name">%1$s</ns1:g></string>
-    <string name="common_google_play_services_enable_button" msgid="2523291102206661146">Enable Google Play services</string>
-    <string name="common_google_play_services_enable_text" msgid="227660514972886228">This app won\'t work unless you enable Google Play services.</string>
-    <string name="common_google_play_services_enable_title" msgid="5122002158466380389">Enable Google Play services</string>
-    <string name="common_google_play_services_install_button" msgid="7153882981874058840">Get Google Play services</string>
-    <string name="common_google_play_services_install_text_phone" msgid="2122112764540849864">This app won\'t run without Google Play services, which are missing from your phone.</string>
-    <string name="common_google_play_services_install_text_tablet" msgid="7351599665250191022">This app won\'t run without Google Play services, which are missing from your tablet.</string>
-    <string name="common_google_play_services_install_title" msgid="7215213145546190223">Get Google Play services</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable Google Play services</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">This app won\'t work unless you enable Google Play services.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Get Google Play services</string>
+    <string msgid="2122112764540849864" name="common_google_play_services_install_text_phone">This app won\'t run without Google Play services, which are missing from your phone.</string>
+    <string msgid="7351599665250191022" name="common_google_play_services_install_text_tablet">This app won\'t run without Google Play services, which are missing from your tablet.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Get Google Play services</string>
     <string name="common_google_play_services_unknown_issue">Unknown issue with Google Play services.</string>
     <string name="common_google_play_services_unsupported_text">Google Play services, which some of your applications rely on, is not supported by your device. Please contact the manufacturer for assistance.</string>
     <string name="common_google_play_services_unsupported_title">Google Play services</string>
-    <string name="common_google_play_services_update_button" msgid="6556509956452265614">Update</string>
-    <string name="common_google_play_services_update_text" msgid="9053896323427875356">This app won\'t run unless you update Google Play services.</string>
-    <string name="common_google_play_services_update_title" msgid="1788179980625863495">Update Google Play services</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Update</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">This app won\'t run unless you update Google Play services.</string>
+    <string msgid="1788179980625863495" name="common_google_play_services_update_title">Update Google Play services</string>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
-    <!-- From: file:/C:/Users/Scott/Desktop/Warlocks/app/src/main/res/values/strings.xml -->
-    <eat-comment />
-
+    <!-- From: file:/F:/WarlocksGit/android-tes/Warlocks(Working%20Copy)/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
     <string name="dialog_ok">OK</string>
     <string name="dialog_title">Profile Results</string>
     <string name="hello_world">Hello world!</string>
     <string name="hello_world2">Hello worlds!</string>
-    <!-- From: file:/C:/Users/Scott/Desktop/Warlocks/build/intermediates/exploded-aar/com.google.android.gms/play-services/3.1.36/res/values/strings.xml -->
-    <eat-comment />
-
-    <string name="location_client_ulr_inactive_age_under_13" translatable="false">        AgeUnder13</string>
+    <!-- From: file:/F:/WarlocksGit/android-tes/Warlocks(Working%20Copy)/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/3.1.36/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="location_client_ulr_inactive_age_under_13" translatable="false">
+        AgeUnder13
+    </string>
     <string name="location_client_ulr_inactive_age_unknown" translatable="false">AgeUnknown</string>
-    <string name="location_client_ulr_inactive_unknown_restriction" translatable="false">        UnknownRestriction</string>
-    <!-- From: file:/C:/Users/Scott/Desktop/Warlocks/app/src/main/res/values/strings.xml -->
-    <eat-comment />
-
+    <string name="location_client_ulr_inactive_unknown_restriction" translatable="false">
+        UnknownRestriction
+    </string>
+    <!-- From: file:/F:/WarlocksGit/android-tes/Warlocks(Working%20Copy)/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
     <string name="menu_settings">Settings</string>
+    <string name="shop_title">Shop</string>
+    <string name="spell_absorb_description">Pushes an Absorb Orb towards the target location. the Orb starts small, with low damage and knockback; however if it gets hit by any spells along the way it abosrbs their size, damage and knockback.</string>
+    <string name="spell_boomerang_description">Fires a boomerang out that knocks enemies back substantially, dealing low damage.\n<b>Special:</b>\nLasts indefinitely until the boomerang returns to you. Can impact with multiple enemies.  </string>
+    <string name="spell_bounce_description">Pops a projectile towards the target location. The projectile can bounce off of a number of enemies before it fizzles. Deals low damage and knockback</string>
+    <string name="spell_drain_description">Sends forth a projectile that after a short period, redirects itself towards a nearby enemy. If it impacts it deals high damage, and drains some of their health.</string>
+    <string name="spell_drainexplode_description">Shoots a simple fireball at target location. Can be upgraded for more power, and lower cooldown. Can also be upgraded by purchasing spells in each slot</string>
+    <string name="spell_fireball_description">Shoots a simple fireball at target location. Knocks back and dies on impact with players and some spells. \n<b>Special:</b>\nThis spell gains Archetype Stacks based on how many spells you have in each slot.</string>
+    <string name="spell_fireexplode_description">Boom! Creates an explosion about you that knocks back and deals high damage.</string>
+    <string name="spell_firespray_description">Bombards the target area with weak fireballs. Each ball deals low damage and low knockback.</string>
+    <string name="spell_gravity_description">Sends a gravity field in the chosen direction. the gravity field tries to pull any people, projectiles and other things towards its center. Deals low damage per second. Doesnt die on hit.</string>
+    <string name="spell_grenade_description">Lobs a grenade at a target location. Upon impacting with the ground, the grenade will explode dealing mid damage and high knockback based on how far from the center you are.</string>
+    <string name="spell_homing_description">Hurls a slow moving, slow turning ball that will lock on to the nearest enemy and move towards it. Deals high semi-reliable damage to enemies, with a strong knockback; Really slow moving.</string>
+    <string name="spell_ice_description">Lets fly a ball of ice that doesnt knock back enemies, but applies a large amount of Archetype Stacks</string>
+    <string name="spell_iceexplode_description">Applies a moderate number of ice stacks and deals damage in an AOE around you.</string>
+    <string name="spell_icespray_description">Unleashes a storm of ice balls, dealing low archetype damage for each ball, and low damage.</string>
+    <string name="spell_illusion_description">Shoots a shadow fireball. At the same time flings out 2 fireballs in a random cone. The first fireball deals mid-high damage and knocks the enemy back, applying a small amount of Archetype stacks, whereas the other 2 do no knockback or damage, but apply a high amount of Archetype Stacks</string>
+    <string name="spell_illusionball_description">Lobs a slow moving ball of energy. After a short period, this ball becomes invisible to anyone who is moving and locks onto the nearest enemy for a short period.</string>
+    <string name="spell_juggernaut_description">Throttles you about the battlefield so fast you\'d think you were being decombobulated. If you impact with any spells, you dont recieve knockback, and instead are able to go faster.<i>YOU ARE THE JUGGERNAUT!</i></string>
+    <string name="spell_lightning_description">After a moderate cast time, casts lightning in an instant line nuke towards target location. Deals high damage and really strong knock back, at the cost of a long cast time. \n<b>Special:</b>\nCan explode certain projectiles while they are in midair dealing tonnes of damage.</string>
+    <string name="spell_link_description">Projects a line from you which, if the head hits an enemy, links you to them, pulling you closer to each other for the duration; dealing low damage each second.</string>
+    <string name="spell_magnetexplode_description">Shoots a simple fireball at target location. Can be upgraded for more power, and lower cooldown. Can also be upgraded by purchasing spells in each slot</string>
+    <string name="spell_meteor_description">Instantly summons a meteor to the sky which will hurtle towards the target location. upon reaching the ground deals INCREDIBLE knockback and damage.</string>
+    <string name="spell_orbitals_description">Shoots a simple fireball at target location. Can be upgraded for more power, and lower cooldown. Can also be upgraded by purchasing spells in each slot</string>
+    <string name="spell_phase_description">Elevates the caster high above the battlefield, unable to be hit by spells fr a short while.<i>I suppose its just a jump really...</i></string>
+    <string name="spell_piercing_description">Shoots a slow moving piercing shot. This shot deals low damage, but does not die upon hitting the enemy, meaning if you time it well it can be devastating.</string>
+    <string name="spell_powerball_description">After a long cast time, Creates a large slow moving ball of energy that moves towards a target location. The ball deals incredible damage, but the ball can be "chipped" by hitting it with most spells. This reduces the damage it deals.</string>
+    <string name="spell_reflect_description">Shoots a simple fireball at target location. Can be upgraded for more power, and lower cooldown. Can also be upgraded by purchasing spells in each slot</string>
+    <string name="spell_sonicwave_description">Delivers a burst of sonic energy isolated to within a small area. anything that impacts with it is sent hurtling away from it, taking damage for each second they are trapped.</string>
+    <string name="spell_splitter_description">Shoots a projectile that intermittently shoots out smaller projectiles. Moves slowly, lasts a long time, deals low damage. Its children projectiles move fast, deal low damage and last a really short time.</string>
+    <string name="spell_swap_description">Generates a "Swapsiedoodle" ball which if it impacts with anything will swap the casters location with it. If it is an enemy it will apply Archetype stacks to them</string>
+    <string name="spell_teleport_description">Reapproximates the casters position to an alternative location. If it impacts with an enemy it applies Archetype Stacks to them.</string>
+    <string name="spell_thrust_description">Throttles the caster towards a nearby location. If it impacts with another player it sends them spiralling away</string>
+    <string name="spell_trapmines_description">Tosses some small trap mines at a particular location. They deal damage and apply stacks to enemies who walk over them.</string>
+    <string name="spell_windwalk_description">Renders the caster invisible for a short duration. If they impact with enemies while invisible they apply Archetype stacks to them.</string>
+    <string name="spelltitle1">Fireball</string>
     <string name="title_activity_game">GameActivity</string>
     <string name="title_activity_main">Warlock Game</string>
     <string name="title_activity_menu">Warlocks</string>
     <string name="title_activity_single_player_options">SinglePlayerOptions</string>
-    <!-- From: file:/C:/Users/Scott/Desktop/Warlocks/app/src/main/res/values/styles.xml -->
-    <eat-comment />
-
+    <!-- From: file:/F:/WarlocksGit/android-tes/Warlocks(Working%20Copy)/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
@@ -145,11 +154,9 @@
             backward-compatibility can go here.
         -->
     </style>
-
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-
     <style name="ButtonBar">
         <item name="android:paddingLeft">2dp</item>
         <item name="android:paddingTop">5dp</item>
@@ -157,14 +164,11 @@
         <item name="android:paddingBottom">0dp</item>
         <item name="android:background">@android:drawable/bottom_bar</item>
     </style>
-
-    <style name="ButtonBarButton" />
-
+    <style name="ButtonBarButton"/>
     <style name="FullscreenTheme" parent="android:Theme.NoTitleBar">
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowBackground">@null</item>
         <item name="buttonBarStyle">@style/ButtonBar</item>
         <item name="buttonBarButtonStyle">@style/ButtonBarButton</item>
     </style>
-
 </resources>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- From: file:/C:/Users/Scott/Desktop/Warlocks/app/src/main/res/values-w820dp/dimens.xml -->
-    <eat-comment />
-
+    <!-- From: file:/F:/WarlocksGit/android-tes/Warlocks(Working%20Copy)/app/src/main/res/values-w820dp/dimens.xml -->
+    <eat-comment/>
     <dimen name="activity_horizontal_margin">64dp</dimen>
-
+    <!-- From: file:/F:/WarlocksGit/android-tes/Warlocks(Working%20Copy)/app/src/main/res/values-w820dp/strings.xml -->
+    <eat-comment/>
+    <string name="spelltitle1">Spell Title</string>
 </resources>

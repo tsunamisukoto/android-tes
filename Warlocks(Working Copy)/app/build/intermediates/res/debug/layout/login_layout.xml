@@ -24,4 +24,4 @@
             android:layout_centerHorizontal="true"
         android:onClick="beginUserInitiatedSignIn" />
 
-</RelativeLayout><!-- From: file:/C:/Users/Scott/Desktop/Warlocks/app/src/main/res/layout/login_layout.xml -->
+</RelativeLayout><!-- From: file:/F:/WarlocksGit/android-tes/Warlocks(Working%20Copy)/app/src/main/res/layout/login_layout.xml -->
