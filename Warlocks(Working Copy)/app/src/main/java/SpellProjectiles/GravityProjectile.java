@@ -16,11 +16,16 @@ public class GravityProjectile extends Projectile {
 
         this.velocity = GetVel(_from.get(), _to.get());
         SetVelocity(this.maxVelocity);
-        this.DiesOnImpact = false;
-        this.AppliesImpulse = true;
+        this.CollideDiesOnImpact = false;
+        this.CollideAppliesImpulse = true;
 //        this.damagevalue=1;
-        this.AppliesVelocity = false;
+        this.CollideAppliesVelocity = false;
     }
+
+    public void Animate() {
+        super.Animate();
+    }
+
     @Override
     protected void Stats(int rank)
     {
@@ -76,14 +81,10 @@ public class GravityProjectile extends Projectile {
 
     }
 
-    public void Animate() {
-        super.Animate();
-    }
-
     @Override
     public void Update() {
         super.Update();
-
+        this.CollideDealsDamage = lifePhase % 5 == 2;
         //Animate();
         this.bounds.Center = position;
 

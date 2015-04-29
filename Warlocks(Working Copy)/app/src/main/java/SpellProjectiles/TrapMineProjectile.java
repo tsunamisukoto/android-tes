@@ -9,16 +9,17 @@ import developmental.warlocks.GL.NewHeirarchy.GameObject;
  * Created by Scott on 13/11/2014.
  */
 public class TrapMineProjectile extends Projectile {
+    public TrapMineProjectile(Vector _from, Vector _to, GameObject _shooter, int Rank) {
+        super(R.drawable.spell_orbital, _to, _to, _shooter, Rank);
+        this.velocity = Vector.Zero();
+
+    }
+
     @Override
     protected void setFrames() {
         FramesNoTail();
     }
 
-    public TrapMineProjectile(Vector _from, Vector _to, GameObject _shooter,int Rank) {
-        super(R.drawable.spell_orbital,_to, _to, _shooter,Rank);
-        this.velocity= new Vector(0,0);
-
-    }
     @Override
     protected void Stats(int rank)
     {

@@ -269,14 +269,15 @@ containing a value of this type.
         public static final int spell_iceball=0x7f02006b;
         public static final int spell_illusion=0x7f02006c;
         public static final int spell_lightning=0x7f02006d;
-        public static final int spell_link=0x7f02006e;
-        public static final int spell_link2=0x7f02006f;
-        public static final int spell_link2_shadow=0x7f020070;
-        public static final int spell_link_head=0x7f020071;
-        public static final int spell_link_head2=0x7f020072;
-        public static final int spell_meteor=0x7f020073;
-        public static final int spell_orbital=0x7f020074;
-        public static final int spell_piercing=0x7f020075;
+        public static final int spell_lightning_head=0x7f02006e;
+        public static final int spell_link=0x7f02006f;
+        public static final int spell_link2=0x7f020070;
+        public static final int spell_link2_shadow=0x7f020071;
+        public static final int spell_link_head=0x7f020072;
+        public static final int spell_link_head2=0x7f020073;
+        public static final int spell_meteor=0x7f020074;
+        public static final int spell_orbital=0x7f020075;
+        public static final int spell_piercing=0x7f020076;
     }
     public static final class id {
         public static final int SpellID=0x7f07004d;

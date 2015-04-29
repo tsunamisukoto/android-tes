@@ -16,8 +16,10 @@ import java.util.ArrayList;
 
 import Actors.EllipseMovingAI;
 import Actors.Player;
+import HUD.PopupText;
 import HUD.glButton;
 import HUD.glHealthBar;
+import Particles.glParticle;
 import Scene.Action;
 import Scene.Mission;
 import Tools.Vector;
@@ -50,7 +52,6 @@ public class OpenGLTestActivity extends Activity {
         final Intent callingIntent = getIntent();
         // Allocate our sprites and add them to an array.
         final int robotCount = callingIntent.getIntExtra("spriteCount", 10);
-        final boolean animate = true;
         final boolean useVerts = true;
         final boolean useHardwareBuffers = true;
 
@@ -87,6 +88,8 @@ public class OpenGLTestActivity extends Activity {
 
 
         SimpleGLRenderer.gameObjects = new ArrayList<Collideable>();
+        SimpleGLRenderer.popupTexts = new ArrayList<PopupText>();
+        SimpleGLRenderer.Particles = new ArrayList<glParticle>();
         SimpleGLRenderer.players = new ArrayList<Player>();
         Grid spriteGrid = null;
         ArrayList<ArrayList<Grid>> d = new ArrayList<ArrayList<Grid>>();
@@ -251,13 +254,13 @@ public class OpenGLTestActivity extends Activity {
 
         mGLSurfaceView.setRenderer(spriteRenderer);
 
-        if (animate) {
-            Mover simulationRuntime = new Mover(this);
+
+        Mover simulationRuntime = new Mover(this);
             simulationRuntime.setRenderables(renderableArray);
 
             simulationRuntime.setViewSize(dm.widthPixels, dm.heightPixels);
             mGLSurfaceView.setEvent(simulationRuntime);
-        }
+
 
         setContentView(mGLSurfaceView);
 

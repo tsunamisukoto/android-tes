@@ -11,8 +11,8 @@ import developmental.warlocks.GL.NewHeirarchy.Collideable;
 public class SplitterChildrenProjectile extends Projectile {
     public SplitterChildrenProjectile(Vector _from, Vector _to, Collideable shooter,int Rank) {
         super(R.drawable.spell_fireball,_from,_to,shooter,Rank);
-        this.CanBeExploded = false;
-        this.CanBeLinked = false;
+        this.CollideCanBeExploded = false;
+        this.CollideCanBeLinked = false;
 
     }
     @Override

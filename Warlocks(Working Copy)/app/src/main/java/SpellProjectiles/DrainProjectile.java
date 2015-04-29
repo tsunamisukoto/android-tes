@@ -14,7 +14,7 @@ public class DrainProjectile extends Projectile {
     public DrainProjectile(Vector _from, Vector _to, GameObject shooter,int Rank) {
         super(R.drawable.spell_drain,_from, _to, shooter,Rank);
         this.objectObjectType = ObjectType.Drain;
-        this.AppliesVelocity = false;
+        this.CollideAppliesVelocity = false;
         this.frameRate = 10;
     }
     @Override

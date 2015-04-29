@@ -22,10 +22,10 @@ this.objectObjectType = ObjectType.Meteor;
 this.height= 0;
         this.pull = 10;
         this.knockback= 40;
-        this.DiesOnImpact = false;
-        this.DealsDamage = false;
-        this.AppliesVelocity = false;
-        this.AppliesImpulse = false;
+        this.CollideDiesOnImpact = false;
+        this.CollideDealsDamage = false;
+        this.CollideAppliesVelocity = false;
+        this.CollideAppliesImpulse = false;
     }
 
     private Vector CalculateVelocity(Vector from, Vector to) {

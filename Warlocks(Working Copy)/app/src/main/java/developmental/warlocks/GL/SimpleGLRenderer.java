@@ -155,7 +155,7 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
 
         for (int x = 0; x < gameObjects.size(); x++)
             if (gameObjects.get(x).id == id) {
-
+                gameObjects.get(x).FinalAction();
                 gameObjects.remove(x);
 
 
@@ -293,7 +293,7 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
 
 
         l = new Level(Level.LevelShape.Ellipse, null);
-        l.iceplatform = new EllipticalPlatform(GameObject.PositiononEllipse(30).add(new Vector(Global.WORLD_BOUND_SIZE.x / 2, Global.WORLD_BOUND_SIZE.y / 2)),
+        l.iceplatform = new EllipticalPlatform(GameObject.PositiononEllipse(30),
                 new Vector(900, 450), R.drawable.level_platform_ice);
         gameObjects = new ArrayList<Collideable>();
 
@@ -561,9 +561,8 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
             mSprites[0].draw(gl, offsetX, offsetY, false);
             //     mSprites[1].draw(gl,offsetX,offsetY+archie.size.y/2,false);
             mSprites[1].draw(gl, offsetX, offsetY, false);
-//
             mSprites[2].draw(gl, offsetX, offsetY + mSprites[2].size.y + mSprites[2].size.y / 2 + archie.size.y / 2, false);
-            //  mSprites[2].draw(gl, offsetX,offsetY-mSprites[2].position.y-mSprites[2].size.y/2, false);
+            // mSprites[2].draw(gl, offsetX,offsetY-mSprites[2].position.y-mSprites[2].size.y/2, false);
             for (int y = 0; y < SimpleGLRenderer.Particles.size(); y++) {
                 glParticle j = SimpleGLRenderer.Particles.get(y);
                 if (j.Within(bds))

@@ -24,18 +24,17 @@ public class ColliderBase {
     }
 
     public void CollidesWithLogic(Collideable collideable) {
-
         Vector v1 = new Vector(0, 0);
         if (!collideable.jumping) {
             if (!collideable.shielded) {
 
                 //gravity
-                if (parent.AppliesImpulse) {
+                if (parent.CollideAppliesImpulse) {
                     if (parent.owner != null && collideable.id != parent.owner.id)
                         v1 = parent.DirectionalPull(collideable.position, parent.knockback);
                 }
 
-                if (parent.AppliesVelocity) {
+                if (parent.CollideAppliesVelocity) {
                     boolean apply = false;
                     //enemy player
                     if (parent.owner != null && collideable.owner == null && collideable.id != parent.owner.id)
@@ -52,14 +51,14 @@ public class ColliderBase {
                     if (parent.owner == null || collideable.id != parent.owner.id)
                         collideable.archetypeManager.AddStacks(parent.archetypePower, parent.owner);
                 }
-                if (collideable.CanTakeDamage && parent.damagevalue != 0 && parent.DealsDamage) {
-                    if (parent.owner != null && parent.owner.id != collideable.id && (!parent.BouncesOnImpact || parent.lastTarget == null || parent.lastTarget.id != collideable.id))
+                if (collideable.CollideCanTakeDamage && parent.damagevalue != 0 && parent.CollideDealsDamage) {
+                    if (parent.owner != null && parent.owner.id != collideable.id && (!parent.CollideBouncesOnImpact || parent.lastTarget == null || parent.lastTarget.id != collideable.id))
                         collideable.Damage(parent.damagevalue, DamageType.Spell);
                     if (parent.owner != null) {
                         parent.owner.damageDealtThisRound += parent.damagevalue;
                     }
                 }
-                if (parent.BouncesOnImpact) {
+                if (parent.CollideBouncesOnImpact) {
                     if (parent.owner.id != collideable.id && collideable.owner == null)
                         if (parent.lastTarget == null || collideable.id != parent.lastTarget.id) {
 
@@ -73,21 +72,21 @@ public class ColliderBase {
                         }
                 }
 
-                if (collideable.KillsOnImpact && parent.DiesOnImpact) {
+                if (collideable.CollideKillsOnImpact && parent.CollideDiesOnImpact) {
                     if (parent.owner.id != collideable.id)
                         SimpleGLRenderer.delObject(parent.id);
 
                 }
-                if (collideable.CanBeExploded && parent.CanExplodeOtherThings) {
+                if (collideable.CollideCanBeExploded && parent.CollideCanExplodeOtherThings) {
                     SimpleGLRenderer.delObject(collideable.id);
                     float size = (collideable.bounds.Radius + collideable.bounds.Radius) * 1.5f;
                     SimpleGLRenderer.addObject(new ExplosionProjectile(0, collideable.bounds.Center.get(), parent.owner, new Vector(size, size), (int) (parent.damagevalue + collideable.damagevalue), 3));
                 }
-                if (collideable.CanBeLinked && parent.LinksToThings) {
+                if (collideable.CollideCanBeLinked && parent.CollideLinksToThings) {
                     if (parent.owner.id != collideable.id)
                         parent.linked = collideable;
                 }
-                if (collideable.CanHealOffOfThis) {
+                if (collideable.CollideCanHealOffOfThis) {
 
 
                     if (parent.healvalue > 0)
@@ -99,35 +98,35 @@ public class ColliderBase {
 
                 }
 
-                if (collideable.CanBeSwapped && parent.CanSwapThings) {
+                if (collideable.CollideCanBeSwapped && parent.CollideCanSwapThings) {
                     if (parent.owner != null && parent.owner.id != collideable.id)
                         parent.Swap(collideable);
                 }
-                if (parent.CanAbsorbThings && collideable.CanBeAbsorbed) {
+                if (parent.CollideCanAbsorbThings && collideable.CollideCanBeAbsorbed) {
                     parent.Absorb(collideable);
                 }
             } else {
-                if (collideable.DiesOnImpact) {
+                if (collideable.CollideDiesOnImpact) {
                     parent.velocity = Vector.multiply(parent.velocity, -1);
                     parent.owner = collideable;
                 }
             }
-            if (parent.IsBoomerang) {
+            if (parent.CollideIsBoomerang) {
                 Collideable.GetVel2(collideable.bounds.Center, parent.bounds.Center, parent.knockback);
             }
 
         }
         if (parent.owner == null)
-            if (parent.InflictsSlow) {
+            if (parent.CollideInflictsSlow) {
                 collideable.Debuffs.add(new SpellEffect(500, SpellEffect.EffectType.Slow, collideable, R.drawable.effect_shield, new iVector(0, 0)));
             }
         if (parent.owner != null && collideable.id == parent.owner.id) {
 
-            if (parent.HealsTarget) {
+            if (parent.CollideHealsTarget) {
 
                 collideable.Heal(parent.damagevalue);
             }
-            if (parent.DiesOnImpactWithParent) {
+            if (parent.CollideDiesOnImpactWithParent) {
                 SimpleGLRenderer.delObject(parent.id);
             }
         }

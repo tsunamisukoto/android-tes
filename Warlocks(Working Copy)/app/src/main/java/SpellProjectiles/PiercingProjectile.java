@@ -15,12 +15,12 @@ public class PiercingProjectile extends Projectile {
         super(R.drawable.spell_piercing,_from, _to, _shooter,Rank);
 
         this.objectObjectType= ObjectType.Piercing ;
-        this.DiesOnImpact = false;
-        this.CanBeExploded = false;
-        this.CanBeLinked = false;
-        this.CanBeSwapped = false;
-        AppliesImpulse = false;
-        AppliesVelocity = false;
+        this.CollideDiesOnImpact = false;
+        this.CollideCanBeExploded = false;
+        this.CollideCanBeLinked = false;
+        this.CollideCanBeSwapped = false;
+        CollideAppliesImpulse = false;
+        CollideAppliesVelocity = false;
     }
 
     @Override

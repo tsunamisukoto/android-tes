@@ -24,7 +24,6 @@ public abstract class Projectile extends Collideable {
 
         this.bounds.Center = position;
 
-        this.maxVelocity = this.maxVelocity;
         Stats(rank);
         this.bounds.Radius = this.size.x / 2;
         this.shadowed = true;
@@ -35,12 +34,12 @@ public abstract class Projectile extends Collideable {
         this.velocity = GetVel(from, to);
 
         SetVelocity(this.maxVelocity);
-        DiesOnImpact = true;
-        this.KillsOnImpact = false;
-        this.AppliesVelocity = true;
-        this.CanBeSwapped = true;
-        this.CanBeExploded = true;
-        this.CanBeAbsorbed = true;
+        CollideDiesOnImpact = true;
+        this.CollideKillsOnImpact = false;
+        this.CollideAppliesVelocity = true;
+        this.CollideCanBeSwapped = true;
+        this.CollideCanBeExploded = true;
+        this.CollideCanBeAbsorbed = true;
         height = 40;
         //   this.bounds.Radius=size.x;
     }

@@ -13,9 +13,9 @@ public class SwapProjectile extends Projectile {
     public SwapProjectile(Vector _from, Vector _to, GameObject shooter,int Rank) {
         super(R.drawable.spell_boundsircle,_from, _to, shooter, Rank);
         this.objectObjectType = ObjectType.SwapProjectile;
-        this.CanBeAbsorbed = false;
-        this.CanSwapThings = true;
-        this.CanBeSwapped = false;
+        this.CollideCanBeAbsorbed = false;
+        this.CollideCanSwapThings = true;
+        this.CollideCanBeSwapped = false;
     }
 
 

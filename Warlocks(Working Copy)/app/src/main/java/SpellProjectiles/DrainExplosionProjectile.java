@@ -17,11 +17,11 @@ public class DrainExplosionProjectile extends ExplosionProjectile {
 
 
             this.objectObjectType = ObjectType.DrainExplosion;
-            this.DealsDamage = false;
-
+            this.CollideDealsDamage = true;
+            this.damagevalue = 7;
             this.healvalue = 5;
-            this.AppliesVelocity = false;
-            this.AppliesImpulse = false;
+            this.CollideAppliesVelocity = false;
+            this.CollideAppliesImpulse = false;
         }
 
 

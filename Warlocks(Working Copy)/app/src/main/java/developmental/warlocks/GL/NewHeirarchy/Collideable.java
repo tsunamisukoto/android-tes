@@ -8,7 +8,6 @@ import Actors.ShadowClone;
 import Collision.ColliderBase;
 import Game.DamageType;
 import Game.Destination;
-import HUD.PopupText;
 import SpellProjectiles.LightningProjectile;
 import Spells.Archetype.ArchetypeManager;
 import Spells.Archetype.ArchetypePower;
@@ -39,29 +38,29 @@ public abstract class Collideable extends Moveable implements Comparable<Collide
     public ArchetypePower archetypePower = new ArchetypePower(0, 0, 0, 0, 0, 0, 0);
     public boolean thrusting = false;
     public ArchetypeManager archetypeManager;
-    public boolean CanTakeDamage = false;
-    public boolean DiesOnImpact = false;
-    public boolean KillsOnImpact = true;
-    public boolean LinksToThings = false;
-    public boolean CanBeLinked = true;
+    public boolean CollideCanTakeDamage = false;
+    public boolean CollideDiesOnImpact = false;
+    public boolean CollideKillsOnImpact = true;
+    public boolean CollideLinksToThings = false;
+    public boolean CollideCanBeLinked = true;
     public Collideable linked = null;
-    public boolean CanHealOffOfThis = false;
-    public boolean CanBeExploded = false;
-    public boolean CanExplodeOtherThings = false;
-    public boolean CanBeSwapped = true;
-    public boolean CanSwapThings = false;
-    public boolean HealsTarget = false;
-    public boolean DiesOnImpactWithParent = false;
-    public boolean BouncesOnImpact = false;
+    public boolean CollideCanHealOffOfThis = false;
+    public boolean CollideCanBeExploded = false;
+    public boolean CollideCanExplodeOtherThings = false;
+    public boolean CollideCanBeSwapped = true;
+    public boolean CollideCanSwapThings = false;
+    public boolean CollideHealsTarget = false;
+    public boolean CollideDiesOnImpactWithParent = false;
+    public boolean CollideBouncesOnImpact = false;
     public Collideable lastTarget = null;
     public int stacks = 0;
-    public boolean InflictsSlow = false;
-    public boolean AppliesImpulse = false;
-    public boolean AppliesVelocity = false;
-    public boolean DealsDamage = true;
-    public boolean CanAbsorbThings = false;
-    public boolean CanBeAbsorbed = false;
-    public boolean IsBoomerang = false;
+    public boolean CollideInflictsSlow = false;
+    public boolean CollideAppliesImpulse = false;
+    public boolean CollideAppliesVelocity = false;
+    public boolean CollideDealsDamage = true;
+    public boolean CollideCanAbsorbThings = false;
+    public boolean CollideCanBeAbsorbed = false;
+    public boolean CollideIsBoomerang = false;
     public List<SpellEffect> Debuffs = new ArrayList<SpellEffect>();
     public Vector feet;
     public float damagevalue = 0;
@@ -103,7 +102,6 @@ public abstract class Collideable extends Moveable implements Comparable<Collide
         return new Vector((float) pull * (distanceX / totalDist),
                 (float) pull * distanceY / totalDist);
     }
-
     public int compareTo(Collideable o) {
         return (int) (this.bounds.Center.y - o.bounds.Center.y);
     }
@@ -193,7 +191,6 @@ public abstract class Collideable extends Moveable implements Comparable<Collide
     }
 
     public void Heal(float HealAmount) {
-        SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Poison, "Heal:" + HealAmount, bounds.Center, 20));
         //     Log.e("FSAFSFSFS","Heal:" + HealAmount);
     }
 

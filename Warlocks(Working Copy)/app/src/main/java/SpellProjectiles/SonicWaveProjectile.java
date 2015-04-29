@@ -17,9 +17,9 @@ public class SonicWaveProjectile extends Projectile {
         this.velocity = GetVel(_from.get(), _to.get());
         SetVelocity(this.maxVelocity);
 
-        this.AppliesImpulse = true;
-        this.DiesOnImpact = false;
-        this.AppliesVelocity = false;
+        this.CollideAppliesImpulse = true;
+        this.CollideDiesOnImpact = false;
+        this.CollideAppliesVelocity = false;
 //        this.damagevalue=1;
     }
 

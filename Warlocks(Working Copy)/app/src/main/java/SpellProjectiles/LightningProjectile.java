@@ -30,23 +30,28 @@ mGrid= Grid.LightningLineGrid(Range);
         float ToteDist = Math.abs(dx) + Math.abs(dy);
         this.objectObjectType = ObjectType.LineSpell;
         this.Dest = new Vector(Start.x - ((dx / ToteDist) * Range), Start.y - ((dy / ToteDist) * Range));
-        // Dest=new Vector(dx/ToteDist*maxVelocity,dy/ToteDist*maxVelocity);
-        //this.health = 3;
-        // shadowPaint = new Paint();
-        // this.damagevalue=15;
-
         this.knockback =30;
-        this.DiesOnImpact = false;
-        this.AppliesImpulse = true;
-        this.CanBeExploded = false;
-        this.CanBeLinked = false;
-        this.CanBeSwapped = false;
+        this.CollideDiesOnImpact = false;
 
-        this.CanExplodeOtherThings = true;
-        this.KillsOnImpact = true;
-       // SimpleGLRenderer.addParticle(new glParticle(Start, Dest, this.velocity, 7,  R.drawable.fireball));
-        //this.paint.setAlpha(125);
+        this.CollideAppliesVelocity = true;
+        this.CollideCanBeExploded = false;
+        this.CollideCanBeLinked = false;
+        this.CollideCanBeSwapped = false;
+
+        this.CollideCanExplodeOtherThings = true;
     }
+
+    @Override
+    public void FinalAction() {
+        super.FinalAction();
+        //    SimpleGLRenderer.addParticle(new LightningParticle(this.Start,this.velocity,10,this.getResourceId(),this.mGrid,this.rotation,this.height));
+    }
+
+    @Override
+    protected void Rotate() {
+        super.Rotate();
+    }
+
 @Override
     protected void Stats(int rank)
     {

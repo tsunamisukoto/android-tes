@@ -13,9 +13,9 @@ public class IllusionFakeProjectile extends IllusionRealProjectile {
         super(_from, _to, shooter,Rank);
         this.objectObjectType= ObjectType.Illusion;
         this.archetypePower = new ArchetypePower(0,100,0,0,0,0,0);
-        this.DiesOnImpact = true;
-        this.KillsOnImpact = false;
-        this.AppliesVelocity = false;
+        this.CollideDiesOnImpact = true;
+        this.CollideKillsOnImpact = false;
+        this.CollideAppliesVelocity = false;
         this.damagevalue = 0;
     }
     @Override

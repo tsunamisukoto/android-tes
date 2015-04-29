@@ -20,10 +20,10 @@ public class BounceProjectile extends Projectile {
         SetVelocity(maxVelocity);
         lastTarget = owner;
         objectObjectType = ObjectType.Bounce;
-        BouncesOnImpact = true;
-        DiesOnImpact = false;
-        AppliesImpulse = false;
-        AppliesVelocity = false;
+        CollideBouncesOnImpact = true;
+        CollideDiesOnImpact = false;
+        CollideAppliesImpulse = false;
+        CollideAppliesVelocity = false;
         stacks = 25;
     }
 

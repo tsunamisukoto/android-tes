@@ -27,7 +27,7 @@ public class ExplosionProjectile extends Projectile {
         this.position.y-=bounds.Radius;
         this.knockback = -30;
         this.bounds.Center = position;
-        this.velocity= new Vector(0,0);
+        this.velocity = Vector.Zero();
         for(int i = 0; i<8; i++)
         {
             SimpleGLRenderer.addParticle(new FireParticle(_to, Vector.multiply(new Vector(Global.GetRandomNumer.nextFloat() * 4 - 2, -1), Global.GetRandomNumer.nextFloat() * 20 - 10), 20, R.drawable.spell_fireball));
@@ -39,9 +39,9 @@ public class ExplosionProjectile extends Projectile {
             SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Poison, "Explosion Created at " + bounds.Center.x + " , " + bounds.Center.y, SimpleGLRenderer.archie.position, 100));
             SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Poison, "Explosion Created at " + bounds.Center.x + " , " + bounds.Center.y, bounds.Center, 100));
         }
-        this.AppliesImpulse = true;
-        this.AppliesVelocity = false;
-        this.DiesOnImpact = false;
+        this.CollideAppliesImpulse = true;
+        this.CollideAppliesVelocity = false;
+        this.CollideDiesOnImpact = false;
      }
 
     @Override

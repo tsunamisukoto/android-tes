@@ -12,6 +12,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import HUD.PopupText;
 import HUD.glButton;
 import Input.NetworkFinger;
 import SpellProjectiles.LightningProjectile;
@@ -225,7 +226,7 @@ void Collision()
                                     SimpleGLRenderer.gameObjects.get(y).CollisionNew(
                                             SimpleGLRenderer.gameObjects.get(x));
                                 }
-                                continue;
+
                             }
 
                         } else if ((SimpleGLRenderer.gameObjects.get(x).owner.id != SimpleGLRenderer.gameObjects
@@ -241,7 +242,6 @@ void Collision()
                                     SimpleGLRenderer.gameObjects.get(y).CollisionNew(
                                             SimpleGLRenderer.gameObjects.get(x));
                                 }
-                                continue;
                             }
                 }
             }
@@ -265,7 +265,9 @@ void Collision()
                 }
             }
             if (a != null) {
-                a.CollisionNew(SimpleGLRenderer.gameObjects.get(e));
+                SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Message, "Collision here" + a.position, a.position, 15));
+
+                a.CollisionNew(lightinings.get(e));
             }
             lightinings.get(e).collisions.clear();
         }

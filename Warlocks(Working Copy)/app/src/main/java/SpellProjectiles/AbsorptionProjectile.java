@@ -14,8 +14,8 @@ public class AbsorptionProjectile extends Projectile {
         super(R.drawable.spell_grenade,_from, _to, _shooter,Rank);
         this.FramesNoTail();
         this.objectObjectType= ObjectType.Absorb;
-        this.CanAbsorbThings = true;
-        this.CanBeAbsorbed = false;
+        this.CollideCanAbsorbThings = true;
+        this.CollideCanBeAbsorbed = false;
     }
 
     @Override

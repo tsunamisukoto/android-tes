@@ -39,9 +39,9 @@ public class GameObject extends Collideable {
         Equipment = new LoadOutInfo[3];
         archetypeManager = new ArchetypeManager(this);
         this.Spells = Spell.GenerateSpellList((Player) this, spellList);
-        CanTakeDamage = true;
-        CanHealOffOfThis = true;
-        KillsOnImpact = true;
+        CollideCanTakeDamage = true;
+        CollideCanHealOffOfThis = true;
+        CollideKillsOnImpact = true;
     }
 
     public GameObject(int resourceId, Vector _pos, Vector _size) {
@@ -160,11 +160,11 @@ public class GameObject extends Collideable {
             switch (d) {
                 case Spell:
 
-                    SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Spell, dmgDealt + "", this.bounds.Center.get(), 12));
+                    SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Spell, String.format("%.1f", dmgDealt) + "", this.bounds.Center.get(), 12));
                     break;
                 case Lava:
 
-                    SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Lava, dmgDealt + "", this.bounds.Center.get(), 12));
+                    SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Lava, String.format("%.1f", dmgDealt) + "", this.bounds.Center.get(), 12));
                     archetypeManager.AddStacks(new ArchetypePower(0, 0, 0, 0, 0, 0, (int) dmgDealt), null);
                     break;
             }
@@ -180,7 +180,7 @@ public class GameObject extends Collideable {
             this.health += HealAmount;
         }
         if (HealAmount > 0)
-            SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Poison, HealAmount + "", this.bounds.Center.get(), 12));
+            SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Poison, String.format("%.1f", HealAmount) + "", this.bounds.Center.get(), 12));
 
     }
 
@@ -250,9 +250,6 @@ public class GameObject extends Collideable {
                     if ((!SimpleGLRenderer.l.platform.Within(this.bounds.Center)) && !SimpleGLRenderer.l.iceplatform.Within(this.bounds.Center)) {
                         //    Log.e("LAVA","I AM ON ZEE LAVA!!!");
                         Damage(3, DamageType.Lava);
-                    } else {
-//                            if(displayhealth==0)
-//                            velocity = Vector.multiply(velocity, 0.99f);
                     }
                     break;
 

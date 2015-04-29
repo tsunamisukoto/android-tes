@@ -16,8 +16,8 @@ public class BoomerangProjectile extends Projectile {
         super(R.drawable.spell_boomerang,_from, _to, shooter,Rank);
 
         this.objectObjectType= ObjectType.Boomerang;
-        this.DiesOnImpact = false;
-        this.IsBoomerang = true;
+        this.CollideDiesOnImpact = false;
+        this.CollideIsBoomerang = true;
     }
 
     @Override

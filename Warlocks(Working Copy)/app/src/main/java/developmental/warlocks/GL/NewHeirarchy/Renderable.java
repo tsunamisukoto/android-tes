@@ -26,14 +26,14 @@ public abstract class Renderable {
      * Reality fields. These fields define where and how the Renderable object moves and is displayed in the world.
      */
     //The position that the object is drawn in the world
-    public Vector position=new Vector(0,0);
+    public Vector position = Vector.Zero();
+    public Vector size;
+    //The 'z' location for drawing to the screen. Defaults to 0
+    protected final float z = 0;
     //How many frames this object has been alive for
     protected int lifePhase = 0;
     //The width and heigh of the object stored as 'x' and 'y' accordingly.
     protected float height = 0;
-    public Vector size;
-    //The 'z' location for drawing to the screen. Defaults to 0
-    protected final float z=0;
     //Whether or not to calculate the rotation of this object before drawing.
     protected boolean rotateable= false;
     //The angle in degrees to rotate this object by before drawing.
@@ -49,45 +49,51 @@ public abstract class Renderable {
     protected int mResourceId;
     //The Array of "Grids" that define the sample of the texutre that is drawn.
     protected ArrayList<Grid> mGrid;
-    public void setTextureName(int name) {
-        mTextureName = name;
+    protected Grid shadowGrid;
+    protected boolean shadowed = false;
+    //The information stored about the offset for animation
+    protected int frameRate = 5;
+    protected int frame = 0;
+
+    //The base constructor.
+    protected Renderable(int _mResourceID) {
+        rotation = 0;
+        setResourceId(_mResourceID);
+        if (Global.resources.get(getResourceId()) != null)
+            setTextureName(Global.resources.get(getResourceId()));
+        this.size = new Vector(100, 100);
+
+
     }
+
     public int getTextureName() {
         return mTextureName;
     }
-    public void setResourceId(int id) {
-        mResourceId = id;
+
+    public void setTextureName(int name) {
+        mTextureName = name;
     }
+
     public int getResourceId() {
         return mResourceId;
     }
-    public void setGrid(ArrayList<Grid> grid) {
-        mGrid = grid;
+
+    public void setResourceId(int id) {
+        mResourceId = id;
     }
+
     public ArrayList<Grid> getGrid() {
         return mGrid;
     }
-    protected Grid shadowGrid;
+
+    public void setGrid(ArrayList<Grid> grid) {
+        mGrid = grid;
+    }
+
     public void setShadowGrid()
     {
         if(shadowed)
         Grid.shadowGridGenerateProjectile(this.size);
-    }
-   protected boolean shadowed = false;
-
-    //The information stored about the offset for animation
-    protected int frameRate = 5;
-    protected int frame=0;
-
-    //The base constructor.
-    protected Renderable(int _mResourceID) {
-        rotation=0;
-        setResourceId(_mResourceID);
-        if(Global.resources.get(getResourceId())!=null)
-            setTextureName(Global.resources.get(getResourceId()));
-        this.size=new Vector(100,100);
-
-
     }
 
     /**
@@ -163,6 +169,9 @@ public abstract class Renderable {
     }
     //Change the displayed frame or Grid for this object
     public void Animate() {
+    }
+
+    public void FinalAction() {
     }
 }
 

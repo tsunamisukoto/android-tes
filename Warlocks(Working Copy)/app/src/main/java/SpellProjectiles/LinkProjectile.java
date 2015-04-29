@@ -38,12 +38,13 @@ public class LinkProjectile extends Projectile {
         this.Dest = _dest;
         this.objectObjectType = ObjectType.LinkSpell;
         this.Dest = Start;
-        this.DiesOnImpact = false;
-        this.KillsOnImpact = false;
-        this.LinksToThings = true;
-        this.AppliesVelocity = false;
-        this.CanBeLinked = false;
-        CanBeAbsorbed = false;
+        this.CollideDiesOnImpact = false;
+        this.CollideDealsDamage = false;
+        this.CollideKillsOnImpact = false;
+        this.CollideLinksToThings = true;
+        this.CollideAppliesVelocity = false;
+        this.CollideCanBeLinked = false;
+        CollideCanBeAbsorbed = false;
     }
 
     @Override
@@ -197,7 +198,7 @@ public class LinkProjectile extends Projectile {
                     case Player:
                     case Enemy:
                     case GameObject:
-
+                        if (lifePhase % 5 == 2)
                         DealDamageTo(linked);
 
                         break;

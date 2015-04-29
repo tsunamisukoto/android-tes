@@ -18,7 +18,7 @@ public class IceProjectile extends Projectile {
         super(R.drawable.spell_iceball, _from, _to, shooter, Rank);
         archetypePower = new ArchetypePower(0, 0, 0, 0, 100, 0, 0);
         this.objectObjectType = ObjectType.Projectile;
-        this.AppliesVelocity = false;
+        this.CollideAppliesVelocity = false;
     }
 
 

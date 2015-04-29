@@ -27,11 +27,11 @@ public class MeteorProjectile extends Projectile {
         this.velocity = GetVel(_from, _to);
         this.pull = 10;
         this.knockback= 40;
-        this.DiesOnImpact = false;
-        this.DealsDamage = false;
-        this.AppliesVelocity = false;
-        this.AppliesImpulse = false;
-        this.CanBeAbsorbed = false;
+        this.CollideDiesOnImpact = false;
+        this.CollideDealsDamage = false;
+        this.CollideAppliesVelocity = false;
+        this.CollideAppliesImpulse = false;
+        this.CollideCanBeAbsorbed = false;
     }
 
     @Override

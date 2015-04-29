@@ -19,12 +19,12 @@ public class HealProjectile extends Projectile {
         this.maxVelocity=50;
         this.acceleration =4;
         knockback = 0;
-        AppliesImpulse = false;
-        AppliesVelocity = false;
-        DealsDamage = false;
-        HealsTarget = true;
-        DiesOnImpactWithParent = true;
-        this.DiesOnImpact = false;
+        CollideAppliesImpulse = false;
+        CollideAppliesVelocity = false;
+        CollideDealsDamage = false;
+        CollideHealsTarget = true;
+        CollideDiesOnImpactWithParent = true;
+        this.CollideDiesOnImpact = false;
         Log.e("DEBUG!", "CREATED HealPrjectile");
 
     }
