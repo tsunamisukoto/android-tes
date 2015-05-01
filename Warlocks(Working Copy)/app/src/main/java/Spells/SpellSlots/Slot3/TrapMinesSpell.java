@@ -2,6 +2,7 @@ package Spells.SpellSlots.Slot3;
 
 import Actors.Player;
 import SpellProjectiles.TrapMineProjectile;
+import SpellProjectiles.TrapMineThrownProjectile;
 import Spells.LoadOutInfo;
 import Spells.Spell;
 import Tools.Vector;
@@ -19,6 +20,6 @@ public class TrapMinesSpell extends Spell {
 
     @Override
     protected void Shoot(iVector Dest, Vector Origin) {
-        SimpleGLRenderer.addObject(new TrapMineProjectile(Origin, new Vector(Dest.x, Dest.y), this.parent, this.Rank));
+        SimpleGLRenderer.addObject(new TrapMineThrownProjectile(Origin, new Vector(Dest.x, Dest.y), this.parent, this.Rank));
     }
 }

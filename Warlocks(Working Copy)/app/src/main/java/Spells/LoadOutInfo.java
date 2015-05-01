@@ -263,7 +263,7 @@ public class LoadOutInfo implements Serializable {
                 Resource = R.drawable.button_ice;
                 break;
             case TrapMines:
-                Resource = R.drawable.button_grenade;
+                Resource = R.drawable.btn_trapmines;
                 break;
             case SonicWave:
                 Resource = R.drawable.button_grenade;

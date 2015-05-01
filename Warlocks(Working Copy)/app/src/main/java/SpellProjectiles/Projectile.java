@@ -14,14 +14,14 @@ import developmental.warlocks.Global;
 public abstract class Projectile extends Collideable {
 
    protected float height = 0;
-
+protected int Rank=0;
 
     public Projectile(int resource, Vector _from, Vector _to, Collideable shooter, int rank) {
         super(resource, _from, new Vector(100, 100), 50, 0);
         this.owner = shooter;
         Vector from = _from.get();
         Vector to = new Vector(_to.x - size.x / 2, _to.y - size.y / 2);
-
+        Rank=rank;
         this.bounds.Center = position;
 
         Stats(rank);

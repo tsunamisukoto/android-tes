@@ -1225,7 +1225,7 @@ public class Spell {
                     if (!parent.frozen && !parent.dead)
                         if (this.Current == 0) {
                             this.Current = this.Cooldown;
-                            this.parent.Debuffs.add(new SpellEffect(this.CastTime, SpellEffect.EffectType.Cast, this.parent, R.drawable.effect_explode, new iVector(0, 0)));
+                            this.parent.Debuffs.add(new SpellEffect(this.CastTime, SpellEffect.EffectType.Explode, this.parent, R.drawable.effect_explode, new iVector(0, 0)));
                             this.targetLocation = new iVector(0, 0);
                             castphase = 0;
                             fired = true;

@@ -13,11 +13,12 @@ import developmental.warlocks.GL.SimpleGLRenderer;
  */
 public class BoomerangProjectile extends Projectile {
     public BoomerangProjectile(Vector _from, Vector _to, GameObject shooter,int Rank) {
-        super(R.drawable.spell_boomerang,_from, _to, shooter,Rank);
+        super(R.drawable.spell_boomerang2,_from, _to, shooter,Rank);
 
         this.objectObjectType= ObjectType.Boomerang;
         this.CollideDiesOnImpact = false;
         this.CollideIsBoomerang = true;
+
     }
 
     @Override
@@ -28,7 +29,7 @@ public class BoomerangProjectile extends Projectile {
 @Override
 protected void Stats(int rank)
 {
-    this.maxVelocity = 6f;
+    this.maxVelocity=15f;
     this.acceleration = 0.3f;
     switch (rank)
     {
@@ -88,19 +89,20 @@ protected void Stats(int rank)
             MoveTowards(this.destination, maxVelocity , acceleration );
 
 
-        if(lifePhase>15)
+        if(lifePhase>50)
         if (    lifePhase% 5 == 4) {
 
 
 
             this.destination = owner.feet;
         }
-        if (lifePhase > 50)
+        if (lifePhase > 50) {
+            this.maxVelocity=6.8f;
             if (this.bounds.CollidesWith(owner.bounds)) {
                 SimpleGLRenderer.delObject(this.id);
                 this.health = 0;
             }
-
+        }
     }
 
     @Override

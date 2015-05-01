@@ -92,14 +92,14 @@ public abstract class Enemy extends Player {
     @Override
     public void Update() {
         if (this.lifePhase == 5)
-            //  ArrivedAtDestination();
+              ArrivedAtDestination();
         // angle+=0.005;
         if ((this.lifePhase + this.lifePhaseOffset) % howOftenMovesOccur == howOftenMovesOccur - 1) {
-            // AIMoveUpdate();
+             AIMoveUpdate();
         }
         if ((this.lifePhase + this.lifePhaseOffset) % howOftenAttacksOccur == howOftenAttacksOccur - 1)
         {
-            // this.AIAttackUpdate();
+             this.AIAttackUpdate();
         }
         super.Update();
     }

@@ -31,7 +31,11 @@ public class ColliderBase {
                 //gravity
                 if (parent.CollideAppliesImpulse) {
                     if (parent.owner != null && collideable.id != parent.owner.id)
+                    {
+
                         v1 = parent.DirectionalPull(collideable.position, parent.knockback);
+                    }
+
                 }
 
                 if (parent.CollideAppliesVelocity) {
@@ -112,7 +116,10 @@ public class ColliderBase {
                 }
             }
             if (parent.CollideIsBoomerang) {
-                Collideable.GetVel2(collideable.bounds.Center, parent.bounds.Center, parent.knockback);
+                if(collideable.id!=parent.owner.id) {
+                    if(!collideable.CollideIsBoomerang||collideable.owner.id!=parent.owner.id)
+                    parent.velocity = Collideable.GetVel2(collideable.bounds.Center, parent.bounds.Center, parent.knockback);
+                }
             }
 
         }

@@ -28,6 +28,7 @@ public class ExplosionProjectile extends Projectile {
         this.knockback = -30;
         this.bounds.Center = position;
         this.velocity = Vector.Zero();
+        CollideIsExpolosion=true;
         for(int i = 0; i<8; i++)
         {
             SimpleGLRenderer.addParticle(new FireParticle(_to, Vector.multiply(new Vector(Global.GetRandomNumer.nextFloat() * 4 - 2, -1), Global.GetRandomNumer.nextFloat() * 20 - 10), 20, R.drawable.spell_fireball));

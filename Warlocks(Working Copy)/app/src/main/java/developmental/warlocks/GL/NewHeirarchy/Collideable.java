@@ -43,6 +43,7 @@ public abstract class Collideable extends Moveable implements Comparable<Collide
     public boolean CollideKillsOnImpact = true;
     public boolean CollideLinksToThings = false;
     public boolean CollideCanBeLinked = true;
+    public  boolean CollideIsExpolosion = false;
     public Collideable linked = null;
     public boolean CollideCanHealOffOfThis = false;
     public boolean CollideCanBeExploded = false;

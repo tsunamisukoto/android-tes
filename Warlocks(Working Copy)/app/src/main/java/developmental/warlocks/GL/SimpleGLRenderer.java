@@ -409,11 +409,13 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
             Global.resources.put(R.drawable.button_lightning, loadBitmap(mContext, gl, R.drawable.button_lightning));
             Global.resources.put(R.drawable.button_firespray, loadBitmap(mContext, gl, R.drawable.button_firespray));
             Global.resources.put(R.drawable.spell_boomerang, loadBitmap(mContext, gl, R.drawable.spell_boomerang));
+            Global.resources.put(R.drawable.spell_boomerang2, loadBitmap(mContext, gl, R.drawable.spell_boomerang2));
             Global.resources.put(R.drawable.button_boots, loadBitmap(mContext, gl, R.drawable.button_boots));
 
             Global.resources.put(R.drawable.button_shield, loadBitmap(mContext, gl, R.drawable.button_shield));
 
             Global.resources.put(R.drawable.button_healthstone, loadBitmap(mContext, gl, R.drawable.button_healthstone));
+            Global.resources.put(R.drawable.button_armour, loadBitmap(mContext, gl, R.drawable.button_armour));
             Global.resources.put(R.drawable.spell_drain, loadBitmap(mContext, gl, R.drawable.spell_drain));
             Global.resources.put(R.drawable.spell_iceball, loadBitmap(mContext, gl, R.drawable.spell_iceball));
             Global.resources.put(R.drawable.spell_meteor, loadBitmap(mContext, gl, R.drawable.spell_meteor));
@@ -425,6 +427,9 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
             Global.resources.put(R.drawable.font_purple, loadBitmap(mContext, gl, R.drawable.font_purple));
             Global.resources.put(R.drawable.font_blue, loadBitmap(mContext, gl, R.drawable.font_blue));
             Global.resources.put(R.drawable.button_boomerang, loadBitmap(mContext, gl, R.drawable.button_boomerang));
+            Global.resources.put(R.drawable.btn_trapmines, loadBitmap(mContext, gl, R.drawable.btn_trapmines));
+            Global.resources.put(R.drawable.spell_trapmines, loadBitmap(mContext, gl, R.drawable.spell_trapmines));
+
             Global.resources.put(R.drawable.effect_shield, loadBitmap(mContext, gl, R.drawable.effect_shield));
             Global.resources.put(R.drawable.button_shield, loadBitmap(mContext, gl, R.drawable.button_shield));
             Global.resources.put(R.drawable.button_explosion, loadBitmap(mContext, gl, R.drawable.button_explosion));
@@ -557,7 +562,7 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
             }
 
             float offsetX = (archie.bounds.Center.x - Global.size.x / 2 - archie.size.x / 2), offsetY = -archie.bounds.Center.y - Global.size.y / 2;
-            RectF bds = new RectF(archie.bounds.Center.x - Global.size.x / 2, archie.bounds.Center.y - Global.size.y / 2, archie.bounds.Center.x + Global.size.x / 2, archie.bounds.Center.y + Global.size.y / 2);
+            RectF bds = new RectF(archie.bounds.Center.x - Global.size.x / 2-archie.size.x, archie.bounds.Center.y - Global.size.y / 2, archie.bounds.Center.x + Global.size.x / 2, archie.bounds.Center.y + Global.size.y / 2);
             mSprites[0].draw(gl, offsetX, offsetY, false);
             //     mSprites[1].draw(gl,offsetX,offsetY+archie.size.y/2,false);
             mSprites[1].draw(gl, offsetX, offsetY, false);
