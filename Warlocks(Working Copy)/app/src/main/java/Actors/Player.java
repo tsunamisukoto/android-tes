@@ -13,6 +13,7 @@ public class Player extends GameObject {
     public Player(int _charsheet, LoadOutInfo[] _spellList, Vector _position) {
         super(_charsheet, _position, _position.add(new Vector(50, -33)), new Vector(150, 150), _spellList);
         this.objectObjectType = ObjectType.Player;
+
     }
 
     @Override

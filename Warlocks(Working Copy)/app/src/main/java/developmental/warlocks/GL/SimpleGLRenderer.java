@@ -626,7 +626,7 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
                 glButton s = Equips.get(i);
                 s.spellResource = Global.resources.get(archie.Equipment[i].Resource);
                 //Log.e("EQUIPS", s.position.x + "  " + s.position.y);
-                s.draw(gl, 0, 0, true);
+                s.draw(gl, 0, 0, true, 10);
             }
 
             if (Countdown >= 0)

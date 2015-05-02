@@ -247,6 +247,7 @@ public class GameObject extends Collideable {
                 case GameObject:
                 case Player:
                 case Enemy:
+                    if (lifePhase % 4 == 0)
                     if ((!SimpleGLRenderer.l.platform.Within(this.bounds.Center)) && !SimpleGLRenderer.l.iceplatform.Within(this.bounds.Center)) {
                         //    Log.e("LAVA","I AM ON ZEE LAVA!!!");
                         Damage(3, DamageType.Lava);

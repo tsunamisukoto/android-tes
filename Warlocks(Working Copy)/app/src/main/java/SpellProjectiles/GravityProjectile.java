@@ -33,44 +33,44 @@ public class GravityProjectile extends Projectile {
         {
             case 1:
                 this.health = 500;
-                this.knockback =0.5;
+                this.knockback = 1.2;
                 this.size = new Vector(350,350);
                 this.damagevalue = 0.3f;
 
                 break;
             case 2:
                 this.health = 500;
-                this.knockback =0.8;
+                this.knockback = 1.2;
                 this.size = new Vector(350,350);
                 this.damagevalue = 0.5f;
                 break;
             case 3:
                 this.health = 500;
-                this.knockback =1.1;
+                this.knockback = 1.2;
                 this.size = new Vector(350,350);
                 this.damagevalue = 0.7f;
                 break;
             case 4:
                 this.health = 500;
-                this.knockback =1.4;
+                this.knockback = 1.2;
                 this.size = new Vector(350,350);
                 this.damagevalue = 0.9f;
                 break;
             case 5:
                 this.health = 500;
-                this.knockback =1.7;
+                this.knockback = 1.2;
                 this.size = new Vector(350,350);
                 this.damagevalue = 1.1f;
                 break;
             case 6:
                 this.health = 500;
-                this.knockback =2.0;
+                this.knockback = 2f;
                 this.size = new Vector(350,350);
                 this.damagevalue = 1.3f;
                 break;
             case 7:
                 this.health = 500;
-                this.knockback =2.3;
+                this.knockback = 1.2;
                 this.size = new Vector(350,350);
                 this.damagevalue = 1.5f;
                 break;

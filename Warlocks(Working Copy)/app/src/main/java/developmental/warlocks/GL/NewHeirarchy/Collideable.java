@@ -234,22 +234,38 @@ public abstract class Collideable extends Moveable implements Comparable<Collide
         float distanceY = d.y - this.bounds.Center.y;
 
         float totalDist = (float) Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2));
+        Vector newvelocity = new Vector(_maxVelocity
+                * (distanceX / totalDist), _maxVelocity * distanceY
+                / totalDist);
+        float speeddiffx = newvelocity.x - velocity.x;
+        float speeddiffy = newvelocity.y - velocity.y;
+        float totalspeeddiff = (float) Math.sqrt(Math.pow(speeddiffx, 2) + Math.pow(speeddiffy, 2));
+        float accX = speeddiffx / totalspeeddiff * _acceleration;
+        float accY = speeddiffy / totalspeeddiff * _acceleration;
+        if (totalDist > Vector.CurrentVelocity(velocity) + _acceleration || Vector.CurrentVelocity(velocity) > maxVelocity) {
+            float as = Vector.CurrentVelocity(velocity);
+            if (as < maxVelocity) {
 
-        if (totalDist > Vector.CurrentVelocity(velocity) + _acceleration) {
-            Vector newvelocity = new Vector(_maxVelocity
-                    * (distanceX / totalDist), _maxVelocity * distanceY
-                    / totalDist);
-            if (Math.abs(newvelocity.x - this.velocity.x) > _acceleration)
-                if (newvelocity.x > this.velocity.x)
-                    newvelocity.x = this.velocity.x + _acceleration;
-                else
-                    newvelocity.x = this.velocity.x - _acceleration;
-            if (Math.abs(newvelocity.y - this.velocity.y) > _acceleration)
-                if (newvelocity.y > this.velocity.y)
-                    newvelocity.y = this.velocity.y + _acceleration;
-                else
-                    newvelocity.y = this.velocity.y - _acceleration;
-            this.velocity = newvelocity;
+                if (newvelocity.x - this.velocity.x > accX)
+
+                    newvelocity.x = this.velocity.x + accX;
+
+                if ((newvelocity.y - this.velocity.y) > accY)
+
+                    newvelocity.y = this.velocity.y + accY;
+
+                this.velocity = newvelocity;
+            } else {
+                if (maxVelocity + _acceleration > as) {
+                    SetVelocity(maxVelocity);
+                }
+                else {
+                    velocity.x += accX;
+                    velocity.y += accY;
+                }
+//                this.velocity.x-=distanceX/totalDist*_acceleration;
+//                this.velocity.y-=distanceY/totalDist*_acceleration;
+            }
         } else {
 
             this.feet = this.destination;

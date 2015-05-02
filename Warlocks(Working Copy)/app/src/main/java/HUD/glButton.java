@@ -55,7 +55,7 @@ public class glButton extends Renderable {
                        position.y-offsetY,
                         z);
             spellGrid.draw(gl, true, false);
-            this.cooldownBar.parent = SimpleGLRenderer.archie;
+            if (i != 10)
             this.cooldownBar.drawCooldown(gl, offsetX - position.x, offsetY + position.y, dontDrawInRelationToWorld, SimpleGLRenderer.archie.Spells[i]);
 //            if(!boundsz)
 //            OpenGLTestActivity.boundingCircle.draw(gl,0,0);

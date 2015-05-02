@@ -30,7 +30,6 @@ public abstract class Enemy extends Player {
     protected void ArrivedAtDestination() {
         if (this.listOfDestinations == null)
             this.listOfDestinations = SimpleGLRenderer.navMesh.GetSafeNodePath(this.position);
-        Log.e("Movement Calc", "Index = " + DestIndex + " List Size=+" + listOfDestinations.size());
         if (DestIndex >= listOfDestinations.size() - 1) {
 
             this.listOfDestinations = SimpleGLRenderer.navMesh.GetSafeNodePath(this.position);

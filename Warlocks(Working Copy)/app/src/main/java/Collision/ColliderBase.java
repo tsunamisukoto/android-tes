@@ -33,7 +33,7 @@ public class ColliderBase {
                     if (parent.owner != null && collideable.id != parent.owner.id)
                     {
                         if (!parent.CollideIsExpolosion || collideable.owner == null || collideable.owner.id != parent.owner.id)
-                        v1 = parent.DirectionalPull(collideable.position, parent.knockback);
+                            collideable.velocity = collideable.velocity.add(parent.DirectionalPull(collideable.position, parent.knockback));
                     }
 
                 }
@@ -146,10 +146,10 @@ public class ColliderBase {
                 if (s.effectType == SpellEffect.EffectType.Burn)
                     counter++;
             }
-            float Multiplier = (collideable.mana + 400) / 400 * (float) Math.pow(1.2, counter);
+            float Multiplier = (collideable.mana + 400) / 400 * (float) Math.pow(1.1, counter);
             v1 = Vector.multiply(v1, Multiplier);
             if (!collideable.juggernaught)
-                collideable.velocity = collideable.velocity.add(v1);
+                collideable.velocity = v1;
             else {
                 collideable.jugstacks += 1;
 

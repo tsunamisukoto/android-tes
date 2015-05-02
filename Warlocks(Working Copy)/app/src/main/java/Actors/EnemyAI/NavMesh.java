@@ -189,7 +189,7 @@ public class NavMesh {
         }
 
         if (completed == true)
-            return null;
+            return new ArrayList<Node>();
         return path;
     }
 
