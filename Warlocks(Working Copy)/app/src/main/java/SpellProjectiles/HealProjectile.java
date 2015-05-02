@@ -25,6 +25,8 @@ public class HealProjectile extends Projectile {
         CollideHealsTarget = true;
         CollideDiesOnImpactWithParent = true;
         this.CollideDiesOnImpact = false;
+
+        this.CollideImpactsWithLightning = false;
         Log.e("DEBUG!", "CREATED HealPrjectile");
 
     }

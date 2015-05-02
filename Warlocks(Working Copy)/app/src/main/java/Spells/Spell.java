@@ -235,8 +235,8 @@ public class Spell {
                 case Fervour:
                     break;
                 case Boots:
-                    parent.maxVelocity +=2*spellList[x].Rank;
-                    parent.acceleration +=0.1f*spellList[x].Rank;
+                    parent.maxVelocity += 1 * spellList[x].Rank;
+                    parent.acceleration += 0.2f * spellList[x].Rank;
                     break;
                 case HealthStone:
                     parent.SetMaxHealth(parent.maxhealth+10*spellList[x].Rank);

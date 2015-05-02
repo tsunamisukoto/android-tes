@@ -30,7 +30,7 @@ public class BoomerangProjectile extends Projectile {
 protected void Stats(int rank)
 {
     this.maxVelocity=15f;
-    this.acceleration = 0.3f;
+    this.acceleration = 0.5f;
     switch (rank)
     {
         case 1:

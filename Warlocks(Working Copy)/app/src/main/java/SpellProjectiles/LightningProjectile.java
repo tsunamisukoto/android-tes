@@ -13,7 +13,7 @@ public class LightningProjectile extends Projectile {
     public Vector Start, Dest;
     public float Range;
     public ArrayList<Integer> collisions = new ArrayList<Integer>();
-
+    public int AliveThreshold = 0;
 
     public LightningProjectile(Vector _start, Vector _dest, GameObject _parent,int Rank) {
         super(R.drawable.spell_lightning,_start, _dest, _parent,Rank);
@@ -21,7 +21,6 @@ public class LightningProjectile extends Projectile {
 
         Range = 600;
 
-mGrid= Grid.LightningLineGrid(Range);
 
     Start = _start.get();
         this.Dest = _dest;
@@ -32,12 +31,12 @@ mGrid= Grid.LightningLineGrid(Range);
         this.Dest = new Vector(Start.x - ((dx / ToteDist) * Range), Start.y - ((dy / ToteDist) * Range));
         this.knockback =30;
         this.CollideDiesOnImpact = false;
-
         this.CollideAppliesVelocity = true;
         this.CollideCanBeExploded = false;
         this.CollideCanBeLinked = false;
         this.CollideCanBeSwapped = false;
 
+        this.CollideImpactsWithLightning = false;
         this.CollideCanExplodeOtherThings = true;
     }
 
@@ -52,10 +51,16 @@ mGrid= Grid.LightningLineGrid(Range);
         super.Rotate();
     }
 
+    @Override
+    protected void Movement() {
+
+    }
+
 @Override
     protected void Stats(int rank)
     {
-        this.health=1;
+        this.health = 10;
+        AliveThreshold = 9;
         switch (rank)
         {
             case 1:
@@ -96,6 +101,20 @@ mGrid= Grid.LightningLineGrid(Range);
                 break;
         }
 
+    }
+
+    @Override
+    public void Update() {
+        super.Update();
+        if (this.health < AliveThreshold) {
+            this.CollideCanExplodeOtherThings = false;
+            this.CollideAppliesVelocity = false;
+            this.CollideDealsDamage = false;
+
+        }
+
+        Range = Vector.DistanceBetween(Start, Dest);
+        mGrid = Grid.LightningLineGrid(Range, -lifePhase);
     }
 
 

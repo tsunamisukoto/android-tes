@@ -25,6 +25,8 @@ this.height= 0;
         this.CollideDiesOnImpact = false;
         this.CollideDealsDamage = false;
         this.CollideAppliesVelocity = false;
+
+        this.CollideImpactsWithLightning = false;
         this.CollideAppliesImpulse = false;
     }
 

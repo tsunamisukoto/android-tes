@@ -19,6 +19,7 @@ public class ExplosionProjectile extends Projectile {
 
     public ExplosionProjectile(int resourceID, Vector _to, Collideable shooter, Vector _s,float _dmg,int Rank) {
         super(resourceID,_to, _to, shooter,Rank);
+        this.CollideImpactsWithLightning = false;
         this.damagevalue= _dmg;
         this.size= _s;
         this.health = 1;

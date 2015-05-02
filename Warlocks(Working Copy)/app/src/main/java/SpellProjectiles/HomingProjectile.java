@@ -14,7 +14,7 @@ public class HomingProjectile extends Projectile {
     public HomingProjectile(Vector _from, Vector _to, GameObject shooter,int Rank) {
         super(R.drawable.spell_homing,_from, _to, shooter,Rank);
 
-        this.acceleration = 0.1f;
+        this.acceleration = 0.2f;
 
 
         this.damagevalue = 7;

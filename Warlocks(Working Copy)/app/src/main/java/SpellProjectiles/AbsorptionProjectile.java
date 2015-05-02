@@ -11,11 +11,17 @@ import developmental.warlocks.GL.NewHeirarchy.GameObject;
 public class AbsorptionProjectile extends Projectile {
 
     public AbsorptionProjectile(Vector _from, Vector _to, GameObject _shooter,int Rank) {
-        super(R.drawable.spell_grenade,_from, _to, _shooter,Rank);
+        super(R.drawable.spell_absorb, _from, _to, _shooter, Rank);
         this.FramesNoTail();
         this.objectObjectType= ObjectType.Absorb;
         this.CollideCanAbsorbThings = true;
         this.CollideCanBeAbsorbed = false;
+        this.CollideImpactsWithLightning = false;
+    }
+
+    @Override
+    protected void Rotate() {
+        this.rotation = lifePhase * 3;
     }
 
     @Override

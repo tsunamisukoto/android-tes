@@ -198,19 +198,24 @@ void Collision()
         for (int y = x + 1; y < SimpleGLRenderer.gameObjects.size(); y++) {
             if(SimpleGLRenderer.gameObjects.get(x).objectObjectType== Collideable.ObjectType.LineSpell)
             {
+
                 LightningProjectile r= (LightningProjectile) SimpleGLRenderer.gameObjects.get(x);
+
                 lightinings.add(r);
                 if (SimpleGLRenderer.gameObjects.get(x).CollidesWith(SimpleGLRenderer.gameObjects.get(y)))
                     r.collisions.add(y);
+
             }
             else
             {
                 if(SimpleGLRenderer.gameObjects.get(y).objectObjectType== Collideable.ObjectType.LineSpell)
                 {
                     LightningProjectile r = (LightningProjectile) SimpleGLRenderer.gameObjects.get(y);
+
                     lightinings.add(r);
                     if (SimpleGLRenderer.gameObjects.get(x).CollidesWith(SimpleGLRenderer.gameObjects.get(y)))
-                       r.collisions.add(x);
+                        r.collisions.add(x);
+
                 }
                 else
                 {

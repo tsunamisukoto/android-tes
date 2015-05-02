@@ -23,7 +23,7 @@ public abstract class Enemy extends Player {
     public Enemy(int _charsheet, LoadOutInfo[] _spellList, Vector _position) {
         super(_charsheet,_spellList,_position);
         this.objectObjectType = ObjectType.Enemy;
-        this.acceleration = 1.5f;
+        // this.acceleration = 1.5f;
     }
 
     @Override

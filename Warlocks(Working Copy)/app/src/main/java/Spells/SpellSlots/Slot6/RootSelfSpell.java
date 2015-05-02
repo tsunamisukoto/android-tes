@@ -19,6 +19,6 @@ public class RootSelfSpell extends Spell {
 
     @Override
     protected void Shoot(iVector Dest, Vector Origin) {
-        this.parent.Debuffs.add(new SpellEffect(150, SpellEffect.EffectType.Root, this.parent, R.drawable.effect_explode, new iVector(0, 0)));
+        this.parent.Debuffs.add(new SpellEffect(150, SpellEffect.EffectType.Root, this.parent, R.drawable.effect_glass, new iVector(0, 0)));
     }
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import Spells.Spell;
 import Tools.Vector;
 import developmental.warlocks.GL.Grid;
 import developmental.warlocks.GL.NewHeirarchy.Collideable;
@@ -113,5 +114,24 @@ public class glHealthBar extends Renderable {
         super.draw(gl, offsetX, offsetY, dontDrawInRelationToWorld);
     }
 
-    public enum type {Health, Mana}
+    public void drawCooldown(GL10 gl, float offsetX, float offsetY, boolean dontDrawInRelationToWorld, Spell spell) {
+        setTextureName(Global.resources.get(this.getResourceId()));
+        gl.glBindTexture(GL10.GL_TEXTURE_2D, mTextureName);
+        float i;
+        drawGrid2(gl, offsetX, offsetY);
+        if ((spell.Cooldown - spell.Current) / spell.Cooldown > 0.5)
+            i = 1;
+        else if ((spell.Cooldown - spell.Current) / spell.Cooldown > 0.2)
+            i = 2;
+        else
+            i = 4;
+
+        getGrid().get(frame).set(0, 0, 0.0f, size.y, 0.0f, 0.0f, i / 8f, null);
+        getGrid().get(frame).set(1, 0, size.x * (spell.Cooldown - spell.Current) / spell.Cooldown, size.y, 0.0f, 1.0f, i / 8f, null);
+        getGrid().get(frame).set(0, 1, 0.0f, 0, 0.0f, 0.0f, (i + 1) / 8f, null);
+        getGrid().get(frame).set(1, 1, size.x * (spell.Cooldown - spell.Current) / spell.Cooldown, 0, 0.0f, 1.0f, (i + 1) / 8f, null);
+        super.draw(gl, offsetX, offsetY, dontDrawInRelationToWorld);
+    }
+
+    public enum type {Health, Mana, Cooldown}
 }

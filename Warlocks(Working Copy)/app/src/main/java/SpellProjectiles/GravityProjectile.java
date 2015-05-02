@@ -20,11 +20,9 @@ public class GravityProjectile extends Projectile {
         this.CollideAppliesImpulse = true;
 //        this.damagevalue=1;
         this.CollideAppliesVelocity = false;
+        this.CollideImpactsWithLightning = false;
     }
 
-    public void Animate() {
-        super.Animate();
-    }
 
     @Override
     protected void Stats(int rank)

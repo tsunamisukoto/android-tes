@@ -37,9 +37,11 @@ protected int Rank=0;
         CollideDiesOnImpact = true;
         this.CollideKillsOnImpact = false;
         this.CollideAppliesVelocity = true;
+        this.CollideCanHaveVelocityApplied = false;
         this.CollideCanBeSwapped = true;
         this.CollideCanBeExploded = true;
         this.CollideCanBeAbsorbed = true;
+        this.CollideImpactsWithLightning = true;
         height = 40;
         //   this.bounds.Radius=size.x;
     }
@@ -69,7 +71,7 @@ protected int Rank=0;
                 gl.glRotatef(rotation,0,0,1.0f);
 
         gl.glBindTexture(GL10.GL_TEXTURE_2D, mTextureName);
-        mGrid.get(this.frame).draw(gl, true, false);
+        mGrid.get(this.frame % mGrid.size()).draw(gl, true, false);
 //            if(!boundsz)
 //            OpenGLTestActivity.boundingCircle.draw(gl,0,0);
             gl.glPopMatrix();

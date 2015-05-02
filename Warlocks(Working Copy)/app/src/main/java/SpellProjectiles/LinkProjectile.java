@@ -10,7 +10,6 @@ import javax.microedition.khronos.opengles.GL11Ext;
 
 import Tools.Vector;
 import developmental.warlocks.GL.Grid;
-import developmental.warlocks.GL.NewHeirarchy.Collideable;
 import developmental.warlocks.GL.NewHeirarchy.GameObject;
 import developmental.warlocks.GL.SimpleGLRenderer;
 import developmental.warlocks.Global;
@@ -220,15 +219,5 @@ public class LinkProjectile extends Projectile {
         FramesNoTail();
     }
 
-    public void Link(Collideable g) {
-        if (linked == null) {
-            this.linked = g;
-            this.bounds = linked.bounds;
-            Start = linked.bounds.Center;
-            Dest = this.owner.bounds.Center;
-        }
-//        paint.setColor(Color.WHITE);
-//        paint.setStrokeWidth(4);
-    }
 
 }

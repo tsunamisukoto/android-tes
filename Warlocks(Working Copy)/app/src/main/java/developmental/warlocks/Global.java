@@ -17,13 +17,13 @@ import developmental.warlocks.GL.Grid;
 public class Global {
     // public static SpriteSheet ss = null;
 
+    public static final int GlobalCooldown = 10;
     public static List<Bitmap> PlatformSkins = new ArrayList<Bitmap>();
     public static boolean LEFT_HAND_MODE = false;
     public static int TargetFrameIncrease = 3;
     public static int InputFrameGap = 1;
-    public static final int GlobalCooldown = 10;
     public static Vector WORLD_BOUND_SIZE = new Vector(8000, 4000);
-
+    public static int MaxNumberOfSpellRanks = 55;
     public static boolean DEBUG_MODE = false;
     public static boolean Server = false;
     public static boolean alive = true;

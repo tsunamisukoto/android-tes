@@ -32,6 +32,8 @@ public class MeteorProjectile extends Projectile {
         this.CollideAppliesVelocity = false;
         this.CollideAppliesImpulse = false;
         this.CollideCanBeAbsorbed = false;
+
+        this.CollideImpactsWithLightning = false;
     }
 
     @Override

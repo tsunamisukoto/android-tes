@@ -179,10 +179,10 @@ public class LoadOutInfo implements Serializable {
                 Resource = R.drawable.button_fireball;
                 break;
             case Absorb:
-                Resource = R.drawable.button_fireball;
+                Resource = R.drawable.button_absorb;
                 break;
             case Splitter:
-                Resource = R.drawable.button_fireball;
+                Resource = R.drawable.button_splitter;
                 break;
             case FireSpray:
                 Resource = R.drawable.button_firespray;
@@ -209,7 +209,7 @@ public class LoadOutInfo implements Serializable {
                 Resource = R.drawable.button_orbital;
                 break;
             case Root:
-                Resource = R.drawable.button_fireball;
+                Resource = R.drawable.button_root;
                 break;
             case JuggerNaught:
                 Resource = R.drawable.button_juggernaught;
@@ -227,10 +227,10 @@ public class LoadOutInfo implements Serializable {
                 Resource = R.drawable.button_fireball;
                 break;
             case Bezerk:
-                Resource = R.drawable.button_fireball;
+                Resource = R.drawable.button_bezerk;
                 break;
             case Fervour:
-                Resource = R.drawable.button_fireball;
+                Resource = R.drawable.button_fervour;
                 break;
             case Boots:
                 Resource = R.drawable.button_boots;
@@ -257,7 +257,7 @@ public class LoadOutInfo implements Serializable {
                 Resource = R.drawable.button_grenade;
                 break;
             case Piercing:
-                Resource = R.drawable.button_ice;
+                Resource = R.drawable.button_pierce;
                 break;
             case Powerball:
                 Resource = R.drawable.button_ice;
@@ -266,7 +266,7 @@ public class LoadOutInfo implements Serializable {
                 Resource = R.drawable.btn_trapmines;
                 break;
             case SonicWave:
-                Resource = R.drawable.button_grenade;
+                Resource = R.drawable.button_sonic;
                 break;
             case MagnetExplode:
                 Resource = R.drawable.button_explosion;

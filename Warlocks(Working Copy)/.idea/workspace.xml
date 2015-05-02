@@ -51,7 +51,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1525e9ab-5376-4d55-83a5-06d27f753732" name="Default" comment="Gave TrapMines some">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/TrapMineThrownProjectile.java" />
+      <change type="DELETED" beforePath="F:\WarlocksGit\android-tes\Warlocks(Working Copy)\app\src\main\res\drawable\effect_glass.psd" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/AbsorptionProjectile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/AbsorptionProjectile.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/Actors/BlockEnemy.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/Actors/BlockEnemy.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/BoomerangProjectile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/BoomerangProjectile.class" />
@@ -64,7 +64,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/FireballProjectile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/FireballProjectile.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/FiresprayProjectile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/FiresprayProjectile.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/developmental/warlocks/GL/NewHeirarchy/GameObject.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/developmental/warlocks/GL/NewHeirarchy/GameObject.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/developmental/warlocks/Global.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/developmental/warlocks/Global.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/GravityProjectile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/GravityProjectile.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/developmental/warlocks/GL/Grid.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/developmental/warlocks/GL/Grid.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/HealProjectile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/HealProjectile.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/HomingProjectile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/HomingProjectile.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/IceProjectile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/IceProjectile.class" />
@@ -72,6 +74,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/LightningProjectile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/LightningProjectile.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/LinkProjectile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/LinkProjectile.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/MeteorProjectile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/MeteorProjectile.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/developmental/warlocks/GL/NewHeirarchy/Moveable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/developmental/warlocks/GL/NewHeirarchy/Moveable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/developmental/warlocks/GL/Mover.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/developmental/warlocks/GL/Mover.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/developmental/warlocks/GL/OpenGLTestActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/developmental/warlocks/GL/OpenGLTestActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/Projectile$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/Projectile$1.class" />
@@ -93,26 +96,54 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/SplitterChildrenProjectile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/SplitterChildrenProjectile.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/SplitterProjectile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/SplitterProjectile.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/SwapProjectile.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/SpellProjectiles/SwapProjectile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/Tools/Vector.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/Tools/Vector.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/button_armour.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_armour.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/button_link.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_link.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/font_blue.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/font_blue.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/font_green.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/font_green.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/font_purple.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/font_purple.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/font_red.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/font_red.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/font_white.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/font_white.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/font_yellow.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/font_yellow.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/developmental/warlocks/GL/NewHeirarchy/glText.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/developmental/warlocks/GL/NewHeirarchy/glText.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/AbsorptionProjectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/AbsorptionProjectile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/BoomerangProjectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/BoomerangProjectile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/Collideable.java" afterPath="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/Collideable.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/Collision/ColliderBase.java" afterPath="$PROJECT_DIR$/app/src/main/java/Collision/ColliderBase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/Actors/Enemy.java" afterPath="$PROJECT_DIR$/app/src/main/java/Actors/Enemy.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/ExplosionProjectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/ExplosionProjectile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/FireballProjectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/FireballProjectile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/GameObject.java" afterPath="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/GameObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/Global.java" afterPath="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/Global.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/GravityProjectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/GravityProjectile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/GrenadeProjectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/GrenadeProjectile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/Grid.java" afterPath="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/Grid.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/HealProjectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/HealProjectile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/HomingProjectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/HomingProjectile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/LightningProjectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/LightningProjectile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/LinkProjectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/LinkProjectile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/Spells/LoadOutInfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/Spells/LoadOutInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/MeteorProjectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/MeteorProjectile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/Moveable.java" afterPath="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/Moveable.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/Mover.java" afterPath="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/Mover.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/Projectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/Projectile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/developmental/warlocks/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/developmental/warlocks/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/google/android/gms/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/google/android/gms/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/Spells/SpellSlots/Slot6/RootSelfSpell.java" afterPath="$PROJECT_DIR$/app/src/main/java/Spells/SpellSlots/Slot6/RootSelfSpell.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/Shop/ShopActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/Shop/ShopActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/SimpleGLRenderer.java" afterPath="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/SimpleGLRenderer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SonicWaveProjectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SonicWaveProjectile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/Spells/Spell.java" afterPath="$PROJECT_DIR$/app/src/main/java/Spells/Spell.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/TrapMineProjectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/TrapMineProjectile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/Spells/SpellSlots/Slot3/TrapMinesSpell.java" afterPath="$PROJECT_DIR$/app/src/main/java/Spells/SpellSlots/Slot3/TrapMinesSpell.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/Spells/SpellEffect.java" afterPath="$PROJECT_DIR$/app/src/main/java/Spells/SpellEffect.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SplitterChildrenProjectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SplitterChildrenProjectile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SplitterProjectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SplitterProjectile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/TrapMineThrownProjectile.java" afterPath="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/TrapMineThrownProjectile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/HUD/glButton.java" afterPath="$PROJECT_DIR$/app/src/main/java/HUD/glButton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/HUD/glHealthBar.java" afterPath="$PROJECT_DIR$/app/src/main/java/HUD/glHealthBar.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -188,8 +219,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
+    <ui_properties converted="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -197,74 +228,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Collideable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/Collideable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExplosionProjectile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/ExplosionProjectile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExplosionMagnetProjectile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/ExplosionMagnetProjectile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Projectile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/Projectile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+            <state vertical-scroll-proportion="-2.2413793">
+              <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TrapMineProjectile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/TrapMineProjectile.java">
+      <file leaf-file-name="SplitterChildrenProjectile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SplitterChildrenProjectile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="70" column="44" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
+              <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameObject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/GameObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-90.13793">
+              <caret line="312" column="48" selection-start-line="312" selection-start-column="48" selection-end-line="312" selection-end-column="48" />
               <folding>
-                <element signature="e#551#552#0" expanded="true" />
-                <element signature="e#581#582#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GrenadeSpell.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/Spells/SpellSlots/Slot2/GrenadeSpell.java">
+      <file leaf-file-name="SwapProjectile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SwapProjectile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GrenadeProjectile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/GrenadeProjectile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -274,28 +274,60 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/TrapMineThrownProjectile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+              <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ColliderBase.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/Collision/ColliderBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5685885">
-              <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TrapMinesSpell.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/Spells/SpellSlots/Slot3/TrapMinesSpell.java">
+      <file leaf-file-name="GrenadeProjectile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/GrenadeProjectile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
+              <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="glButton.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/HUD/glButton.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimpleGLRenderer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/SimpleGLRenderer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.7586207">
+              <caret line="617" column="54" selection-start-line="617" selection-start-column="54" selection-end-line="617" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="glHealthBar.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/HUD/glHealthBar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.12922466">
+              <caret line="119" column="33" selection-start-line="119" selection-start-column="33" selection-end-line="119" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Spell.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/Spells/Spell.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1425,31 +1457,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/Spells/Archetype/ArchetypeStatus.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/Spells/Archetype/Archetypes/IllusionArchetype.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/Actors/ShadowClone.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/HealProjectile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/Particles/glParticle.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/Particles/MeteorParticle.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/Grid.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SonicWaveProjectile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/PowerBallProjectile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/OrbitalProjectile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/Moveable.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/FireballProjectile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/DrainProjectile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/BounceProjectile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/FiresprayProjectile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/GrenadeProjectile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/HomingProjectile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/IceProjectile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/IllusionBallProjectile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/IceSprayProjectile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/IllusionRealProjectile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/MeteorProjectile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/PiercingProjectile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SplitterProjectile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SplitterChildrenProjectile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SwapProjectile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/IllusionFakeProjectile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/Tools/Vector.java" />
@@ -1457,25 +1472,42 @@
         <option value="$PROJECT_DIR$/app/src/main/java/Particles/FireParticle.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/Particles/LightningParticle.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/DrainExplosionProjectile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/LightningProjectile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/GravityProjectile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/LinkProjectile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/Spells/SpellSlots/Slot5/TeleportSpell.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/OpenGLTestActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/Mover.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/GameObject.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/Spells/Spell.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/BoomerangProjectile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/Actors/Enemy.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/SimpleGLRenderer.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/Spells/LoadOutInfo.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/Projectile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/Spells/SpellSlots/Slot3/TrapMinesSpell.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/TrapMineProjectile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/TrapMineThrownProjectile.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/Collideable.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/ExplosionProjectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/Actors/Enemy.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/Moveable.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/BoomerangProjectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/HomingProjectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/Spells/Spell.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/FireballProjectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/Global.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/Shop/ShopActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/Mover.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/Grid.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SplitterProjectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/Spells/SpellSlots/Slot6/RootSelfSpell.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/Spells/SpellEffect.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/Collision/ColliderBase.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/GameObject.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/Spells/LoadOutInfo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/ExplosionProjectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/GrenadeProjectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/HealProjectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/LightningProjectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/LinkProjectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/MeteorProjectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SonicWaveProjectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SplitterChildrenProjectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/TrapMineThrownProjectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/AbsorptionProjectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/Projectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/Collideable.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/SpellProjectiles/GravityProjectile.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/SimpleGLRenderer.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/HUD/glButton.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/HUD/glHealthBar.java" />
       </list>
     </option>
   </component>
@@ -1541,9 +1573,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1595,6 +1624,62 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Warlocks(Working Copy)" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Warlocks(Working Copy)" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Warlocks(Working Copy)" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Warlocks(Working Copy)" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1752,44 +1837,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Slot3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Warlocks(Working Copy)" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Warlocks(Working Copy)" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Spells" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SpellSlots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Slot2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1824,11 +1871,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SpellSlots" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Slot1" />
+              <option name="myItemId" value="Archetype" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1919,6 +1962,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Particles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Warlocks(Working Copy)" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Warlocks(Working Copy)" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HUD" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2086,6 +2159,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2107,23 +2183,27 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="f8bc96c5" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_S_API_21" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="316" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="290" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="109" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="289" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="110" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="290" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="109" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="964" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="558" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="290" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="143" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="289" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="143" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="290" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="143" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="964" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="457" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://F:/WarlocksGit/android-tes/Warlocks(Working Copy)/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/GameObject.java" />
+    <property name="android.project.structure.last.selected" value="app" />
+    <property name="android.project.structure.proportion" value="0.15" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -2478,31 +2558,31 @@
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.4936034" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32333332" sideWeight="0.69189763" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.4914712" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32444444" sideWeight="0.6545842" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3188889" sideWeight="0.3763326" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.4978678" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37777779" sideWeight="0.50319827" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.49573562" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37777779" sideWeight="0.53304905" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34777778" sideWeight="0.47121534" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37777779" sideWeight="0.4968017" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32777777" sideWeight="0.4914712" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34777778" sideWeight="0.45842218" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37777779" sideWeight="0.46695095" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32777777" sideWeight="0.48933902" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3188889" sideWeight="0.61567163" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.023454158" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3188889" sideWeight="0.58635396" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2557,196 +2637,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/IceProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/FiresprayProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/IceSprayProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/OrbitalProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/PiercingProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SonicWaveProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SplitterChildrenProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SplitterProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SwapProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/IllusionBallProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/IllusionFakeProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/IllusionRealProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/FireballProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/MeteorProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="123" column="58" selection-start-line="123" selection-start-column="58" selection-end-line="123" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/Particles/FireParticle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/Particles/LightningParticle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.448276">
-          <caret line="11" column="143" selection-start-line="11" selection-start-column="143" selection-end-line="11" selection-end-column="143" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/Particles/glParticle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/Moveable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/DrainExplosionProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/LightningProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.5135136">
-          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/Actors/EnemyAI/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="37" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/Platform/EllipticalPlatform.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/Platform/Platform.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/World/Level.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/GravityProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="33" selection-start-line="86" selection-start-column="34" selection-end-line="86" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/LinkProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="201" column="27" selection-start-line="201" selection-start-column="27" selection-end-line="201" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/SinglePlayerOptions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="46" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/Spells/SpellSlots/Slot5/TeleportSpell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2758,19 +2648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="53" column="76" selection-start-line="53" selection-start-column="76" selection-end-line="54" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/Mover.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="243" column="33" selection-start-line="243" selection-start-column="33" selection-end-line="243" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#9538#9539#0" expanded="false" />
-            <element signature="e#9580#9581#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2832,96 +2709,18 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/Spells/SpellEffect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="138" column="80" selection-start-line="138" selection-start-column="76" selection-end-line="138" selection-end-column="80" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/BoomerangProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#639#640#0" expanded="false" />
-            <element signature="e#669#670#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/Actors/Enemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/Spells/Spell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="146" column="19" selection-start-line="146" selection-start-column="19" selection-end-line="146" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/GameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/button_shield.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/SimpleGLRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.620689">
-          <caret line="430" column="112" selection-start-line="430" selection-start-column="112" selection-end-line="430" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/Spells/LoadOutInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.3448277">
-          <caret line="265" column="51" selection-start-line="265" selection-start-column="51" selection-end-line="265" selection-end-column="51" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/Spells/SpellSlots/Slot2/GrenadeSpell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/GrenadeProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/Projectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2929,7 +2728,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2938,25 +2739,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="70" column="44" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
           <folding>
-            <element signature="e#551#552#0" expanded="true" />
-            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#551#552#0" expanded="false" />
+            <element signature="e#581#582#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/TrapMineThrownProjectile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/Collideable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2964,6 +2749,166 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/Actors/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/BoomerangProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#639#640#0" expanded="false" />
+            <element signature="e#669#670#0" expanded="false" />
+            <element signature="e#2624#2625#0" expanded="false" />
+            <element signature="e#2656#2657#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/FireballProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/Global.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="45" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/Shop/ShopActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="374" column="21" selection-start-line="374" selection-start-column="21" selection-end-line="374" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#14432#14433#0" expanded="false" />
+            <element signature="e#14472#14473#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/Mover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="201" column="38" selection-start-line="201" selection-start-column="38" selection-end-line="201" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/Grid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="233" column="78" selection-start-line="233" selection-start-column="78" selection-end-line="233" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/Moveable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SplitterProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="49" selection-start-line="58" selection-start-column="49" selection-end-line="59" selection-end-column="37" />
+          <folding>
+            <element signature="e#492#493#0" expanded="false" />
+            <element signature="e#521#522#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/Spells/SpellSlots/Slot6/RootSelfSpell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding>
+            <element signature="e#355#356#0" expanded="false" />
+            <element signature="e#388#389#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/Spells/SpellEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.551724">
+          <caret line="138" column="109" selection-start-line="138" selection-start-column="109" selection-end-line="138" selection-end-column="109" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/Collision/ColliderBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.379311">
+          <caret line="52" column="54" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/HUD/PopupText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/Spells/LoadOutInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.3448277">
+          <caret line="229" column="51" selection-start-line="229" selection-start-column="51" selection-end-line="229" selection-end-column="51" />
+          <folding>
+            <element signature="e#1756#1789#0" expanded="true" />
+            <element signature="e#2390#2421#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/Spells/SpellSlots/Slot2/IllusionSpell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.5172415">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/BounceProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/DrainExplosionProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -2971,15 +2916,198 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/ExplosionProjectile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="21" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/Collision/ColliderBase.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/HealProjectile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5685885">
-          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/HomingProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/IceProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/LightningProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/LinkProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="222" column="0" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+          <folding>
+            <element signature="e#6716#6717#0" expanded="true" />
+            <element signature="e#6746#6747#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/MeteorProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="47" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/OrbitalProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/PiercingProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/PowerBallProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SonicWaveProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="47" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/AbsorptionProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/Collideable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.689655">
+          <caret line="277" column="29" selection-start-line="277" selection-start-column="29" selection-end-line="277" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/GravityProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/GrenadeProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/TrapMineThrownProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SwapProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/SplitterChildrenProjectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/SpellProjectiles/Projectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.2413793">
+          <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/SimpleGLRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.7586207">
+          <caret line="617" column="54" selection-start-line="617" selection-start-column="54" selection-end-line="617" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/Spells/Spell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/developmental/warlocks/GL/NewHeirarchy/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-90.13793">
+          <caret line="312" column="48" selection-start-line="312" selection-start-column="48" selection-end-line="312" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/HUD/glButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/HUD/glHealthBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12922466">
+          <caret line="119" column="33" selection-start-line="119" selection-start-column="33" selection-end-line="119" selection-end-column="33" />
           <folding />
         </state>
       </provider>

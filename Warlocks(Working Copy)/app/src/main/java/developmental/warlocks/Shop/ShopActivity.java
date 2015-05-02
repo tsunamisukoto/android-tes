@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.developmental.warlocks.R;
 
@@ -115,6 +116,14 @@ public class ShopActivity extends Activity {
 
     }
 
+    boolean IsValidForSlot(LoadOutInfo check, LoadOutInfo[] checkList) {
+        for (LoadOutInfo l : checkList) {
+            if (l.spellType == check.spellType) {
+                return true;
+            }
+        }
+        return false;
+    }
     LoadOutInfo[] Slot1() {
         LoadOutInfo[] s = new LoadOutInfo[1];
         s[0] = new LoadOutInfo(SpellType.Fireball, 1);
@@ -228,7 +237,6 @@ public class ShopActivity extends Activity {
                 storedposition = p;
                 setfsadgasdg(p);
                 q.setSelection(p);
-                Log.e("HEHEH!!!!", p + "");
             }
             p += 1;
         }
@@ -330,7 +338,7 @@ public class ShopActivity extends Activity {
             public void onClick(View v) {
                 if (storedposition != -1) {
                     boolean change = (Global.spellList[SelectedIndex].spellType == ShopActivity.e[storedposition].spellType);
-                    Log.e("SHOP", Global.spellList[SelectedIndex].spellType + " " + ShopActivity.e[storedposition].spellType);
+
                     if (!change) {
                         final boolean[] s = new boolean[1];
                         s[0] = false;
@@ -350,8 +358,17 @@ public class ShopActivity extends Activity {
                                 })
                                 .setNegativeButton(android.R.string.no, null).show();
 
-                    } else
+                    } else {
+                        int count = 0;
+                        for (LoadOutInfo l : Global.spellList) {
+                            count += l.Rank;
+                        }
+                        if (count + 1 > Global.MaxNumberOfSpellRanks) {
+                            Toast.makeText(getApplicationContext(), "Max number of spell ranks reached", Toast.LENGTH_LONG);
+
+                        } else
                         Global.spellList[SelectedIndex].SetOrIncrement(ShopActivity.e[storedposition].spellType);
+                    }
 
                     changeIcon(SelectedIndex);
                 }
@@ -368,13 +385,13 @@ public class ShopActivity extends Activity {
             public void onClick(View v) {
                 SaveLoadout();
                 //  Intent intent = new Intent(ShopActivity.this,OpenGLTestActivity.class);
-                finish();
+                //  finish();
             }
         });
     }
 
     private void saveState() {
-        FileOutputStream outStream = null;
+        FileOutputStream outStream;
         try {
             File f = new File(Environment.getExternalStorageDirectory(), "/data.dat");
             outStream = new FileOutputStream(f);
@@ -392,11 +409,69 @@ public class ShopActivity extends Activity {
     }
 
     private void SaveLoadout() {
+        boolean cansave = true;
+        int count = 0;
+        int id = 0;
         for(LoadOutInfo l:Global.spellList)
         {
+            count += l.Rank;
+            switch (id) {
+                case 0:
+                    if (!IsValidForSlot(l, Slot1()))
+                        cansave = false;
+                    break;
+                case 1:
+                    if (!IsValidForSlot(l, Slot2()))
+                        cansave = false;
+                    break;
+                case 2:
+                    if (!IsValidForSlot(l, Slot3()))
+                        cansave = false;
+                    break;
+                case 3:
+                    if (!IsValidForSlot(l, Slot4()))
+                        cansave = false;
+                    break;
+                case 4:
+                    if (!IsValidForSlot(l, Slot5()))
+                        cansave = false;
+                    break;
+                case 5:
+                    if (!IsValidForSlot(l, Slot6()))
+                        cansave = false;
+                    break;
+                case 6:
+                    if (!IsValidForSlot(l, Slot7()))
+                        cansave = false;
+                    break;
+                case 7:
+                    if (!IsValidForSlot(l, Slot8()))
+                        cansave = false;
+
+                    break;
+                case 8:
+                    if (!IsValidForSlot(l, Slot9()))
+                        cansave = false;
+                    break;
+
+            }
+
             Log.e(" SAVING LOADOUT",l.spellType+"");
+            id += 1;
         }
-        saveState();
+        if (!cansave) {
+            Toast.makeText(getApplicationContext(), "Invalid Loadout. Check spells in each slot.", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (count > Global.MaxNumberOfSpellRanks) {
+            Toast.makeText(getApplicationContext(), "Invalid Loadout. Max Ranks:" + Global.MaxNumberOfSpellRanks + " Ranks:" + count, Toast.LENGTH_LONG).show();
+            cansave = false;
+
+        }
+        if (cansave) {
+            saveState();
+            finish();
+        }
     }
 
     void changeIcon(int i) {

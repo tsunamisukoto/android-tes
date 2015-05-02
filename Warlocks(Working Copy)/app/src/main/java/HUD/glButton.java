@@ -2,10 +2,13 @@ package HUD;
 
 import android.graphics.RectF;
 
+import com.developmental.warlocks.R;
+
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11Ext;
 
 import Input.Pointer;
+import Tools.Vector;
 import developmental.warlocks.GL.Grid;
 import developmental.warlocks.GL.NewHeirarchy.Renderable;
 import developmental.warlocks.GL.SimpleGLRenderer;
@@ -17,23 +20,24 @@ import developmental.warlocks.Global;
 public class glButton extends Renderable {
 
     public RectF rect;
+    public int spellResource;
+    public boolean down = false;
     Grid spellGrid;
-  public int spellResource;
+    glHealthBar cooldownBar;
     public glButton(int _mResourceID,int _sResourceID, float x, float y, float w, float h,Grid grid) {
         super(_mResourceID);
 
+        cooldownBar = new glHealthBar(R.drawable.hud_healthbar_small, new Vector(w - 20, 20), new Vector(x + 10, y - 20), SimpleGLRenderer.archie, glHealthBar.type.Cooldown);
         this.position.x = x;
         rect = new RectF(x, y - h, x + w, y);
         this.position.y = y - h;
         spellResource = _sResourceID;
         spellGrid= grid;
     }
-public boolean down =false;
 
-    @Override
-    public void draw(GL10 gl, float offsetX, float offsetY, boolean dontDrawInRelationToWorld) {
+    public void draw(GL10 gl, float offsetX, float offsetY, boolean dontDrawInRelationToWorld, int i) {
         super.draw(gl, offsetX, offsetY, dontDrawInRelationToWorld);
-
+        //
         gl.glBindTexture(GL10.GL_TEXTURE_2D, spellResource);
 
         if (spellGrid == null) {
@@ -51,6 +55,8 @@ public boolean down =false;
                        position.y-offsetY,
                         z);
             spellGrid.draw(gl, true, false);
+            this.cooldownBar.parent = SimpleGLRenderer.archie;
+            this.cooldownBar.drawCooldown(gl, offsetX - position.x, offsetY + position.y, dontDrawInRelationToWorld, SimpleGLRenderer.archie.Spells[i]);
 //            if(!boundsz)
 //            OpenGLTestActivity.boundingCircle.draw(gl,0,0);
             gl.glPopMatrix();

@@ -32,24 +32,26 @@ public class ColliderBase {
                 if (parent.CollideAppliesImpulse) {
                     if (parent.owner != null && collideable.id != parent.owner.id)
                     {
-
+                        if (!parent.CollideIsExpolosion || collideable.owner == null || collideable.owner.id != parent.owner.id)
                         v1 = parent.DirectionalPull(collideable.position, parent.knockback);
                     }
 
                 }
 
                 if (parent.CollideAppliesVelocity) {
-                    boolean apply = false;
-                    //enemy player
-                    if (parent.owner != null && collideable.owner == null && collideable.id != parent.owner.id)
-                        apply = true;
+                    if (collideable.CollideCanHaveVelocityApplied) {
+                        boolean apply = false;
+                        //enemy player
+                        if (parent.owner != null && collideable.owner == null && collideable.id != parent.owner.id)
+                            apply = true;
 
-                    //enemy projectile
-                    if (collideable.owner != null && parent.owner != null && collideable.id != parent.owner.id && collideable.owner.id != parent.owner.id)
-                        apply = true;
-                    if (apply)
-                        // v1= parent.velocity;
-                        v1 = (Collideable.GetVel2(parent.bounds.Center, collideable.bounds.Center, parent.knockback));
+                        //enemy projectile
+                        if (collideable.owner != null && parent.owner != null && collideable.id != parent.owner.id && collideable.owner.id != parent.owner.id)
+                            apply = true;
+                        if (apply)
+                            // v1= parent.velocity;
+                            v1 = (Collideable.GetVel2(parent.bounds.Center, collideable.bounds.Center, parent.knockback));
+                    }
                 }
                 if (collideable.archetypeManager != null) {
                     if (parent.owner == null || collideable.id != parent.owner.id)

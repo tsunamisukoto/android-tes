@@ -17,11 +17,22 @@ public class SplitterProjectile extends Projectile {
     int p = 0;
 
     public SplitterProjectile(Vector _from, Vector _to, GameObject shooter, int Rank) {
-        super(R.drawable.spell_fireball, _from, _to, shooter, Rank);
+        super(R.drawable.spell_splitter2, _from, _to, shooter, Rank);
         this.Rank = Rank;
         this.health = 200;
         i = (int) (Math.random() * 360f);
         SetVelocity(maxVelocity);
+    }
+
+    @Override
+    protected void Rotate() {
+        super.Rotate();
+        rotation = lifePhase * 3;
+    }
+
+    @Override
+    protected void setFrames() {
+        FramesNoTail();
     }
 
     @Override
@@ -32,44 +43,44 @@ public class SplitterProjectile extends Projectile {
             case 1:
                 this.health = 100;
                 this.knockback = 7;
-                this.size = new Vector(50, 50);
+                this.size = new Vector(120, 120);
                 this.damagevalue = 6;
 
                 break;
             case 2:
                 this.health = 110;
                 this.knockback = 8.5;
-                this.size = new Vector(50, 50);
+                this.size = new Vector(120, 120);
                 this.damagevalue = 7;
                 break;
             case 3:
                 this.health = 120;
                 this.knockback = 10;
-                this.size = new Vector(50, 50);
+                this.size = new Vector(120, 120);
                 this.damagevalue = 8;
                 break;
             case 4:
                 this.health = 130;
                 this.knockback = 11.5;
-                this.size = new Vector(50, 50);
+                this.size = new Vector(120, 120);
                 this.damagevalue = 9;
                 break;
             case 5:
                 this.health = 140;
                 this.knockback = 13;
-                this.size = new Vector(60, 60);
+                this.size = new Vector(120, 120);
                 this.damagevalue = 10;
                 break;
             case 6:
                 this.health = 150;
                 this.knockback = 14.5;
-                this.size = new Vector(60, 60);
+                this.size = new Vector(120, 120);
                 this.damagevalue = 11;
                 break;
             case 7:
                 this.health = 160;
                 this.knockback = 16;
-                this.size = new Vector(60, 60);
+                this.size = new Vector(120, 120);
                 this.damagevalue = 12;
                 break;
         }

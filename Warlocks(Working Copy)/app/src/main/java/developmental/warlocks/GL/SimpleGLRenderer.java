@@ -429,7 +429,19 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
             Global.resources.put(R.drawable.button_boomerang, loadBitmap(mContext, gl, R.drawable.button_boomerang));
             Global.resources.put(R.drawable.btn_trapmines, loadBitmap(mContext, gl, R.drawable.btn_trapmines));
             Global.resources.put(R.drawable.spell_trapmines, loadBitmap(mContext, gl, R.drawable.spell_trapmines));
+            Global.resources.put(R.drawable.spell_sonicimpulse, loadBitmap(mContext, gl, R.drawable.spell_sonicimpulse));
+            Global.resources.put(R.drawable.button_sonic, loadBitmap(mContext, gl, R.drawable.button_sonic));
+            Global.resources.put(R.drawable.button_pierce, loadBitmap(mContext, gl, R.drawable.button_pierce));
+            Global.resources.put(R.drawable.button_splitter, loadBitmap(mContext, gl, R.drawable.button_splitter));
+            Global.resources.put(R.drawable.spell_splitter, loadBitmap(mContext, gl, R.drawable.spell_splitter));
+            Global.resources.put(R.drawable.spell_splitter2, loadBitmap(mContext, gl, R.drawable.spell_splitter2));
+            Global.resources.put(R.drawable.button_root, loadBitmap(mContext, gl, R.drawable.button_root));
+            Global.resources.put(R.drawable.spell_absorb, loadBitmap(mContext, gl, R.drawable.spell_absorb));
+            Global.resources.put(R.drawable.button_absorb, loadBitmap(mContext, gl, R.drawable.button_absorb));
+            Global.resources.put(R.drawable.button_fervour, loadBitmap(mContext, gl, R.drawable.button_fervour));
+            Global.resources.put(R.drawable.button_bezerk, loadBitmap(mContext, gl, R.drawable.button_bezerk));
 
+            Global.resources.put(R.drawable.effect_glass, loadBitmap(mContext, gl, R.drawable.effect_glass));
             Global.resources.put(R.drawable.effect_shield, loadBitmap(mContext, gl, R.drawable.effect_shield));
             Global.resources.put(R.drawable.button_shield, loadBitmap(mContext, gl, R.drawable.button_shield));
             Global.resources.put(R.drawable.button_explosion, loadBitmap(mContext, gl, R.drawable.button_explosion));
@@ -607,7 +619,7 @@ public class SimpleGLRenderer implements mGLSurfaceView.Renderer {
                 glButton s = buttons.get(i);
                 archie.Spells[i].loadResouce();
                 s.spellResource = archie.Spells[i].texture;
-                s.draw(gl, 0, 0, true);
+                s.draw(gl, 0, 0, true, i);
 
             }
             for (int i = 0; i < Equips.size(); i++) {

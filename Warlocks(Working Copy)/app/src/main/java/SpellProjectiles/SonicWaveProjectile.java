@@ -9,7 +9,7 @@ import developmental.warlocks.GL.NewHeirarchy.GameObject;
 public class SonicWaveProjectile extends Projectile {
 
     public SonicWaveProjectile(Vector _from, Vector _to, GameObject _shooter,int Rank) {
-        super(R.drawable.spell_gravity,_from, _to, _shooter,Rank);
+        super(R.drawable.spell_sonicimpulse, _from, _to, _shooter, Rank);
 
 
         this.objectObjectType = ObjectType.GravityField;
@@ -20,12 +20,13 @@ public class SonicWaveProjectile extends Projectile {
         this.CollideAppliesImpulse = true;
         this.CollideDiesOnImpact = false;
         this.CollideAppliesVelocity = false;
+        this.CollideImpactsWithLightning = false;
 //        this.damagevalue=1;
     }
 
     @Override
     protected void setFrames() {
-      FramesNoTail();
+        FramesTail();
     }
 
     public void Animate() {

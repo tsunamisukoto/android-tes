@@ -39,10 +39,12 @@ public abstract class Collideable extends Moveable implements Comparable<Collide
     public boolean thrusting = false;
     public ArchetypeManager archetypeManager;
     public boolean CollideCanTakeDamage = false;
+    public boolean CollideImpactsWithLightning = true;
     public boolean CollideDiesOnImpact = false;
     public boolean CollideKillsOnImpact = true;
     public boolean CollideLinksToThings = false;
     public boolean CollideCanBeLinked = true;
+    public boolean CollideCanHaveVelocityApplied = true;
     public  boolean CollideIsExpolosion = false;
     public Collideable linked = null;
     public boolean CollideCanHealOffOfThis = false;
@@ -103,6 +105,29 @@ public abstract class Collideable extends Moveable implements Comparable<Collide
         return new Vector((float) pull * (distanceX / totalDist),
                 (float) pull * distanceY / totalDist);
     }
+
+    static boolean lightningCollidesWith(Collideable obj1, Collideable obj2) {
+        if (!obj1.CollideImpactsWithLightning)
+            return false;
+        if (obj2.owner != null)
+            if (obj1.id == obj2.owner.id)
+                return false;
+        if (obj1.owner != null)
+            if (obj2.id == obj1.owner.id)
+                return false;
+        LightningProjectile l = (LightningProjectile) obj2;
+        Vector ClosestPoint = obj1.bounds.closestpointonline(l.Dest, l.Start);
+        double distance = Math.sqrt((ClosestPoint.x - obj1.bounds.Center.x) * (ClosestPoint.x - obj1.bounds.Center.x) + (ClosestPoint.y - obj1.bounds.Center.y) * (ClosestPoint.y - obj1.bounds.Center.y));
+        double distance2 = Math.sqrt((ClosestPoint.x - l.Start.x) * (ClosestPoint.x - l.Start.x) + (ClosestPoint.y - l.Start.y) * (ClosestPoint.y - l.Start.y));
+        if (distance < obj1.bounds.Radius && distance2 < l.Range && l.Start.x > ClosestPoint.x == l.Start.x > l.Dest.x && l.Start.y > ClosestPoint.y == l.Start.y > l.Dest.y) {
+            l.Dest.x = ClosestPoint.x;
+            l.Dest.y = ClosestPoint.y;
+            // l.mGrid = Grid.LightningLineGrid(Vector.DistanceBetween(l.Start, l.Dest),l.lifePhase);
+            return true;
+        }
+        return false;
+    }
+
     public int compareTo(Collideable o) {
         return (int) (this.bounds.Center.y - o.bounds.Center.y);
     }
@@ -268,31 +293,9 @@ public abstract class Collideable extends Moveable implements Comparable<Collide
         maxhealth = health;
     }
 
-    boolean lightningCollidesWith(Collideable obj1, Collideable obj2) {
-        if (obj2.objectObjectType == ObjectType.GravityField)
-            return false;
-        if (obj2.owner != null)
-            if (obj1.id == obj2.owner.id)
-                return false;
-        if (obj1.owner != null)
-            if (obj2.id == obj1.owner.id)
-                return false;
-        LightningProjectile l = (LightningProjectile) obj2;
-        Vector ClosestPoint = obj1.bounds.closestpointonline(l.Dest, l.Start);
-        double distance = Math.sqrt((ClosestPoint.x - obj1.bounds.Center.x) * (ClosestPoint.x - obj1.bounds.Center.x) + (ClosestPoint.y - obj1.bounds.Center.y) * (ClosestPoint.y - obj1.bounds.Center.y));
-        double distance2 = Math.sqrt((ClosestPoint.x - l.Start.x) * (ClosestPoint.x - l.Start.x) + (ClosestPoint.y - l.Start.y) * (ClosestPoint.y - l.Start.y));
-        if (distance < obj1.bounds.Radius && distance2 < l.Range && l.Start.x > ClosestPoint.x == l.Start.x > l.Dest.x && l.Start.y > ClosestPoint.y == l.Start.y > l.Dest.y) {
-            l.Dest.x = ClosestPoint.x;
-            l.Dest.y = ClosestPoint.y;
-            l.mGrid = Grid.LightningLineGrid(Vector.DistanceBetween(l.Start, l.Dest));
-            return true;
-        }
-        return false;
-    }
-
     public boolean CollidesWith(Collideable objj) {
         if ((this.objectObjectType == ObjectType.LineSpell) && (objj.objectObjectType != ObjectType.LineSpell)) {
-            return this.lightningCollidesWith(objj, this);
+            return lightningCollidesWith(objj, this);
         } else if ((objj.objectObjectType == ObjectType.LineSpell) && (objectObjectType != ObjectType.LineSpell)) {
             return lightningCollidesWith(this, objj);
         } else if (objj.objectObjectType != ObjectType.LineSpell && objectObjectType != ObjectType.LineSpell) {

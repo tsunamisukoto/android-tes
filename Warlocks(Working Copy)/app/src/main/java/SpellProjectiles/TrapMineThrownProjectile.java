@@ -4,11 +4,9 @@ import com.developmental.warlocks.R;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import Particles.MeteorParticle;
 import Tools.Vector;
 import developmental.warlocks.GL.NewHeirarchy.GameObject;
 import developmental.warlocks.GL.SimpleGLRenderer;
-import developmental.warlocks.Global;
 
 public class TrapMineThrownProjectile extends Projectile {
 
@@ -26,6 +24,7 @@ this.height= 0;
         this.CollideDealsDamage = false;
         this.CollideAppliesVelocity = false;
         this.CollideAppliesImpulse = false;
+        this.CollideImpactsWithLightning = false;
     }
 
     private Vector CalculateVelocity(Vector from, Vector to) {

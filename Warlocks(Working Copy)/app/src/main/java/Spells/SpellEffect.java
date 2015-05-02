@@ -13,57 +13,10 @@ import developmental.warlocks.Global;
  */
 public class SpellEffect extends Renderable {
     public int Duration;
-
-
-    public enum EffectType {Stun, Burn, Reflect, Magnetise, Freeze, Cast, Slow, Root, Illusion, Invisible, Thrust, Phase, Jump, Juggernaught, Explode}
-
     public EffectType effectType;
-
     int frameDelay = 0;
     int i = 0;
     Collideable parent;
-
-    @Override
-    public void draw(GL10 gl, float offsetX, float offsetY, boolean dontDrawInRelationToWorld) {
-        super.draw(gl, offsetX, offsetY, dontDrawInRelationToWorld);
-    }
-
-    public void AnimateCasting(iVector dest) {
-        if (dest != null) {
-            float deltaY = Math.abs(dest.y) - Math.abs(this.parent.feet.y);
-            float deltaX = Math.abs(dest.x) - Math.abs(this.parent.feet.x);
-            float angleInDegrees = (float) (Math.atan2(deltaY, deltaX) * 180 / Math.PI
-                    + 180);
-
-
-            if (angleInDegrees >= 157.5 && angleInDegrees < 202.5) {
-                mGrid = Global.SpritesRightCast1;
-            } else if (angleInDegrees >= 112.5
-                    && angleInDegrees < 157.5) {
-                mGrid = Global.SpritesRightUpCast1;
-            } else if (angleInDegrees >= 202.5
-                    && angleInDegrees < 247.5) {
-                mGrid = Global.SpritesRightDownCast1;
-            } else if (angleInDegrees >= 247.5
-                    && angleInDegrees < 292.5) {
-                mGrid = Global.SpritesDownCast1;
-            } else if (angleInDegrees >= 292.5
-                    && angleInDegrees < 337.5) {
-                mGrid = Global.SpritesLeftDownCast1;
-            } else if (angleInDegrees < 22.5
-                    || angleInDegrees >= 337.5) {
-                mGrid = Global.SpritesLeftCast1;
-            } else if (angleInDegrees >= 22.5
-                    && angleInDegrees < 67.5) {
-                mGrid = Global.SpritesLeftUpCast1;
-            } else if (angleInDegrees >= 67.5
-                    && angleInDegrees < 112.5)
-                mGrid = Global.SpritesUpCast1;
-
-        }
-
-    }
-
     public SpellEffect(int _d, EffectType _e, Collideable _p, int _r, iVector dest) {
         super(_r);
 
@@ -115,6 +68,11 @@ public class SpellEffect extends Renderable {
     }
 
     @Override
+    public void draw(GL10 gl, float offsetX, float offsetY, boolean dontDrawInRelationToWorld) {
+        super.draw(gl, offsetX, offsetY, dontDrawInRelationToWorld);
+    }
+
+    @Override
     public void Update() {
 
         Duration -= 1;
@@ -126,17 +84,10 @@ public class SpellEffect extends Renderable {
         super.Update();
     }
 
-    public void FinalUpdate() {
-        if (effectType == EffectType.Juggernaught) {
-            parent.jugstacks = 0;
-        }
-
-    }
-
     public void Animate() {
 
         if (lifePhase % frameDelay == 0) {
-            if (effectType == EffectType.Freeze || effectType == EffectType.Cast) {
+            if (effectType == EffectType.Freeze || effectType == EffectType.Cast || effectType == EffectType.Root) {
                 if (frame < this.mGrid.size() - 1)
                     this.frame = (frame + 1) % mGrid.size();
             } else {
@@ -144,4 +95,49 @@ public class SpellEffect extends Renderable {
             }
         }
     }
+
+    public void AnimateCasting(iVector dest) {
+        if (dest != null) {
+            float deltaY = Math.abs(dest.y) - Math.abs(this.parent.feet.y);
+            float deltaX = Math.abs(dest.x) - Math.abs(this.parent.feet.x);
+            float angleInDegrees = (float) (Math.atan2(deltaY, deltaX) * 180 / Math.PI
+                    + 180);
+
+
+            if (angleInDegrees >= 157.5 && angleInDegrees < 202.5) {
+                mGrid = Global.SpritesRightCast1;
+            } else if (angleInDegrees >= 112.5
+                    && angleInDegrees < 157.5) {
+                mGrid = Global.SpritesRightUpCast1;
+            } else if (angleInDegrees >= 202.5
+                    && angleInDegrees < 247.5) {
+                mGrid = Global.SpritesRightDownCast1;
+            } else if (angleInDegrees >= 247.5
+                    && angleInDegrees < 292.5) {
+                mGrid = Global.SpritesDownCast1;
+            } else if (angleInDegrees >= 292.5
+                    && angleInDegrees < 337.5) {
+                mGrid = Global.SpritesLeftDownCast1;
+            } else if (angleInDegrees < 22.5
+                    || angleInDegrees >= 337.5) {
+                mGrid = Global.SpritesLeftCast1;
+            } else if (angleInDegrees >= 22.5
+                    && angleInDegrees < 67.5) {
+                mGrid = Global.SpritesLeftUpCast1;
+            } else if (angleInDegrees >= 67.5
+                    && angleInDegrees < 112.5)
+                mGrid = Global.SpritesUpCast1;
+
+        }
+
+    }
+
+    public void FinalUpdate() {
+        if (effectType == EffectType.Juggernaught) {
+            parent.jugstacks = 0;
+        }
+
+    }
+
+    public enum EffectType {Stun, Burn, Reflect, Magnetise, Freeze, Cast, Slow, Root, Illusion, Invisible, Thrust, Phase, Jump, Juggernaught, Explode}
 }

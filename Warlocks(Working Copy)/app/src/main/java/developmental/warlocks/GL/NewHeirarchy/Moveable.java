@@ -19,7 +19,7 @@ public class Moveable extends Renderable {
     //The Maximum Speed it can get by applying force to itself in the given direction
     public float maxVelocity = 8.5f;
     //The amount of force it can apply to change its velocity each frame
-    public float acceleration = 0.35f;
+    public float acceleration = 1.35f;
 
 
 

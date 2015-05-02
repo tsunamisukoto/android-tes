@@ -164,7 +164,7 @@ public class GameObject extends Collideable {
                     break;
                 case Lava:
 
-                    SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Lava, String.format("%.1f", dmgDealt) + "", this.bounds.Center.get(), 12));
+                    SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Lava, ((char) 128) + String.format("%.1f", dmgDealt) + "", this.bounds.Center.get(), 12));
                     archetypeManager.AddStacks(new ArchetypePower(0, 0, 0, 0, 0, 0, (int) dmgDealt), null);
                     break;
             }
@@ -180,7 +180,7 @@ public class GameObject extends Collideable {
             this.health += HealAmount;
         }
         if (HealAmount > 0)
-            SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Poison, String.format("%.1f", HealAmount) + "", this.bounds.Center.get(), 12));
+            SimpleGLRenderer.popupTexts.add(new PopupText(PopupText.TextType.Poison, ((char) 127) + String.format("%.1f", HealAmount), this.bounds.Center.get(), 12));
 
     }
 
